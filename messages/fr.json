@@ -1,0 +1,87 @@
+{
+  "nav": {
+    "services": "Services",
+    "about": "À Propos",
+    "stats": "Résultats",
+    "contact": "Contact",
+    "cta": "Commencer"
+  },
+  "hero": {
+    "badge": "Technologie & Innovation",
+    "title": "Automatiser. Innover.",
+    "titleHighlight": "Exceller.",
+    "subtitle": "Nous concevons des solutions numériques intelligentes qui transforment vos processus d'affaires — du logiciel sur mesure à l'automatisation par intelligence artificielle.",
+    "cta": "Découvrir Nos Services",
+    "ctaSecondary": "Parler à un Expert"
+  },
+  "services": {
+    "badge": "Ce Que Nous Faisons",
+    "title": "Nos Services",
+    "subtitle": "Des solutions numériques complètes adaptées à vos besoins d'affaires",
+    "items": [
+      { "icon": "code",        "title": "Développement Logiciel Sur Mesure", "description": "Nous construisons des applications web et mobiles performantes et évolutives, adaptées à vos flux de travail et objectifs d'affaires." },
+      { "icon": "automation",  "title": "Automatisation des Processus",       "description": "Éliminez les tâches répétitives et augmentez votre productivité avec des solutions d'automatisation intelligentes utilisant les derniers outils d'IA." },
+      { "icon": "cloud",       "title": "Infonuagique & Infrastructure",       "description": "Migrez, optimisez et sécurisez votre infrastructure sur AWS, Azure ou GCP avec nos architectes cloud certifiés." },
+      { "icon": "analytics",   "title": "Données & Analytique",               "description": "Transformez vos données en informations exploitables avec des tableaux de bord personnalisés, des outils de reporting et des analyses prédictives." },
+      { "icon": "consulting",  "title": "Consultation TI",                    "description": "Orientation stratégique pour aligner vos investissements technologiques avec vos objectifs d'affaires et votre feuille de route de croissance." },
+      { "icon": "integration", "title": "Intégration de Systèmes",            "description": "Connectez vos outils et plateformes existants via des API, des middleware et des intégrations personnalisées pour un flux de travail fluide." }
+    ]
+  },
+  "about": {
+    "badge": "Qui Nous Sommes",
+    "title": "Votre Partenaire Technologique de Confiance",
+    "description1": "Automa Tech est une entreprise technologique spécialisée dans la transformation numérique. Nous aidons les entreprises de toutes tailles à exploiter la puissance des logiciels modernes, de l'automatisation et de l'analytique de données pour rester compétitives.",
+    "description2": "Fondée par des ingénieurs et des entrepreneurs, notre équipe combine une expertise technique approfondie avec une approche pragmatique axée sur les résultats. Nous ne faisons pas que construire des logiciels — nous construisons des solutions qui font une vraie différence.",
+    "highlights": [
+      "Équipe d'ingénieurs et consultants experts",
+      "Méthodologie agile & communication transparente",
+      "Bilan éprouvé dans de multiples industries",
+      "Support dédié et partenariat à long terme"
+    ],
+    "imageAlt": "L'équipe Automa Tech au travail"
+  },
+  "stats": {
+    "badge": "Notre Impact",
+    "title": "Des Chiffres Qui Parlent",
+    "items": [
+      { "value": "120+", "label": "Projets Livrés" },
+      { "value": "98%",  "label": "Satisfaction Client" },
+      { "value": "40+",  "label": "Membres de l'Équipe" },
+      { "value": "8+",   "label": "Ans d'Expérience" }
+    ]
+  },
+  "contact": {
+    "badge": "Contactez-Nous",
+    "title": "Construisons Quelque Chose d'Extraordinaire",
+    "subtitle": "Parlez-nous de votre projet et nous vous répondrons dans les 24 heures.",
+    "form": {
+      "name": "Nom Complet",
+      "email": "Adresse Courriel",
+      "company": "Entreprise (optionnel)",
+      "service": "Service d'Intérêt",
+      "message": "Votre Message",
+      "submit": "Envoyer le Message",
+      "success": "Message envoyé ! Nous vous contacterons sous peu.",
+      "placeholder": {
+        "name": "Jean Dupont",
+        "email": "jean@entreprise.com",
+        "company": "Votre Entreprise",
+        "service": "Sélectionner un service",
+        "message": "Décrivez votre projet ou défi..."
+      }
+    },
+    "info": {
+      "email": "bonjour@automatech.ca",
+      "phone": "+1 (514) 000-0000",
+      "location": "Montréal, Québec, Canada"
+    }
+  },
+  "footer": {
+    "tagline": "Transformer les entreprises grâce à des solutions technologiques intelligentes.",
+    "links": { "company": "Entreprise", "services": "Services", "legal": "Légal" },
+    "company":  ["À Propos", "Notre Équipe", "Carrières", "Blogue"],
+    "services": ["Logiciel Sur Mesure", "Automatisation", "Infonuagique", "Données & Analytique"],
+    "legal":    ["Politique de Confidentialité", "Conditions d'Utilisation", "Politique des Cookies"],
+    "rights": "Tous droits réservés."
+  }
+}

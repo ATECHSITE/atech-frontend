@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+:root {
+  --atech-orange: #E8763A;
+  --atech-orange-light: #F4A472;
+  --atech-orange-pale: #FEF0E8;
+  --atech-navy: #1B3D6F;
+  --atech-navy-dark: #0F2540;
+  --atech-navy-light: #2A5298;
+  --atech-white: #FFFFFF;
+  --atech-gray-50: #F8F9FC;
+  --atech-gray-100: #F1F3F8;
+  --atech-gray-200: #E2E6EF;
+  --atech-gray-500: #6B7280;
+  --atech-gray-700: #374151;
+  --atech-gray-900: #111827;
+
+  --background: #ffffff;
+  --foreground: #111827;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-atech-orange: var(--atech-orange);
+  --color-atech-orange-light: var(--atech-orange-light);
+  --color-atech-orange-pale: var(--atech-orange-pale);
+  --color-atech-navy: var(--atech-navy);
+  --color-atech-navy-dark: var(--atech-navy-dark);
+  --color-atech-navy-light: var(--atech-navy-light);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.gradient-orange {
+  background: linear-gradient(135deg, var(--atech-orange) 0%, var(--atech-orange-light) 100%);
+}
+
+.gradient-navy {
+  background: linear-gradient(135deg, var(--atech-navy-dark) 0%, var(--atech-navy) 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--atech-orange) 0%, var(--atech-orange-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+.animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+.animate-float      { animation: float 4s ease-in-out infinite; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--atech-gray-100); }
+::-webkit-scrollbar-thumb { background: var(--atech-orange); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--atech-navy); }

@@ -46,10 +46,10 @@
         "features": ["Analytique prédictive", "Base de données nationale", "Détection d'anomalies", "Rapports automatisés"]
       },
       {
-        "name": "RISKGUARD",
-        "tagline": "Gestion des Risques par IA",
-        "description": "Solution de gestion des risques alimentée par l'intelligence artificielle pour cibler les activités à haut risque et détecter les fraudes.",
-        "features": ["IA & Machine Learning", "Scoring de risque automatique", "Détection de fraudes", "Alertes en temps réel"]
+        "name": "COTRACK",
+        "tagline": "Système de Suivi Électronique des Marchandises",
+        "description": "Solution de surveillance basée sur les technologies GPS, RFID et mobiles pour localiser, surveiller en temps réel et sécuriser les mouvements de marchandises. Le système alerte les agents de toute activité anormale comme l'ouverture d'une porte de conteneur, les arrêts non autorisés et les déviations de route.",
+        "features": ["Tracking GPS & RFID", "Surveillance temps réel", "Alertes d'activités anormales", "Sécurisation des cargaisons"]
       },
       {
         "name": "INSPECTOR",
@@ -109,11 +109,20 @@
     }
   },
   "footer": {
+    "newsletter": {
+      "title": "S'abonner",
+      "subtitle": "Recevez nos actualités par email.",
+      "button": "S'INSCRIRE"
+    },
+    "social": {
+      "title": "Suivez-nous",
+      "subtitle": "Restez à jour sur les réseaux sociaux."
+    },
     "tagline": "Transformer les institutions grâce à l'innovation et la transformation digitale.",
     "links": { "company": "Entreprise", "services": "Solutions", "legal": "Légal" },
     "company":  ["À Propos", "Notre Équipe", "Partenaires", "Actualités"],
     "services": ["Stratégie & Planification", "Support à la Mise en Œuvre", "Développement des Capacités", "Solutions Digitales"],
-    "legal":    ["Politique de Confidentialité", "Conditions d'Utilisation", "Mentions Légales"],
+    "legal":    ["Conditions générales", "Conditions d'utilisation", "Politique de confidentialité", "Politique de cookies"],
     "rights": "Tous droits réservés."
   }
 }

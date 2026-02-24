@@ -46,10 +46,10 @@
         "features": ["Predictive analytics", "National database", "Anomaly detection", "Automated reporting"]
       },
       {
-        "name": "RISKGUARD",
-        "tagline": "AI-Powered Risk Management",
-        "description": "AI-powered risk management solution to target high-risk activities and detect fraud.",
-        "features": ["AI & Machine Learning", "Automatic risk scoring", "Fraud detection", "Real-time alerts"]
+        "name": "COTRACK",
+        "tagline": "Electronic Cargo Tracking System",
+        "description": "Monitoring solution based on GPS, RFID and mobile technologies to locate, monitor in real-time and secure cargo movements. The system alerts agents of any abnormal activity such as container door opening, unauthorized stops and route deviations.",
+        "features": ["GPS & RFID Tracking", "Real-time monitoring", "Abnormal activity alerts", "Cargo security"]
       },
       {
         "name": "INSPECTOR",
@@ -109,11 +109,20 @@
     }
   },
   "footer": {
+    "newsletter": {
+      "title": "Subscribe",
+      "subtitle": "Receive our news by email.",
+      "button": "SUBSCRIBE"
+    },
+    "social": {
+      "title": "Follow Us",
+      "subtitle": "Stay updated on social media."
+    },
     "tagline": "Transforming institutions through innovation and digital transformation.",
     "links": { "company": "Company", "services": "Solutions", "legal": "Legal" },
     "company":  ["About Us", "Our Team", "Partners", "News"],
     "services": ["Strategy & Planning", "Implementation Support", "Capacity Development", "Digital Solutions"],
-    "legal":    ["Privacy Policy", "Terms of Service", "Legal Notice"],
+    "legal":    ["General Terms", "Terms of Use", "Privacy Policy", "Cookie Policy"],
     "rights": "All rights reserved."
   }
 }

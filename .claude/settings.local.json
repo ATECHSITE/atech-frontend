@@ -3,7 +3,8 @@
     "allow": [
       "Bash(powershell -Command:*)",
       "Bash(cat:*)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "WebFetch(domain:www.digitek-consulting.com)"
     ],
     "deny": [],
     "ask": []

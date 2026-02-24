@@ -25,9 +25,9 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href={`/${locale}`} className="flex items-center mb-5">
-              <Logo variant="white" height={34} />
+              <Logo variant="white" height={40} />
             </Link>
-            <p className="text-sm text-blue-200/60 leading-relaxed max-w-xs mb-6">{t("tagline")}</p>
+            <p className="text-sm text-blue-200/70 leading-relaxed max-w-xs mb-6 font-medium">{t("tagline")}</p>
             <div className="flex gap-3">
               {socials.map((s) => (
                 <a key={s.name} href="#" className="w-9 h-9 rounded-lg flex items-center justify-center text-blue-300/50 hover:text-[#E8763A] transition-colors border border-white/5 hover:border-orange-400/30" style={{ background: "rgba(255,255,255,0.03)" }}>
@@ -64,10 +64,10 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-blue-200/40">© {new Date().getFullYear()} AutomaTech. {t("rights")}</p>
+          <p className="text-xs text-blue-200/40">© {new Date().getFullYear()} ATECH Solutions. {t("rights")}</p>
           <div className="flex items-center gap-2 text-xs text-blue-200/30">
             <span>Made in</span>
-            <span className="text-[#E8763A]">Montréal, QC</span>
+            <span className="text-[#E8763A] font-semibold">Ouagadougou, Burkina Faso</span>
           </div>
         </div>
       </div>

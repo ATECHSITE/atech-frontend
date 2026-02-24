@@ -1,87 +1,119 @@
 {
   "nav": {
     "services": "Services",
+    "products": "Produits",
     "about": "À Propos",
     "stats": "Résultats",
     "contact": "Contact",
     "cta": "Commencer"
   },
   "hero": {
-    "badge": "Technologie & Innovation",
-    "title": "Automatiser. Innover.",
-    "titleHighlight": "Exceller.",
-    "subtitle": "Nous concevons des solutions numériques intelligentes qui transforment vos processus d'affaires — du logiciel sur mesure à l'automatisation par intelligence artificielle.",
-    "cta": "Découvrir Nos Services",
-    "ctaSecondary": "Parler à un Expert"
+    "badge": "Innovation & Transformation Digitale",
+    "title": "Moderniser. Optimiser.",
+    "titleHighlight": "Transformer.",
+    "subtitle": "Nous accompagnons les institutions publiques et les organisations dans leur transformation digitale avec des solutions innovantes adaptées aux enjeux des administrations modernes.",
+    "cta": "Découvrir Nos Solutions",
+    "ctaSecondary": "Planifier un Échange"
   },
   "services": {
-    "badge": "Ce Que Nous Faisons",
-    "title": "Nos Services",
-    "subtitle": "Des solutions numériques complètes adaptées à vos besoins d'affaires",
+    "badge": "Nos Services",
+    "title": "Un Accompagnement Complet",
+    "subtitle": "De la stratégie à la mise en œuvre, nous vous accompagnons à chaque étape de votre transformation digitale",
     "items": [
-      { "icon": "code",        "title": "Développement Logiciel Sur Mesure", "description": "Nous construisons des applications web et mobiles performantes et évolutives, adaptées à vos flux de travail et objectifs d'affaires." },
-      { "icon": "automation",  "title": "Automatisation des Processus",       "description": "Éliminez les tâches répétitives et augmentez votre productivité avec des solutions d'automatisation intelligentes utilisant les derniers outils d'IA." },
-      { "icon": "cloud",       "title": "Infonuagique & Infrastructure",       "description": "Migrez, optimisez et sécurisez votre infrastructure sur AWS, Azure ou GCP avec nos architectes cloud certifiés." },
-      { "icon": "analytics",   "title": "Données & Analytique",               "description": "Transformez vos données en informations exploitables avec des tableaux de bord personnalisés, des outils de reporting et des analyses prédictives." },
-      { "icon": "consulting",  "title": "Consultation TI",                    "description": "Orientation stratégique pour aligner vos investissements technologiques avec vos objectifs d'affaires et votre feuille de route de croissance." },
-      { "icon": "integration", "title": "Intégration de Systèmes",            "description": "Connectez vos outils et plateformes existants via des API, des middleware et des intégrations personnalisées pour un flux de travail fluide." }
+      { "icon": "consulting",  "title": "Stratégie & Planification", "description": "Renforcement institutionnel à travers la formation, le transfert de connaissances et l'élaboration de stratégies digitales alignées sur vos objectifs." },
+      { "icon": "integration", "title": "Sourcing & Support à la Mise en Œuvre", "description": "Nous traduisons votre vision en cahiers des charges et vous accompagnons dans la gestion de projets avec une expertise terrain." },
+      { "icon": "analytics",   "title": "Développement des Capacités", "description": "Construction de capacités organisationnelles durables pour assurer l'autonomie et la pérennité de vos systèmes digitaux." },
+      { "icon": "code",        "title": "Solutions Digitales Sur Mesure", "description": "Conception et développement de plateformes digitales adaptées aux besoins spécifiques des administrations et institutions." },
+      { "icon": "automation",  "title": "Intelligence Artificielle & Analytique", "description": "Exploitation de l'IA et de l'analytique avancée pour optimiser vos processus de gestion des risques et de prise de décision." },
+      { "icon": "cloud",       "title": "Infrastructure & Sécurité", "description": "Mise en place d'infrastructures cloud sécurisées et scalables pour garantir la continuité et la protection de vos services." }
+    ]
+  },
+  "products": {
+    "badge": "Nos Produits Digitaux",
+    "title": "Des Solutions Prêtes à Déployer",
+    "subtitle": "Des plateformes digitales innovantes conçues pour répondre aux besoins spécifiques des administrations modernes",
+    "items": [
+      {
+        "name": "GOVERN+",
+        "tagline": "Portail d'E-gouvernance",
+        "description": "Plateforme de connectivité entre citoyens et administrations pour l'accès aux services publics et informations réglementaires en temps réel.",
+        "features": ["Interface citoyenne intuitive", "Gestion des demandes en ligne", "Tableau de bord administratif", "Notifications automatiques"]
+      },
+      {
+        "name": "TRADEVAL",
+        "tagline": "Valorisation & Classification Intelligente",
+        "description": "Système analytique avancé pour la valorisation et la classification avec base de données nationale de référence et détection d'anomalies.",
+        "features": ["Analytique prédictive", "Base de données nationale", "Détection d'anomalies", "Rapports automatisés"]
+      },
+      {
+        "name": "RISKGUARD",
+        "tagline": "Gestion des Risques par IA",
+        "description": "Solution de gestion des risques alimentée par l'intelligence artificielle pour cibler les activités à haut risque et détecter les fraudes.",
+        "features": ["IA & Machine Learning", "Scoring de risque automatique", "Détection de fraudes", "Alertes en temps réel"]
+      },
+      {
+        "name": "INSPECTOR",
+        "tagline": "Application Mobile d'Inspection",
+        "description": "Application mobile pour la collecte de données d'inspection terrain, la documentation des contrôles et le reporting instantané.",
+        "features": ["Interface mobile intuitive", "Collecte de données hors-ligne", "Géolocalisation", "Synchronisation cloud"]
+      }
     ]
   },
   "about": {
     "badge": "Qui Nous Sommes",
-    "title": "Votre Partenaire Technologique de Confiance",
-    "description1": "Automa Tech est une entreprise technologique spécialisée dans la transformation numérique. Nous aidons les entreprises de toutes tailles à exploiter la puissance des logiciels modernes, de l'automatisation et de l'analytique de données pour rester compétitives.",
-    "description2": "Fondée par des ingénieurs et des entrepreneurs, notre équipe combine une expertise technique approfondie avec une approche pragmatique axée sur les résultats. Nous ne faisons pas que construire des logiciels — nous construisons des solutions qui font une vraie différence.",
+    "title": "Votre Partenaire pour la Transformation Institutionnelle",
+    "description1": "Automa Tech  est une entreprise spécialisée dans la transformation digitale des institutions publiques et des administrations. Nous exploitons l'innovation et la transformation digitale comme piliers de notre modèle d'affaires pour moderniser les processus institutionnels.",
+    "description2": "Notre approche centrée sur le client garantit que chaque solution est conçue autour de vos besoins spécifiques et de votre chaîne de valeur. Nous nous impliquons dès la conception de vos projets pour assurer leur pertinence et maximiser votre retour sur investissement.",
     "highlights": [
-      "Équipe d'ingénieurs et consultants experts",
-      "Méthodologie agile & communication transparente",
-      "Bilan éprouvé dans de multiples industries",
-      "Support dédié et partenariat à long terme"
+      "Innovation et transformation digitale au cœur de notre expertise",
+      "Approche centrée sur le client et engagement précoce dans vos projets",
+      "Solutions optimisées offrant le meilleur rapport qualité-prix",
+      "Renforcement des capacités pour une autonomie durable"
     ],
-    "imageAlt": "L'équipe Automa Tech au travail"
+    "imageAlt": "L'équipe ATECH Solutions au service des institutions"
   },
   "stats": {
     "badge": "Notre Impact",
-    "title": "Des Chiffres Qui Parlent",
+    "title": "Des Résultats Concrets",
     "items": [
-      { "value": "120+", "label": "Projets Livrés" },
+      { "value": "120+", "label": "Projets Réalisés" },
       { "value": "98%",  "label": "Satisfaction Client" },
-      { "value": "40+",  "label": "Membres de l'Équipe" },
-      { "value": "8+",   "label": "Ans d'Expérience" }
+      { "value": "15+",  "label": "Experts Certifiés" },
+      { "value": "3+",   "label": "Ans d'Excellence" }
     ]
   },
   "contact": {
     "badge": "Contactez-Nous",
-    "title": "Construisons Quelque Chose d'Extraordinaire",
-    "subtitle": "Parlez-nous de votre projet et nous vous répondrons dans les 24 heures.",
+    "title": "Discutons de Votre Transformation Digitale",
+    "subtitle": "Partagez-nous votre vision et nous vous présenterons une solution sur mesure adaptée à votre institution.",
     "form": {
       "name": "Nom Complet",
-      "email": "Adresse Courriel",
-      "company": "Entreprise (optionnel)",
-      "service": "Service d'Intérêt",
+      "email": "Adresse Email",
+      "company": "Institution / Organisation",
+      "service": "Domaine d'Intérêt",
       "message": "Votre Message",
-      "submit": "Envoyer le Message",
-      "success": "Message envoyé ! Nous vous contacterons sous peu.",
+      "submit": "Envoyer la Demande",
+      "success": "Demande reçue ! Notre équipe vous contactera sous 24 heures.",
       "placeholder": {
-        "name": "Jean Dupont",
-        "email": "jean@entreprise.com",
-        "company": "Votre Entreprise",
-        "service": "Sélectionner un service",
-        "message": "Décrivez votre projet ou défi..."
+        "name": "Nom Prénom",
+        "email": "contact@institution.bf",
+        "company": "Votre Institution",
+        "service": "Sélectionner un domaine",
+        "message": "Décrivez votre projet de transformation digitale..."
       }
     },
     "info": {
-      "email": "bonjour@automatech.ca",
-      "phone": "+1 (514) 000-0000",
-      "location": "Montréal, Québec, Canada"
+      "email": "info@atechsolutions.bf",
+      "phone": "+226 XX XX XX XX",
+      "location": "Ouaga 2000, Ouagadougou, Burkina Faso"
     }
   },
   "footer": {
-    "tagline": "Transformer les entreprises grâce à des solutions technologiques intelligentes.",
-    "links": { "company": "Entreprise", "services": "Services", "legal": "Légal" },
-    "company":  ["À Propos", "Notre Équipe", "Carrières", "Blogue"],
-    "services": ["Logiciel Sur Mesure", "Automatisation", "Infonuagique", "Données & Analytique"],
-    "legal":    ["Politique de Confidentialité", "Conditions d'Utilisation", "Politique des Cookies"],
+    "tagline": "Transformer les institutions grâce à l'innovation et la transformation digitale.",
+    "links": { "company": "Entreprise", "services": "Solutions", "legal": "Légal" },
+    "company":  ["À Propos", "Notre Équipe", "Partenaires", "Actualités"],
+    "services": ["Stratégie & Planification", "Support à la Mise en Œuvre", "Développement des Capacités", "Solutions Digitales"],
+    "legal":    ["Politique de Confidentialité", "Conditions d'Utilisation", "Mentions Légales"],
     "rights": "Tous droits réservés."
   }
 }

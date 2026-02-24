@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useTranslations, useLocale } from "@/i18n/context";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
@@ -13,11 +13,50 @@ export default function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState(0);
+  const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
+  const navRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    // Update indicator position when active link changes
+    const activeElement = navRefs.current[activeLink];
+    if (activeElement) {
+      setIndicatorStyle({
+        left: activeElement.offsetLeft,
+        width: activeElement.offsetWidth,
+      });
+    }
+  }, [activeLink, scrolled]);
+
+  useEffect(() => {
+    // Detect which section is in view on scroll
+    const handleScroll = () => {
+      const sections = navLinks.map((link) => {
+        const id = link.href.substring(1); // Remove '#'
+        return document.getElementById(id);
+      });
+
+      const scrollPosition = window.scrollY + 100; // Offset for navbar height
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveLink(i);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Run on mount
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const switchLocale = (newLocale: string) => {
@@ -28,6 +67,7 @@ export default function Navbar() {
 
   const navLinks = [
     { href: "#services", label: t("services") },
+    { href: "#products", label: t("products") },
     { href: "#about",    label: t("about") },
     { href: "#stats",    label: t("stats") },
     { href: "#contact",  label: t("contact") },
@@ -45,23 +85,35 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 lg:h-20">
 
           {/* Logo */}
-          <Link href={`/${locale}`} className="flex items-center">
-            <Logo variant={scrolled ? "color" : "white"} height={36} />
+          <Link href={`/${locale}`} className="flex items-center transition-all duration-300">
+            <Logo variant={scrolled ? "color" : "white"} height={scrolled ? 38 : 42} />
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
+          <div className="hidden lg:flex items-center gap-8 relative">
+            {navLinks.map((link, index) => (
               <a
                 key={link.href}
+                ref={(el) => {
+                  navRefs.current[index] = el;
+                }}
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-[#E8763A] ${
+                onClick={() => setActiveLink(index)}
+                className={`text-sm font-medium transition-colors hover:text-[#E8763A] py-2 relative ${
                   scrolled ? "text-gray-700" : "text-white/90"
-                }`}
+                } ${activeLink === index ? "text-[#E8763A]" : ""}`}
               >
                 {link.label}
               </a>
             ))}
+            {/* Animated indicator line */}
+            <span
+              className="absolute bottom-0 h-0.5 bg-[#E8763A] transition-all duration-300 ease-out"
+              style={{
+                left: `${indicatorStyle.left}px`,
+                width: `${indicatorStyle.width}px`,
+              }}
+            />
           </div>
 
           {/* Right: lang switcher + CTA */}
@@ -121,14 +173,22 @@ export default function Navbar() {
         {/* Mobile menu */}
         {mobileOpen && (
           <div className="lg:hidden bg-white border-t border-gray-100 py-4 px-2 rounded-b-2xl shadow-xl">
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <a
                 key={link.href}
                 href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="block px-4 py-3 text-gray-700 hover:text-[#E8763A] hover:bg-orange-50 rounded-xl font-medium transition-colors"
+                onClick={() => {
+                  setActiveLink(index);
+                  setMobileOpen(false);
+                }}
+                className={`block px-4 py-3 text-gray-700 hover:text-[#E8763A] hover:bg-orange-50 rounded-xl font-medium transition-colors relative ${
+                  activeLink === index ? "text-[#E8763A] bg-orange-50" : ""
+                }`}
               >
                 {link.label}
+                {activeLink === index && (
+                  <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-[#E8763A] rounded-r-full" />
+                )}
               </a>
             ))}
             <div className="mt-3 px-4">

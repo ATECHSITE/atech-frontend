@@ -1,87 +1,119 @@
 {
   "nav": {
     "services": "Services",
+    "products": "Products",
     "about": "About",
     "stats": "Results",
     "contact": "Contact",
     "cta": "Get Started"
   },
   "hero": {
-    "badge": "Technology & Innovation",
-    "title": "Automate. Innovate.",
-    "titleHighlight": "Elevate.",
-    "subtitle": "We design intelligent digital solutions that transform your business processes — from custom software to AI-powered automation.",
-    "cta": "Discover Our Services",
-    "ctaSecondary": "Talk to an Expert"
+    "badge": "Innovation & Digital Transformation",
+    "title": "Modernize. Optimize.",
+    "titleHighlight": "Transform.",
+    "subtitle": "We support public institutions and organizations in their digital transformation with innovative solutions tailored to the challenges of modern administrations.",
+    "cta": "Discover Our Solutions",
+    "ctaSecondary": "Schedule a Call"
   },
   "services": {
-    "badge": "What We Do",
-    "title": "Our Services",
-    "subtitle": "End-to-end digital solutions tailored to your business needs",
+    "badge": "Our Services",
+    "title": "Comprehensive Support",
+    "subtitle": "From strategy to implementation, we support you at every step of your digital transformation",
     "items": [
-      { "icon": "code",        "title": "Custom Software Development", "description": "We build scalable, high-performance web and mobile applications adapted to your workflows and business goals." },
-      { "icon": "automation",  "title": "Process Automation",          "description": "Eliminate repetitive tasks and increase productivity with intelligent automation solutions using the latest AI tools." },
-      { "icon": "cloud",       "title": "Cloud & Infrastructure",       "description": "Migrate, optimize, and secure your infrastructure on AWS, Azure, or GCP with our certified cloud architects." },
-      { "icon": "analytics",   "title": "Data & Analytics",             "description": "Turn your data into actionable insights with custom dashboards, reporting tools, and predictive analytics." },
-      { "icon": "consulting",  "title": "IT Consulting",                 "description": "Strategic guidance to align your technology investments with your business objectives and growth roadmap." },
-      { "icon": "integration", "title": "System Integration",           "description": "Connect your existing tools and platforms through APIs, middleware, and custom integrations for a seamless workflow." }
+      { "icon": "consulting",  "title": "Strategy & Planning", "description": "Institutional strengthening through training, knowledge transfer, and development of digital strategies aligned with your objectives." },
+      { "icon": "integration", "title": "Sourcing & Implementation Support", "description": "We translate your vision into specifications and support you in project management with hands-on expertise." },
+      { "icon": "analytics",   "title": "Capacity Development", "description": "Building sustainable organizational capacities to ensure autonomy and sustainability of your digital systems." },
+      { "icon": "code",        "title": "Custom Digital Solutions", "description": "Design and development of digital platforms tailored to the specific needs of administrations and institutions." },
+      { "icon": "automation",  "title": "Artificial Intelligence & Analytics", "description": "Leveraging AI and advanced analytics to optimize your risk management and decision-making processes." },
+      { "icon": "cloud",       "title": "Infrastructure & Security", "description": "Implementation of secure and scalable cloud infrastructure to ensure continuity and protection of your services." }
+    ]
+  },
+  "products": {
+    "badge": "Our Digital Products",
+    "title": "Ready-to-Deploy Solutions",
+    "subtitle": "Innovative digital platforms designed to meet the specific needs of modern administrations",
+    "items": [
+      {
+        "name": "GOVERN+",
+        "tagline": "E-Governance Portal",
+        "description": "Connectivity platform between citizens and administrations for access to public services and regulatory information in real-time.",
+        "features": ["Intuitive citizen interface", "Online request management", "Administrative dashboard", "Automatic notifications"]
+      },
+      {
+        "name": "TRADEVAL",
+        "tagline": "Intelligent Valuation & Classification",
+        "description": "Advanced analytical system for valuation and classification with national reference database and anomaly detection.",
+        "features": ["Predictive analytics", "National database", "Anomaly detection", "Automated reporting"]
+      },
+      {
+        "name": "RISKGUARD",
+        "tagline": "AI-Powered Risk Management",
+        "description": "AI-powered risk management solution to target high-risk activities and detect fraud.",
+        "features": ["AI & Machine Learning", "Automatic risk scoring", "Fraud detection", "Real-time alerts"]
+      },
+      {
+        "name": "INSPECTOR",
+        "tagline": "Mobile Inspection Application",
+        "description": "Mobile application for field inspection data collection, control documentation, and instant reporting.",
+        "features": ["Intuitive mobile interface", "Offline data collection", "Geolocation", "Cloud synchronization"]
+      }
     ]
   },
   "about": {
     "badge": "Who We Are",
-    "title": "Your Trusted Technology Partner",
-    "description1": "Automa Tech is a technology company specializing in digital transformation. We help businesses of all sizes leverage the power of modern software, automation, and data analytics to stay competitive in an ever-evolving landscape.",
-    "description2": "Founded by engineers and entrepreneurs, our team combines deep technical expertise with a pragmatic, results-driven approach. We don't just build software — we build solutions that make a real difference.",
+    "title": "Your Partner for Institutional Transformation",
+    "description1": "ATECH Solutions is a company specializing in digital transformation of public institutions and administrations. We leverage innovation and digital transformation as pillars of our business model to modernize institutional processes.",
+    "description2": "Our client-centric approach ensures that each solution is designed around your specific needs and value chain. We get involved from the inception of your projects to ensure their relevance and maximize your return on investment.",
     "highlights": [
-      "Expert team of engineers and consultants",
-      "Agile methodology & transparent communication",
-      "Proven track record across multiple industries",
-      "Dedicated support and long-term partnership"
+      "Innovation and digital transformation at the core of our expertise",
+      "Client-centric approach and early engagement in your projects",
+      "Optimized solutions offering the best value for money",
+      "Capacity building for sustainable autonomy"
     ],
-    "imageAlt": "Automa Tech team at work"
+    "imageAlt": "ATECH Solutions team serving institutions"
   },
   "stats": {
     "badge": "Our Impact",
-    "title": "Numbers That Speak",
+    "title": "Concrete Results",
     "items": [
       { "value": "120+", "label": "Projects Delivered" },
       { "value": "98%",  "label": "Client Satisfaction" },
-      { "value": "40+",  "label": "Expert Team Members" },
-      { "value": "8+",   "label": "Years of Experience" }
+      { "value": "15+",  "label": "Certified Experts" },
+      { "value": "3+",   "label": "Years of Excellence" }
     ]
   },
   "contact": {
     "badge": "Get In Touch",
-    "title": "Let's Build Something Great",
-    "subtitle": "Tell us about your project and we'll get back to you within 24 hours.",
+    "title": "Let's Discuss Your Digital Transformation",
+    "subtitle": "Share your vision with us and we'll present a tailored solution adapted to your institution.",
     "form": {
       "name": "Full Name",
       "email": "Email Address",
-      "company": "Company (optional)",
-      "service": "Service of Interest",
+      "company": "Institution / Organization",
+      "service": "Area of Interest",
       "message": "Your Message",
-      "submit": "Send Message",
-      "success": "Message sent! We'll be in touch shortly.",
+      "submit": "Send Request",
+      "success": "Request received! Our team will contact you within 24 hours.",
       "placeholder": {
-        "name": "John Doe",
-        "email": "john@company.com",
-        "company": "Your Company",
-        "service": "Select a service",
-        "message": "Describe your project or challenge..."
+        "name": "First Last",
+        "email": "contact@institution.bf",
+        "company": "Your Institution",
+        "service": "Select an area",
+        "message": "Describe your digital transformation project..."
       }
     },
     "info": {
-      "email": "hello@automatech.ca",
-      "phone": "+1 (514) 000-0000",
-      "location": "Montreal, Quebec, Canada"
+      "email": "info@atechsolutions.bf",
+      "phone": "+226 XX XX XX XX",
+      "location": "Ouaga 2000, Ouagadougou, Burkina Faso"
     }
   },
   "footer": {
-    "tagline": "Transforming businesses through intelligent technology solutions.",
-    "links": { "company": "Company", "services": "Services", "legal": "Legal" },
-    "company":  ["About Us", "Our Team", "Careers", "Blog"],
-    "services": ["Custom Software", "Automation", "Cloud & Infra", "Data & Analytics"],
-    "legal":    ["Privacy Policy", "Terms of Service", "Cookie Policy"],
+    "tagline": "Transforming institutions through innovation and digital transformation.",
+    "links": { "company": "Company", "services": "Solutions", "legal": "Legal" },
+    "company":  ["About Us", "Our Team", "Partners", "News"],
+    "services": ["Strategy & Planning", "Implementation Support", "Capacity Development", "Digital Solutions"],
+    "legal":    ["Privacy Policy", "Terms of Service", "Legal Notice"],
     "rights": "All rights reserved."
   }
 }

@@ -19,18 +19,18 @@ export default function About() {
               <div className="relative z-10 p-10 h-full flex flex-col justify-between" style={{ minHeight: "420px" }}>
                 <div>
                   <div className="mb-6">
-                    <Logo variant="white" height={34} />
+                    <Logo variant="white" height={40} />
                   </div>
-                  <p className="text-blue-200/70 text-sm">Montreal, Quebec, Canada</p>
+                  <p className="text-blue-200/70 text-sm font-medium">Ouaga 2000, Ouagadougou, Burkina Faso</p>
                 </div>
                 <div className="grid grid-cols-2 gap-4 mt-auto">
                   <div className="rounded-2xl p-4" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}>
                     <div className="text-3xl font-bold" style={{ color: "#E8763A" }}>120+</div>
-                    <div className="text-xs text-blue-200/60 mt-1">Projects Delivered</div>
+                    <div className="text-xs text-blue-200/60 mt-1">Project realiser </div>
                   </div>
                   <div className="rounded-2xl p-4" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}>
-                    <div className="text-3xl font-bold text-white">8+</div>
-                    <div className="text-xs text-blue-200/60 mt-1">Years of Experience</div>
+                    <div className="text-3xl font-bold text-white">3+</div>
+                    <div className="text-xs text-blue-200/60 mt-1">Année d'experience </div>
                   </div>
                 </div>
               </div>
@@ -75,7 +75,7 @@ export default function About() {
 
             <div className="mt-10">
               <a href="#contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white transition-all hover:opacity-90 hover:shadow-lg hover:-translate-y-0.5" style={{ background: "linear-gradient(135deg, #E8763A 0%, #F4A472 100%)" }}>
-                Work With Us
+                Collaborer avec nous
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
               </a>
             </div>

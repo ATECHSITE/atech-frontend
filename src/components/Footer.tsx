@@ -21,48 +21,54 @@ export default function Footer() {
   return (
     <footer>
       {/* Newsletter & Social Section */}
-      <div className="relative grid md:grid-cols-2 overflow-hidden">
-        {/* Newsletter - Blue Section */}
-        <div className="relative bg-[#1B3D6F] px-8 md:px-16 py-16 flex items-center justify-center">
-          {/* Diagonal shape overlay */}
-          <div className="absolute top-0 right-0 w-full h-full pointer-events-none hidden md:block">
-            <svg className="absolute top-0 right-0 h-full" viewBox="0 0 100 100" preserveAspectRatio="none" style={{ width: "60%", minWidth: "200px" }}>
-              <polygon points="40,0 100,0 100,100 0,100" fill="#E8763A" />
-            </svg>
-          </div>
+      <div className="relative overflow-hidden">
+        {/* Background Orange */}
+        <div className="absolute inset-0 bg-[#E8763A]" />
 
-          <div className="max-w-md w-full relative z-10">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
-              {t("newsletter.title")}
-            </h3>
-            <p className="text-blue-100/80 text-base mb-8">
-              {t("newsletter.subtitle")}
-            </p>
-            <button className="bg-[#0F2540] px-8 py-3.5 rounded-full font-bold text-sm text-white transition-all hover:bg-[#0a1a2e] hover:shadow-lg">
-              {t("newsletter.button")}
-            </button>
-          </div>
+        {/* Diagonal Blue Section */}
+        <div className="absolute inset-0 hidden md:block">
+          <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon points="0,0 45,0 35,100 0,100" fill="#1B3D6F" />
+          </svg>
         </div>
 
-        {/* Social Media - Orange Section */}
-        <div className="bg-[#E8763A] px-8 md:px-16 py-16 flex items-center justify-center">
-          <div className="max-w-md w-full">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
-              {t("social.title")}
-            </h3>
-            <p className="text-white/90 text-base mb-8">
-              {t("social.subtitle")}
-            </p>
-            <div className="flex gap-4">
-              {socials.map((s) => (
-                <a
-                  key={s.name}
-                  href="#"
-                  className="w-12 h-12 rounded-full border-2 border-white/50 flex items-center justify-center text-white hover:bg-white hover:text-[#E8763A] transition-all"
-                >
-                  <span className="w-5 h-5">{s.svg}</span>
-                </a>
-              ))}
+        {/* Content */}
+        <div className="relative flex flex-col md:flex-row">
+          {/* Newsletter - Blue Section (40%) */}
+          <div className="bg-[#1B3D6F] md:bg-transparent px-8 md:px-16 py-16 flex items-center justify-center md:w-[40%]">
+            <div className="max-w-md w-full relative z-10">
+              <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
+                {t("newsletter.title")}
+              </h3>
+              <p className="text-blue-100/80 text-base mb-8">
+                {t("newsletter.subtitle")}
+              </p>
+              <button className="bg-[#0F2540] px-8 py-3.5 rounded-full font-bold text-sm text-white transition-all hover:bg-[#0a1a2e] hover:shadow-lg">
+                {t("newsletter.button")}
+              </button>
+            </div>
+          </div>
+
+          {/* Social Media - Orange Section (60%) */}
+          <div className="px-8 md:px-16 py-16 flex items-center justify-center md:w-[60%]">
+            <div className="max-w-md w-full">
+              <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
+                {t("social.title")}
+              </h3>
+              <p className="text-white/90 text-base mb-8">
+                {t("social.subtitle")}
+              </p>
+              <div className="flex gap-4">
+                {socials.map((s) => (
+                  <a
+                    key={s.name}
+                    href="#"
+                    className="w-12 h-12 rounded-full border-2 border-white/50 flex items-center justify-center text-white hover:bg-white hover:text-[#E8763A] transition-all"
+                  >
+                    <span className="w-5 h-5">{s.svg}</span>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>

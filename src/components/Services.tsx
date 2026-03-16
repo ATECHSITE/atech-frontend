@@ -3,12 +3,55 @@
 import { useTranslations } from "@/i18n/context";
 
 const iconMap: Record<string, React.ReactNode> = {
-  code: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>,
-  automation: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>,
-  cloud: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" /></svg>,
-  analytics: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>,
-  consulting: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>,
-  integration: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>,
+  code: (
+    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path d="M8 8L3 12L8 16" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M16 8L21 12L16 16" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+      <circle cx="12" cy="6" r="1" fill="currentColor" opacity="0.5"/>
+      <circle cx="12" cy="18" r="1" fill="currentColor" opacity="0.5"/>
+    </svg>
+  ),
+  automation: (
+    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <circle cx="12" cy="12" r="3" strokeWidth="2"/>
+      <path d="M12 2V6M12 18V22M22 12H18M6 12H2" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M19 5L16.5 7.5M7.5 16.5L5 19M19 19L16.5 16.5M7.5 7.5L5 5" strokeWidth="1.5" strokeLinecap="round"/>
+      <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+    </svg>
+  ),
+  cloud: (
+    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path d="M18 10C19.7 10 21 11.3 21 13C21 14.7 19.7 16 18 16H7C4.8 16 3 14.2 3 12C3 9.9 4.6 8.2 6.6 8C7.2 5.6 9.4 4 12 4C15 4 17.4 6.2 17.9 9.1C17.9 9.1 18 9.1 18 9.1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M9 14L9 19M12 14L12 19M15 14L15 19" strokeWidth="1.5" strokeLinecap="round" opacity="0.6"/>
+    </svg>
+  ),
+  analytics: (
+    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path d="M3 17L7 13L11 17L17 8L21 12" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <circle cx="7" cy="13" r="1.5" fill="currentColor"/>
+      <circle cx="11" cy="17" r="1.5" fill="currentColor"/>
+      <circle cx="17" cy="8" r="1.5" fill="currentColor"/>
+      <path d="M21 21H3" strokeWidth="2" strokeLinecap="round"/>
+    </svg>
+  ),
+  consulting: (
+    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <circle cx="12" cy="10" r="3" strokeWidth="2"/>
+      <path d="M12 7V2M9 8L5.5 4.5M15 8L18.5 4.5" strokeWidth="1.5" strokeLinecap="round"/>
+      <path d="M6 21C6 18 8.5 15.5 12 15.5C15.5 15.5 18 18 18 21" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M8 17L6 22M16 17L18 22" strokeWidth="1.5" strokeLinecap="round" opacity="0.6"/>
+    </svg>
+  ),
+  integration: (
+    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <rect x="3" y="3" width="7" height="7" rx="1.5" strokeWidth="2"/>
+      <rect x="14" y="3" width="7" height="7" rx="1.5" strokeWidth="2"/>
+      <rect x="3" y="14" width="7" height="7" rx="1.5" strokeWidth="2"/>
+      <rect x="14" y="14" width="7" height="7" rx="1.5" strokeWidth="2"/>
+      <path d="M10.5 6.5H13.5M6.5 10.5V13.5M17.5 10.5V13.5M10.5 17.5H13.5" strokeWidth="1.5" strokeLinecap="round"/>
+    </svg>
+  ),
 };
 
 type ServiceItem = { icon: string; title: string; description: string };

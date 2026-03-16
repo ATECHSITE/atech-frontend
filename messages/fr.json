@@ -13,7 +13,7 @@
     "titleHighlight": "Transformer.",
     "subtitle": "Nous accompagnons les institutions publiques et les organisations dans leur transformation digitale avec des solutions innovantes adaptées aux enjeux des administrations modernes.",
     "cta": "Découvrir Nos Solutions",
-    "ctaSecondary": "Planifier un Échange"
+    "ctaSecondary": "prise de rendez-vous"
   },
   "services": {
     "badge": "Nos Services",
@@ -84,22 +84,33 @@
   },
   "contact": {
     "badge": "Contactez-Nous",
-    "title": "Discutons de Votre Transformation Digitale",
-    "subtitle": "Partagez-nous votre vision et nous vous présenterons une solution sur mesure adaptée à votre institution.",
+    "title": "Collaborez avec nous pour accélérer votre transformation digitale",
+    "subtitle": "Nous sommes là pour répondre à vos questions et vous aider à trouver les meilleurs services pour répondre à vos besoins.",
+    "email": "Envoyez-nous un email : info@atechsolutions.bf",
+    "nextSteps": {
+      "title": "Et après ?",
+      "steps": [
+        "Nous planifions un appel à votre convenance",
+        "Nous organisons une réunion de découverte et de conseil",
+        "Nous présentons une proposition personnalisée",
+        "Nous préparons une démonstration conceptuelle"
+      ]
+    },
     "form": {
-      "name": "Nom Complet",
-      "email": "Adresse Email",
-      "company": "Institution / Organisation",
-      "service": "Domaine d'Intérêt",
-      "message": "Votre Message",
-      "submit": "Envoyer la Demande",
+      "title": "Contactez-nous",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "email": "Email professionnel",
+      "phone": "Téléphone",
+      "message": "Message",
+      "submit": "Envoyer",
       "success": "Demande reçue ! Notre équipe vous contactera sous 24 heures.",
       "placeholder": {
-        "name": "Nom Prénom",
-        "email": "contact@institution.bf",
-        "company": "Votre Institution",
-        "service": "Sélectionner un domaine",
-        "message": "Décrivez votre projet de transformation digitale..."
+        "firstName": "Prénom",
+        "lastName": "Nom",
+        "email": "vous@entreprise.com",
+        "phone": "+226 XX XX XX XX",
+        "message": "Pour mieux vous accompagner, veuillez décrire comment nous pouvons vous aider..."
       }
     },
     "info": {

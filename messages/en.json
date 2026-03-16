@@ -83,23 +83,34 @@
     ]
   },
   "contact": {
-    "badge": "Get In Touch",
-    "title": "Let's Discuss Your Digital Transformation",
-    "subtitle": "Share your vision with us and we'll present a tailored solution adapted to your institution.",
+    "badge": "Contact Us",
+    "title": "Partner with us to scale your digital transformation",
+    "subtitle": "We're here to answer your questions and help you find the best service(s) to meet your needs.",
+    "email": "Send us an email: info@atechsolutions.bf",
+    "nextSteps": {
+      "title": "What happens next?",
+      "steps": [
+        "We schedule a call at your convenience",
+        "We conduct a discovery and consulting meeting",
+        "We deliver a personalized proposal",
+        "We prepare a conceptual presentation/demo"
+      ]
+    },
     "form": {
-      "name": "Full Name",
-      "email": "Email Address",
-      "company": "Institution / Organization",
-      "service": "Area of Interest",
-      "message": "Your Message",
-      "submit": "Send Request",
+      "title": "Contact Us",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Company email",
+      "phone": "Phone",
+      "message": "Message",
+      "submit": "Submit",
       "success": "Request received! Our team will contact you within 24 hours.",
       "placeholder": {
-        "name": "First Last",
-        "email": "contact@institution.bf",
-        "company": "Your Institution",
-        "service": "Select an area",
-        "message": "Describe your digital transformation project..."
+        "firstName": "First name",
+        "lastName": "Last name",
+        "email": "you@company.com",
+        "phone": "+226 XX XX XX XX",
+        "message": "To better assist you, please describe how we can help..."
       }
     },
     "info": {

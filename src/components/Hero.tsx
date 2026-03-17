@@ -1,9 +1,26 @@
 "use client";
 
 import { useTranslations } from "@/i18n/context";
+import Image from "next/image";
+import { useState, useEffect } from "react";
 
 export default function Hero() {
   const t = useTranslations("hero");
+  const [currentImage, setCurrentImage] = useState(0);
+
+  const images = [
+    { src: "/images/male-engineer-analyzed-industry-40-system-smart-manufacturing-plant.jpg", label: "Maintenance Industrielle" },
+    { src: "/images/network-switch-with-cables.jpg", label: "Intégration Technologique" },
+    { src: "/images/cyberpunk-location-tracking-mobile-device.jpg", label: "Suivie Electronique" },
+    { src: "/images/programmer-home-office-concentrating-finding-bugs-while-he-codes.jpg", label: "Développement de solutions" },
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [images.length]);
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden" style={{ background: "linear-gradient(135deg, #0F2540 0%, #1B3D6F 60%, #2A5298 100%)" }}>
@@ -45,7 +62,7 @@ export default function Hero() {
             </div>
 
             <div className="mt-12 flex flex-wrap items-center gap-6 text-sm text-blue-200/60">
-              {["120+ projects", "8+ years experience", "98% satisfaction"].map((item) => (
+              {["5+ projects", "3+ years experience", "98% satisfaction"].map((item) => (
                 <div key={item} className="flex items-center gap-2">
                   <svg className="w-4 h-4 text-[#E8763A]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
                   {item}
@@ -54,35 +71,82 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right: Abstract visual */}
+          {/* Right: Professional Image Showcase */}
           <div className="hidden lg:flex justify-center items-center">
-            <div className="relative w-96 h-96">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-48 h-48 rounded-3xl flex items-center justify-center shadow-2xl" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}>
-                  <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-28 h-28">
-                    <path d="M40 12L16 64H32L40 44L48 64H64L40 12Z" fill="#E8763A" />
-                    <path d="M40 12L64 64H48L40 44L32 64H16L40 12Z" fill="#1B3D6F" opacity="0.6" />
-                    <path d="M28 52H52" stroke="#E8763A" strokeWidth="3" strokeLinecap="round" />
-                  </svg>
+            <div className="relative w-[560px] h-[560px]">
+              {/* Decorative corner accents */}
+              <div className="absolute -top-5 -left-5 w-20 h-20 border-t-4 border-l-4 border-[#E8763A] rounded-tl-3xl opacity-80" />
+              <div className="absolute -top-5 -right-5 w-20 h-20 border-t-4 border-r-4 border-[#E8763A] rounded-tr-3xl opacity-80" />
+              <div className="absolute -bottom-5 -left-5 w-20 h-20 border-b-4 border-l-4 border-[#E8763A] rounded-bl-3xl opacity-80" />
+              <div className="absolute -bottom-5 -right-5 w-20 h-20 border-b-4 border-r-4 border-[#E8763A] rounded-br-3xl opacity-80" />
+
+              {/* Main frame with gradient border */}
+              <div className="relative w-full h-full rounded-3xl p-1.5 bg-gradient-to-br from-[#E8763A] via-[#F4A472] to-[#E8763A] shadow-2xl">
+                <div className="relative w-full h-full rounded-3xl overflow-hidden bg-[#0F2540]">
+                  {/* Image container with fade transitions */}
+                  <div className="relative w-full h-full">
+                    {images.map((img, idx) => (
+                      <div
+                        key={idx}
+                        className={`absolute inset-0 transition-opacity duration-1000 ${
+                          idx === currentImage ? "opacity-100" : "opacity-0"
+                        }`}
+                      >
+                        <Image
+                          src={img.src}
+                          alt={img.label}
+                          fill
+                          className="object-cover"
+                          priority={idx === 0}
+                        />
+                        {/* Subtle gradient overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0F2540]/60 via-transparent to-transparent" />
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Glass morphism info bar at bottom */}
+                  <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-[#0F2540]/95 via-[#0F2540]/90 to-transparent backdrop-blur-sm">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h3 className="text-white text-xl font-bold tracking-wide mb-2">
+                          {images[currentImage].label}
+                        </h3>
+                        <div className="flex items-center gap-2">
+                          <div className="w-2.5 h-2.5 rounded-full bg-[#E8763A] animate-pulse" />
+                          <span className="text-blue-200/70 text-sm font-medium">Solutions Professionnelles</span>
+                        </div>
+                      </div>
+
+                      {/* Navigation dots */}
+                      <div className="flex items-center gap-2.5">
+                        {images.map((_, idx) => (
+                          <button
+                            key={idx}
+                            onClick={() => setCurrentImage(idx)}
+                            className={`transition-all duration-300 rounded-full ${
+                              idx === currentImage
+                                ? "w-10 h-2.5 bg-[#E8763A]"
+                                : "w-2.5 h-2.5 bg-white/30 hover:bg-white/50"
+                            }`}
+                            aria-label={`Image ${idx + 1}`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Floating decorative elements */}
+                  
                 </div>
               </div>
-              {[
-                { top: "top-8 right-8", delay: "0s", icon: "code", color: "#E8763A" },
-                { top: "bottom-12 right-4", delay: "1s", icon: "cloud", color: "#93C5FD" },
-                { top: "top-16 left-6", delay: "2s", icon: "chart", color: "#FCA472" },
-                { top: "bottom-8 left-10", delay: "1.5s", icon: "bolt", color: "#E8763A" },
-              ].map((item, i) => (
-                <div key={i} className={`absolute ${item.top} w-12 h-12 rounded-2xl flex items-center justify-center animate-float`} style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.12)", animationDelay: item.delay }}>
-                  {item.icon === "code" && <svg className="w-5 h-5" style={{ color: item.color }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>}
-                  {item.icon === "cloud" && <svg className="w-5 h-5" style={{ color: item.color }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" /></svg>}
-                  {item.icon === "chart" && <svg className="w-5 h-5" style={{ color: item.color }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>}
-                  {item.icon === "bolt" && <svg className="w-5 h-5" style={{ color: item.color }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>}
-                </div>
-              ))}
-              <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 384 384">
-                <circle cx="192" cy="192" r="120" stroke="#E8763A" strokeWidth="1" strokeDasharray="4 8" fill="none" />
-                <circle cx="192" cy="192" r="160" stroke="white" strokeWidth="0.5" strokeDasharray="2 6" fill="none" />
-              </svg>
+
+              {/* Floating stats cards */}
+              
+
+              {/* Subtle animated background circles */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-[#E8763A]/10 rounded-full animate-pulse pointer-events-none" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[640px] h-[640px] border border-white/5 rounded-full animate-pulse pointer-events-none" style={{ animationDelay: "1s" }} />
             </div>
           </div>
         </div>

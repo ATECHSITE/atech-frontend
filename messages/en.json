@@ -21,7 +21,7 @@
     "subtitle": "From strategy to implementation, we support you at every step of your digital transformation",
     "items": [
       { "icon": "consulting",  "title": "Strategy & Planning", "description": "Institutional strengthening through training, knowledge transfer, and development of digital strategies aligned with your objectives." },
-      { "icon": "integration", "title": "Sourcing & Implementation Support", "description": "We translate your vision into specifications and support you in project management with hands-on expertise." },
+      { "icon": "integration", "title": "Industrial Maintenance", "description": "We provide preventive and corrective maintenance for your industrial equipment to ensure availability and optimize performance." },
       { "icon": "analytics",   "title": "Capacity Development", "description": "Building sustainable organizational capacities to ensure autonomy and sustainability of your digital systems." },
       { "icon": "code",        "title": "Custom Digital Solutions", "description": "Design and development of digital platforms tailored to the specific needs of administrations and institutions." },
       { "icon": "automation",  "title": "Artificial Intelligence & Analytics", "description": "Leveraging AI and advanced analytics to optimize your risk management and decision-making processes." },
@@ -76,7 +76,7 @@
     "badge": "Our Impact",
     "title": "Concrete Results",
     "items": [
-      { "value": "120+", "label": "Projects Delivered" },
+      { "value": "5+", "label": "Projects Delivered" },
       { "value": "98%",  "label": "Client Satisfaction" },
       { "value": "15+",  "label": "Certified Experts" },
       { "value": "3+",   "label": "Years of Excellence" }

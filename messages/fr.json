@@ -21,7 +21,7 @@
     "subtitle": "De la stratégie à la mise en œuvre, nous vous accompagnons à chaque étape de votre transformation digitale",
     "items": [
       { "icon": "consulting",  "title": "Stratégie & Planification", "description": "Renforcement institutionnel à travers la formation, le transfert de connaissances et l'élaboration de stratégies digitales alignées sur vos objectifs." },
-      { "icon": "integration", "title": "Sourcing & Support à la Mise en Œuvre", "description": "Nous traduisons votre vision en cahiers des charges et vous accompagnons dans la gestion de projets avec une expertise terrain." },
+      { "icon": "integration", "title": "Maintenance Industrielle", "description": "Nous assurons la maintenance préventive et corrective de vos équipements industriels pour garantir leur disponibilité et optimiser leur performance." },
       { "icon": "analytics",   "title": "Développement des Capacités", "description": "Construction de capacités organisationnelles durables pour assurer l'autonomie et la pérennité de vos systèmes digitaux." },
       { "icon": "code",        "title": "Solutions Digitales Sur Mesure", "description": "Conception et développement de plateformes digitales adaptées aux besoins spécifiques des administrations et institutions." },
       { "icon": "automation",  "title": "Intelligence Artificielle & Analytique", "description": "Exploitation de l'IA et de l'analytique avancée pour optimiser vos processus de gestion des risques et de prise de décision." },
@@ -76,9 +76,9 @@
     "badge": "Notre Impact",
     "title": "Des Résultats Concrets",
     "items": [
-      { "value": "120+", "label": "Projets Réalisés" },
+      { "value": "5+", "label": "Projets Réalisés" },
       { "value": "98%",  "label": "Satisfaction Client" },
-      { "value": "15+",  "label": "Experts Certifiés" },
+      { "value": "5+",  "label": "Experts Certifiés" },
       { "value": "3+",   "label": "Ans d'Excellence" }
     ]
   },
@@ -114,7 +114,7 @@
       }
     },
     "info": {
-      "email": "info@atechsolutions.bf",
+      "email": "info@atech-bf.com",
       "phone": "+226 XX XX XX XX",
       "location": "Ouaga 2000, Ouagadougou, Burkina Faso"
     }

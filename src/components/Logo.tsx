@@ -11,7 +11,7 @@ type LogoProps = {
 export default function Logo({ variant = "color", height = 36, className = "" }: LogoProps) {
   return (
     <Image
-      src="/Logobg.png"
+      src="/logobg.png"
       alt="ATECH Solutions"
       width={200}
       height={height}

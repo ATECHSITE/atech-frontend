@@ -11,7 +11,7 @@ type LogoProps = {
 export default function Logo({ variant = "color", height = 36, className = "" }: LogoProps) {
   return (
     <Image
-      src="/Logo.png"
+      src="/public/Logo.png"
       alt="AutomaTech"
       width={200}
       height={height}

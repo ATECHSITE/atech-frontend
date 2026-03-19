@@ -17,6 +17,15 @@ export default function Navbar() {
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
   const navRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
+  const navLinks = [
+    { href: "#hero",     label: t("home") },
+    { href: "#services", label: t("services") },
+    { href: "#products", label: t("products") },
+    { href: "#about",    label: t("about") },
+    { href: "#stats",    label: t("stats") },
+    { href: "#contact",  label: t("contact") },
+  ];
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
@@ -57,21 +66,13 @@ export default function Navbar() {
     handleScroll(); // Run on mount
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [navLinks]);
 
   const switchLocale = (newLocale: string) => {
     const segments = pathname.split("/");
     segments[1] = newLocale;
     router.push(segments.join("/"));
   };
-
-  const navLinks = [
-    { href: "#services", label: t("services") },
-    { href: "#products", label: t("products") },
-    { href: "#about",    label: t("about") },
-    { href: "#stats",    label: t("stats") },
-    { href: "#contact",  label: t("contact") },
-  ];
 
   return (
     <header

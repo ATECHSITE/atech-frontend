@@ -1,5 +1,6 @@
 {
   "nav": {
+    "home": "Home",
     "services": "Services",
     "products": "Products",
     "about": "About",
@@ -114,7 +115,7 @@
       }
     },
     "info": {
-      "email": "info@atechsolutions.bf",
+      "email": "info@atech-bf.com",
       "phone": "+226 XX XX XX XX",
       "location": "Ouaga 2000, Ouagadougou, Burkina Faso"
     }

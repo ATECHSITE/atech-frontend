@@ -9,7 +9,7 @@ interface I18nContext {
   messages: NestedRecord;
 }
 
-const Ctx = createContext<I18nContext>({ locale: "en", messages: {} });
+const Ctx = createContext<I18nContext>({ locale: "fr", messages: {} });
 
 export function I18nProvider({
   locale,

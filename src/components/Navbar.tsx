@@ -117,8 +117,8 @@ export default function Navbar() {
             />
           </div>
 
-          {/* Right: lang switcher + CTA */}
-          <div className="hidden lg:flex items-center gap-4">
+          {/* Right: lang switcher */}
+          <div className="hidden lg:flex items-center">
             <div className={`flex items-center gap-1 rounded-full p-1 text-xs font-semibold ${scrolled ? "bg-gray-100" : "bg-white/10"}`}>
               {["en", "fr"].map((lang) => (
                 <button
@@ -134,13 +134,6 @@ export default function Navbar() {
                 </button>
               ))}
             </div>
-            <a
-              href="#contact"
-              className="px-5 py-2 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90 hover:shadow-lg hover:-translate-y-0.5"
-              style={{ background: "linear-gradient(135deg, #E8763A 0%, #F4A472 100%)" }}
-            >
-              {t("cta")}
-            </a>
           </div>
 
           {/* Mobile */}
@@ -192,16 +185,6 @@ export default function Navbar() {
                 )}
               </a>
             ))}
-            <div className="mt-3 px-4">
-              <a
-                href="#contact"
-                onClick={() => setMobileOpen(false)}
-                className="block w-full text-center px-5 py-3 rounded-full text-sm font-semibold text-white"
-                style={{ background: "linear-gradient(135deg, #E8763A 0%, #F4A472 100%)" }}
-              >
-                {t("cta")}
-              </a>
-            </div>
           </div>
         )}
       </nav>

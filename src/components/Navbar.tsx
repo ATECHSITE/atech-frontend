@@ -25,6 +25,7 @@ export default function Navbar() {
     { href: "#stats",    label: t("stats") },
     { href: "#contact",  label: t("contact") },
   ];
+  
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -34,13 +35,19 @@ export default function Navbar() {
 
   useEffect(() => {
     // Update indicator position when active link changes
-    const activeElement = navRefs.current[activeLink];
-    if (activeElement) {
-      setIndicatorStyle({
-        left: activeElement.offsetLeft,
-        width: activeElement.offsetWidth,
-      });
-    }
+    const updateIndicator = () => {
+      const activeElement = navRefs.current[activeLink];
+      if (activeElement) {
+        setIndicatorStyle({
+          left: activeElement.offsetLeft,
+          width: activeElement.offsetWidth,
+        });
+      }
+    };
+
+    // Small delay to ensure elements are rendered
+    updateIndicator();
+    setTimeout(updateIndicator, 100);
   }, [activeLink, scrolled]);
 
   useEffect(() => {
@@ -52,6 +59,12 @@ export default function Navbar() {
       });
 
       const scrollPosition = window.scrollY + 100; // Offset for navbar height
+
+      // If we're at the very top, always select home (index 0)
+      if (window.scrollY < 100) {
+        setActiveLink(0);
+        return;
+      }
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
@@ -108,13 +121,15 @@ export default function Navbar() {
               </a>
             ))}
             {/* Animated indicator line */}
-            <span
-              className="absolute bottom-0 h-0.5 bg-[#E8763A] transition-all duration-300 ease-out"
-              style={{
-                left: `${indicatorStyle.left}px`,
-                width: `${indicatorStyle.width}px`,
-              }}
-            />
+            {indicatorStyle.width > 0 && (
+              <span
+                className="absolute bottom-0 h-0.5 bg-[#E8763A] transition-all duration-300 ease-out"
+                style={{
+                  left: `${indicatorStyle.left}px`,
+                  width: `${indicatorStyle.width}px`,
+                }}
+              />
+            )}
           </div>
 
           {/* Right: lang switcher */}

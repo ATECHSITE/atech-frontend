@@ -17,7 +17,7 @@ export default function About() {
               <div className="relative z-10 p-10 h-full flex flex-col justify-between" style={{ minHeight: "420px" }}>
                 <div>
                   <div className="mb-6"><Logo variant="white" height={34} /></div>
-                  <p className="text-blue-200/70 text-sm">Montreal, Quebec, Canada</p>
+                  <p className="text-blue-200/70 text-sm">Ouaga 2000, OUAGADOUGOU, Burkina</p>
                 </div>
                 <div className="grid grid-cols-2 gap-4 mt-auto">
                   <div className="rounded-2xl p-4" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}>
@@ -25,7 +25,7 @@ export default function About() {
                     <div className="text-xs text-blue-200/60 mt-1">Projects Delivered</div>
                   </div>
                   <div className="rounded-2xl p-4" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}>
-                    <div className="text-3xl font-bold text-white">8+</div>
+                    <div className="text-3xl font-bold text-white">3+</div>
                     <div className="text-xs text-blue-200/60 mt-1">Years of Experience</div>
                   </div>
                 </div>

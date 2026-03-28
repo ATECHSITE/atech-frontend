@@ -66,7 +66,7 @@ export default function Services() {
   }));
 
   return (
-    <section id="services" className="py-24 lg:py-32" style={{ background: "#F8F9FC" }}>
+    <section id="services" className="py-16 lg:py-20" style={{ background: "#F8F9FC" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 text-[#E8763A]" style={{ background: "rgba(232, 118, 58, 0.1)" }}>

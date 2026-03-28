@@ -8,47 +8,34 @@ export default function About() {
   const highlights: string[] = [0, 1, 2, 3].map((i) => t(`highlights.${i}`));
 
   return (
-    <section id="about" className="py-24 lg:py-32 bg-white overflow-hidden">
+    <section id="about" className="py-16 lg:py-20 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
           {/* Left: Visual card */}
           <div className="relative order-2 lg:order-1">
-            <div className="relative rounded-3xl overflow-hidden" style={{ background: "linear-gradient(135deg, #0F2540 0%, #1B3D6F 100%)", minHeight: "420px" }}>
+            <div className="relative rounded-3xl overflow-hidden" style={{ background: "linear-gradient(135deg, #0F2540 0%, #1B3D6F 100%)" }}>
               <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
-              <div className="relative z-10 p-10 h-full flex flex-col justify-between" style={{ minHeight: "420px" }}>
+              <div className="relative z-10 p-10 h-full flex flex-col justify-between">
                 <div>
                   <div className="mb-6">
                     <Logo variant="white" height={40} />
                   </div>
-                  <p className="text-blue-200/70 text-sm font-medium">Ouaga 2000, Ouagadougou, Burkina Faso</p>
+                  <p className="text-blue-200/70 text-sm font-medium mb-4">Ouaga 2000, Ouagadougou, Burkina Faso</p>
                 </div>
-                <div className="grid grid-cols-2 gap-4 mt-auto">
-                  <div className="rounded-2xl p-4" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}>
-                    <div className="text-3xl font-bold" style={{ color: "#E8763A" }}>120+</div>
-                    <div className="text-xs text-blue-200/60 mt-1">Project realiser </div>
+                <div className="mt-6">
+                  <div className="rounded-xl overflow-hidden border border-white/10 shadow-lg">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31264.328472890396!2d-1.4936!3d12.3569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xe2ebe7f84eb2ab1%3A0x7a8aa2d8e6c8a8c8!2sOuaga%202000%2C%20Ouagadougou%2C%20Burkina%20Faso!5e0!3m2!1sen!2sus!4v1632847893221!5m2!1sen!2sus"
+                      width="100%"
+                      height="260"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    ></iframe>
                   </div>
-                  <div className="rounded-2xl p-4" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}>
-                    <div className="text-3xl font-bold text-white">3+</div>
-                    <div className="text-xs text-blue-200/60 mt-1">Année d'experience </div>
-                  </div>
                 </div>
-              </div>
-            </div>
-
-            {/* Floating card */}
-            <div className="absolute -bottom-6 -right-6 w-48 rounded-2xl p-5 shadow-2xl bg-white" style={{ border: "1px solid rgba(232,118,58,0.2)" }}>
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ background: "rgba(232,118,58,0.1)" }}>
-                  <svg className="w-4 h-4 text-[#E8763A]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-gray-900">98%</div>
-                  <div className="text-xs text-gray-400">Satisfaction</div>
-                </div>
-              </div>
-              <div className="w-full bg-gray-100 rounded-full h-1.5">
-                <div className="h-1.5 rounded-full" style={{ width: "98%", background: "linear-gradient(90deg, #E8763A, #F4A472)" }} />
               </div>
             </div>
           </div>

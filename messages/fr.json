@@ -4,7 +4,6 @@
     "services": "Services",
     "products": "Produits",
     "about": "À Propos",
-    "stats": "Résultats",
     "contact": "Contact",
     "cta": "Commencer"
   },
@@ -13,12 +12,12 @@
     "title": "Moderniser. Optimiser.",
     "titleHighlight": "Transformer.",
     "subtitle": "Nous accompagnons les institutions publiques et les organisations dans leur transformation digitale avec des solutions innovantes adaptées aux enjeux des administrations modernes.",
-    "cta": "Découvrir Nos Solutions",
-    "ctaSecondary": "prise de rendez-vous"
+    "cta": "Découvrir nos solutions",
+    "ctaSecondary": "Prise de rendez-vous"
   },
   "services": {
-    "badge": "Nos Services",
-    "title": "Un Accompagnement Complet",
+    "badge": "Nos services",
+    "title": "Un accompagnement complet",
     "subtitle": "De la stratégie à la mise en œuvre, nous vous accompagnons à chaque étape de votre transformation digitale",
     "items": [
       { "icon": "consulting",  "title": "Stratégie & Planification", "description": "Renforcement institutionnel à travers la formation, le transfert de connaissances et l'élaboration de stratégies digitales alignées sur vos objectifs." },
@@ -30,7 +29,7 @@
     ]
   },
   "products": {
-    "badge": "Nos Produits Digitaux",
+    "badge": "Nos produits digitaux",
     "title": "Des Solutions Prêtes à Déployer",
     "subtitle": "Des plateformes digitales innovantes conçues pour répondre aux besoins spécifiques des administrations modernes",
     "items": [
@@ -47,7 +46,7 @@
         "features": ["Analytique prédictive", "Base de données nationale", "Détection d'anomalies", "Rapports automatisés"]
       },
       {
-        "name": "COTRACK",
+        "name": "SSEM",
         "tagline": "Système de Suivi Électronique des Marchandises",
         "description": "Solution de surveillance basée sur les technologies GPS, RFID et mobiles pour localiser, surveiller en temps réel et sécuriser les mouvements de marchandises. Le système alerte les agents de toute activité anormale comme l'ouverture d'une porte de conteneur, les arrêts non autorisés et les déviations de route.",
         "features": ["Tracking GPS & RFID", "Surveillance temps réel", "Alertes d'activités anormales", "Sécurisation des cargaisons"]
@@ -61,8 +60,8 @@
     ]
   },
   "about": {
-    "badge": "Qui Nous Sommes",
-    "title": "Votre Partenaire pour la Transformation Institutionnelle",
+    "badge": "Qui nous sommes",
+    "title": "Votre Partenaire pour la transformation institutionnelle",
     "description1": "Automa Tech  est une entreprise spécialisée dans la transformation digitale des institutions publiques et des administrations. Nous exploitons l'innovation et la transformation digitale comme piliers de notre modèle d'affaires pour moderniser les processus institutionnels.",
     "description2": "Notre approche centrée sur le client garantit que chaque solution est conçue autour de vos besoins spécifiques et de votre chaîne de valeur. Nous nous impliquons dès la conception de vos projets pour assurer leur pertinence et maximiser votre retour sur investissement.",
     "highlights": [
@@ -71,17 +70,7 @@
       "Solutions optimisées offrant le meilleur rapport qualité-prix",
       "Renforcement des capacités pour une autonomie durable"
     ],
-    "imageAlt": "L'équipe ATECH Solutions au service des institutions"
-  },
-  "stats": {
-    "badge": "Notre Impact",
-    "title": "Des Résultats Concrets",
-    "items": [
-      { "value": "5+", "label": "Projets Réalisés" },
-      { "value": "98%",  "label": "Satisfaction Client" },
-      { "value": "5+",  "label": "Experts Certifiés" },
-      { "value": "3+",   "label": "Ans d'Excellence" }
-    ]
+    "imageAlt": "L'équipe de Automatech au service des institutions"
   },
   "contact": {
     "badge": "Contactez-Nous",

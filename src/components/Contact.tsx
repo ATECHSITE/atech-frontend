@@ -7,13 +7,44 @@ export default function Contact() {
   const t = useTranslations("contact");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1000));
-    setLoading(false);
-    setSubmitted(true);
+    setError("");
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      firstName: formData.get("firstName") as string,
+      lastName: formData.get("lastName") as string,
+      email: formData.get("email") as string,
+      phone: formData.get("phone") as string,
+      message: formData.get("message") as string,
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Une erreur s'est produite");
+      }
+
+      setSubmitted(true);
+      e.currentTarget.reset();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Une erreur s'est produite");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -100,6 +131,7 @@ export default function Contact() {
                       </label>
                       <input
                         type="text"
+                        name="firstName"
                         required
                         placeholder={t("form.placeholder.firstName")}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#E8763A] focus:border-transparent transition-all"
@@ -111,6 +143,7 @@ export default function Contact() {
                       </label>
                       <input
                         type="text"
+                        name="lastName"
                         required
                         placeholder={t("form.placeholder.lastName")}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#E8763A] focus:border-transparent transition-all"
@@ -125,6 +158,7 @@ export default function Contact() {
                     </label>
                     <input
                       type="email"
+                      name="email"
                       required
                       placeholder={t("form.placeholder.email")}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#E8763A] focus:border-transparent transition-all"
@@ -138,6 +172,7 @@ export default function Contact() {
                     </label>
                     <input
                       type="tel"
+                      name="phone"
                       placeholder={t("form.placeholder.phone")}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#E8763A] focus:border-transparent transition-all"
                     />
@@ -149,12 +184,20 @@ export default function Contact() {
                       {t("form.message")}
                     </label>
                     <textarea
+                      name="message"
                       required
                       rows={5}
                       placeholder={t("form.placeholder.message")}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#E8763A] focus:border-transparent transition-all resize-none"
                     />
                   </div>
+
+                  {/* Error Message */}
+                  {error && (
+                    <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                      {error}
+                    </div>
+                  )}
 
                   {/* Submit Button */}
                   <button

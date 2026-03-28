@@ -23,7 +23,7 @@ export default function Hero() {
   }, [images.length]);
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden" style={{ background: "linear-gradient(135deg, #0F2540 0%, #1B3D6F 60%, #2A5298 100%)" }}>
+    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden" style={{ background: "linear-gradient(135deg, #0F2540 0%, #1B3D6F 60%, #2A5298 100%)" }}>
       {/* Background decor */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full opacity-10" style={{ background: "radial-gradient(circle, #E8763A 0%, transparent 70%)" }} />

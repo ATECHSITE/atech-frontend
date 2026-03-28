@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "@/i18n/context";
+import Image from "next/image";
 
 type ProductItem = {
   name: string;
@@ -8,6 +9,14 @@ type ProductItem = {
   description: string;
   features: string[];
 };
+
+// Images appropriées pour chaque produit depuis Unsplash
+const productImages = [
+  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop", // E-governance dashboard
+  "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop", // Analytics/Data visualization
+  "https://images.unsplash.com/photo-1494412519320-aa613dfb7738?w=800&auto=format&fit=crop", // GPS/Logistics tracking
+  "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=800&auto=format&fit=crop", // Mobile app inspection
+];
 
 export default function Products() {
   const t = useTranslations("products");
@@ -20,7 +29,7 @@ export default function Products() {
   }));
 
   return (
-    <section id="products" className="py-24 lg:py-32 bg-white">
+    <section id="products" className="py-16 lg:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 text-[#E8763A]" style={{ background: "rgba(232, 118, 58, 0.1)" }}>
@@ -32,17 +41,28 @@ export default function Products() {
 
         <div className="grid md:grid-cols-2 gap-8">
           {items.map((item, i) => (
-            <div key={i} className="group relative rounded-3xl overflow-hidden border border-gray-100 hover:border-orange-200 hover:shadow-2xl transition-all duration-300">
-              {/* Header with gradient */}
-              <div className="relative p-8 pb-6" style={{ background: "linear-gradient(135deg, #0F2540 0%, #1B3D6F 100%)" }}>
-                <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
-                <div className="relative z-10">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3" style={{ background: "rgba(232,118,58,0.2)", color: "#FFA366" }}>
+            <div key={i} className="group relative rounded-3xl overflow-hidden border border-gray-100 hover:border-orange-200 hover:shadow-2xl transition-all duration-300 cursor-pointer">
+              {/* Product Image */}
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src={productImages[i]}
+                  alt={item.name}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0F2540] via-[#0F2540]/50 to-transparent opacity-80" />
+                <div className="absolute bottom-4 left-6 right-6 z-10">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2" style={{ background: "rgba(232,118,58,0.9)", color: "white" }}>
                     {item.name}
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">{item.tagline}</h3>
-                  <p className="text-sm text-blue-200/80 leading-relaxed">{item.description}</p>
+                  <h3 className="text-xl font-bold text-white">{item.tagline}</h3>
                 </div>
+              </div>
+
+              {/* Description */}
+              <div className="p-6 bg-gradient-to-br from-[#0F2540] to-[#1B3D6F]">
+                <p className="text-sm text-blue-200/90 leading-relaxed">{item.description}</p>
               </div>
 
               {/* Features list */}

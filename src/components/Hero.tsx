@@ -61,6 +61,53 @@ export default function Hero() {
               </a>
             </div>
 
+            {/* Mobile Image Showcase */}
+            <div className="lg:hidden mt-10">
+              <div className="relative w-full h-64 rounded-2xl overflow-hidden border-2 border-[#E8763A]/30 shadow-2xl">
+                {images.map((img, idx) => (
+                  <div
+                    key={idx}
+                    className={`absolute inset-0 transition-opacity duration-1000 ${
+                      idx === currentImage ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.label}
+                      fill
+                      className="object-cover"
+                      priority={idx === 0}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0F2540]/80 via-transparent to-transparent" />
+                  </div>
+                ))}
+
+                {/* Mobile info bar */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-[#0F2540]/95 via-[#0F2540]/90 to-transparent">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-white text-sm font-bold">
+                      {images[currentImage].label}
+                    </h3>
+                    {/* Navigation dots */}
+                    <div className="flex items-center gap-2">
+                      {images.map((_, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() => setCurrentImage(idx)}
+                          className={`transition-all duration-300 rounded-full ${
+                            idx === currentImage
+                              ? "w-6 h-2 bg-[#E8763A]"
+                              : "w-2 h-2 bg-white/30"
+                          }`}
+                          aria-label={`Image ${idx + 1}`}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="mt-12 flex flex-wrap items-center gap-6 text-sm text-blue-200/60">
               {["5+ projects", "3+ years experience", "98% satisfaction"].map((item) => (
                 <div key={item} className="flex items-center gap-2">

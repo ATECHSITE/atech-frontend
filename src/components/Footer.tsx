@@ -34,18 +34,38 @@ export default function Footer() {
 
         {/* Content */}
         <div className="relative flex flex-col md:flex-row">
-          {/* Newsletter - Blue Section (40%) */}
+          {/* Certifications & Partners - Blue Section (40%) */}
           <div className="bg-[#1B3D6F] md:bg-transparent px-8 md:px-16 py-16 flex items-center justify-center md:w-[40%]">
             <div className="max-w-md w-full relative z-10">
               <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                {t("newsletter.title")}
+                {t("certifications.title")}
               </h3>
-              <p className="text-blue-100/80 text-base mb-8">
-                {t("newsletter.subtitle")}
+              <p className="text-blue-100/80 text-base mb-6">
+                {t("certifications.subtitle")}
               </p>
-              <button className="bg-[#0F2540] px-8 py-3.5 rounded-full font-bold text-sm text-white transition-all hover:bg-[#0a1a2e] hover:shadow-lg">
-                {t("newsletter.button")}
-              </button>
+
+              {/* Certification badges */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:bg-white/15 transition-all">
+                  <div className="flex items-center gap-2 mb-2">
+                    <svg className="w-5 h-5 text-[#E8763A]" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-white text-xs font-bold">ISO 9001</span>
+                  </div>
+                  <p className="text-blue-200/70 text-xs">Qualité</p>
+                </div>
+
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:bg-white/15 transition-all">
+                  <div className="flex items-center gap-2 mb-2">
+                    <svg className="w-5 h-5 text-[#E8763A]" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-white text-xs font-bold">ISO 27001</span>
+                  </div>
+                  <p className="text-blue-200/70 text-xs">Sécurité</p>
+                </div>
+              </div>
             </div>
           </div>
 

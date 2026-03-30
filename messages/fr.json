@@ -21,7 +21,7 @@
     "subtitle": "De la stratégie à la mise en œuvre, nous vous accompagnons à chaque étape de votre transformation digitale",
     "items": [
       { "icon": "consulting",  "title": "Stratégie & Planification", "description": "Renforcement institutionnel à travers la formation, le transfert de connaissances et l'élaboration de stratégies digitales alignées sur vos objectifs." },
-      { "icon": "integration", "title": "Maintenance Industrielle", "description": "Nous assurons la maintenance préventive et corrective de vos équipements industriels pour garantir leur disponibilité et optimiser leur performance." },
+      { "icon": "integration", "title": "Scanners Douaniers - Installation & Maintenance", "description": "Installation, configuration et maintenance préventive et corrective de scanners à rayons X pour l'inspection de conteneurs et cargaisons. Support technique 24/7 et formation des opérateurs." },
       { "icon": "analytics",   "title": "Développement des Capacités", "description": "Construction de capacités organisationnelles durables pour assurer l'autonomie et la pérennité de vos systèmes digitaux." },
       { "icon": "code",        "title": "Solutions Digitales Sur Mesure", "description": "Conception et développement de plateformes digitales adaptées aux besoins spécifiques des administrations et institutions." },
       { "icon": "automation",  "title": "Intelligence Artificielle & Analytique", "description": "Exploitation de l'IA et de l'analytique avancée pour optimiser vos processus de gestion des risques et de prise de décision." },
@@ -30,15 +30,10 @@
   },
   "products": {
     "badge": "Nos produits digitaux",
-    "title": "Des Solutions Prêtes à Déployer",
+    "title": "Des solutions prêtes à déployer",
     "subtitle": "Des plateformes digitales innovantes conçues pour répondre aux besoins spécifiques des administrations modernes",
     "items": [
-      {
-        "name": "GOVERN+",
-        "tagline": "Portail d'E-gouvernance",
-        "description": "Plateforme de connectivité entre citoyens et administrations pour l'accès aux services publics et informations réglementaires en temps réel.",
-        "features": ["Interface citoyenne intuitive", "Gestion des demandes en ligne", "Tableau de bord administratif", "Notifications automatiques"]
-      },
+      
       {
         "name": "TRADEVAL",
         "tagline": "Valorisation & Classification Intelligente",
@@ -51,17 +46,24 @@
         "description": "Solution de surveillance basée sur les technologies GPS, RFID et mobiles pour localiser, surveiller en temps réel et sécuriser les mouvements de marchandises. Le système alerte les agents de toute activité anormale comme l'ouverture d'une porte de conteneur, les arrêts non autorisés et les déviations de route.",
         "features": ["Tracking GPS & RFID", "Surveillance temps réel", "Alertes d'activités anormales", "Sécurisation des cargaisons"]
       },
+      
       {
-        "name": "INSPECTOR",
-        "tagline": "Application Mobile d'Inspection",
-        "description": "Application mobile pour la collecte de données d'inspection terrain, la documentation des contrôles et le reporting instantané.",
-        "features": ["Interface mobile intuitive", "Collecte de données hors-ligne", "Géolocalisation", "Synchronisation cloud"]
+        "name": "Scanners à Rayons X",
+        "tagline": "Scanners à Rayons X Douaniers",
+        "description": "Installation, mise en service et réparation de scanners à rayons X Nuctech pour l'inspection non-intrusive de conteneurs, véhicules et cargaisons. Solutions complètes de contrôle douanier avec formation des opérateurs.",
+        "features": ["Installation & mise en service", "Maintenance préventive et corrective", "Formation des opérateurs", "Support technique 24/7"]
+      },
+      {
+        "name": "Balise GPSv",
+        "tagline": "Maintenance de Balises de Tracking",
+        "description": "Maintenance, réparation et calibration de balises GPS, RFID et dispositifs de tracking pour le suivi de conteneurs et marchandises. Diagnostics avancés, remplacement de composants et tests de performance.",
+        "features": ["Réparation de balises GPS/RFID", "Calibration et tests", "Remplacement de batteries", "Diagnostic électronique"]
       }
     ]
   },
   "about": {
     "badge": "Qui nous sommes",
-    "title": "Votre Partenaire pour la transformation institutionnelle",
+    "title": "Votre partenaire pour la transformation institutionnelle",
     "description1": "Automa Tech  est une entreprise spécialisée dans la transformation digitale des institutions publiques et des administrations. Nous exploitons l'innovation et la transformation digitale comme piliers de notre modèle d'affaires pour moderniser les processus institutionnels.",
     "description2": "Notre approche centrée sur le client garantit que chaque solution est conçue autour de vos besoins spécifiques et de votre chaîne de valeur. Nous nous impliquons dès la conception de vos projets pour assurer leur pertinence et maximiser votre retour sur investissement.",
     "highlights": [
@@ -73,7 +75,7 @@
     "imageAlt": "L'équipe de Automatech au service des institutions"
   },
   "contact": {
-    "badge": "Contactez-Nous",
+    "badge": "Contactez-nous",
     "title": "Collaborez avec nous pour accélérer votre transformation digitale",
     "subtitle": "Nous sommes là pour répondre à vos questions et vous aider à trouver les meilleurs services pour répondre à vos besoins.",
     "email": "Envoyez-nous un email : info@atech-bf.com",
@@ -110,10 +112,9 @@
     }
   },
   "footer": {
-    "newsletter": {
-      "title": "S'abonner",
-      "subtitle": "Recevez nos actualités par email.",
-      "button": "S'INSCRIRE"
+    "certifications": {
+      "title": "Certifications",
+      "subtitle": "Nos standards de qualité et sécurité reconnus internationalement."
     },
     "social": {
       "title": "Suivez-nous",

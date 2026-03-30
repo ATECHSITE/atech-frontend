@@ -10,12 +10,15 @@ type ProductItem = {
   features: string[];
 };
 
-// Images appropriées pour chaque produit depuis Unsplash
+// Images appropriées pour chaque produit
 const productImages = [
-  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop", // E-governance dashboard
-  "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop", // Analytics/Data visualization
-  "https://images.unsplash.com/photo-1494412519320-aa613dfb7738?w=800&auto=format&fit=crop", // GPS/Logistics tracking
-  "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=800&auto=format&fit=crop", // Mobile app inspection
+  //"https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop", // TRADEVAL - Analytics/Data visualization
+  "/images/tradeval.avif",
+  //"https://images.unsplash.com/photo-1494412519320-aa613dfb7738?w=800&auto=format&fit=crop", // SSEM - GPS/Logistics tracking
+  "/images/ssem.avif",
+  "/images/scanner_hcvg.jpg", // Scanners HCVG Smith Detection
+  "/images/track.avif",
+  //"https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&auto=format&fit=crop", // TRACK+ - GPS tracking device / Electronic beacon
 ];
 
 export default function Products() {
@@ -39,11 +42,11 @@ export default function Products() {
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">{t("subtitle")}</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6">
           {items.map((item, i) => (
-            <div key={i} className="group relative rounded-3xl overflow-hidden border border-gray-100 hover:border-orange-200 hover:shadow-2xl transition-all duration-300 cursor-pointer">
+            <div key={i} className="group relative rounded-2xl overflow-hidden border border-gray-100 hover:border-orange-200 hover:shadow-xl transition-all duration-300 cursor-pointer">
               {/* Product Image */}
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-40 overflow-hidden">
                 <Image
                   src={productImages[i]}
                   alt={item.name}
@@ -52,30 +55,30 @@ export default function Products() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0F2540] via-[#0F2540]/50 to-transparent opacity-80" />
-                <div className="absolute bottom-4 left-6 right-6 z-10">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2" style={{ background: "rgba(232,118,58,0.9)", color: "white" }}>
+                <div className="absolute bottom-3 left-4 right-4 z-10">
+                  <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-1.5" style={{ background: "rgba(232,118,58,0.9)", color: "white" }}>
                     {item.name}
                   </div>
-                  <h3 className="text-xl font-bold text-white">{item.tagline}</h3>
+                  <h3 className="text-lg font-bold text-white">{item.tagline}</h3>
                 </div>
               </div>
 
               {/* Description */}
-              <div className="p-6 bg-gradient-to-br from-[#0F2540] to-[#1B3D6F]">
-                <p className="text-sm text-blue-200/90 leading-relaxed">{item.description}</p>
+              <div className="p-4 bg-gradient-to-br from-[#0F2540] to-[#1B3D6F]">
+                <p className="text-xs text-blue-200/90 leading-relaxed">{item.description}</p>
               </div>
 
               {/* Features list */}
-              <div className="p-8 pt-6 bg-white">
-                <div className="space-y-3">
+              <div className="p-5 bg-white">
+                <div className="space-y-2">
                   {item.features.map((feature, j) => (
-                    <div key={j} className="flex items-start gap-3">
-                      <div className="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "rgba(232,118,58,0.15)" }}>
-                        <svg className="w-3 h-3 text-[#E8763A]" fill="currentColor" viewBox="0 0 20 20">
+                    <div key={j} className="flex items-start gap-2">
+                      <div className="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "rgba(232,118,58,0.15)" }}>
+                        <svg className="w-2.5 h-2.5 text-[#E8763A]" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                       </div>
-                      <span className="text-sm text-gray-700">{feature}</span>
+                      <span className="text-xs text-gray-700">{feature}</span>
                     </div>
                   ))}
                 </div>

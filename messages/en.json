@@ -21,7 +21,7 @@
     "subtitle": "From strategy to implementation, we support you at every step of your digital transformation",
     "items": [
       { "icon": "consulting",  "title": "Strategy & Planning", "description": "Institutional strengthening through training, knowledge transfer, and development of digital strategies aligned with your objectives." },
-      { "icon": "integration", "title": "Industrial Maintenance", "description": "We provide preventive and corrective maintenance for your industrial equipment to ensure availability and optimize performance." },
+      { "icon": "integration", "title": "Customs Scanners - Installation & Maintenance", "description": "Installation, configuration, and preventive and corrective maintenance of X-ray scanners for container and cargo inspection. 24/7 technical support and operator training." },
       { "icon": "analytics",   "title": "Capacity Development", "description": "Building sustainable organizational capacities to ensure autonomy and sustainability of your digital systems." },
       { "icon": "code",        "title": "Custom Digital Solutions", "description": "Design and development of digital platforms tailored to the specific needs of administrations and institutions." },
       { "icon": "automation",  "title": "Artificial Intelligence & Analytics", "description": "Leveraging AI and advanced analytics to optimize your risk management and decision-making processes." },
@@ -33,12 +33,7 @@
     "title": "Ready-to-Deploy Solutions",
     "subtitle": "Innovative digital platforms designed to meet the specific needs of modern administrations",
     "items": [
-      {
-        "name": "GOVERN+",
-        "tagline": "E-Governance Portal",
-        "description": "Connectivity platform between citizens and administrations for access to public services and regulatory information in real-time.",
-        "features": ["Intuitive citizen interface", "Online request management", "Administrative dashboard", "Automatic notifications"]
-      },
+      
       {
         "name": "TRADEVAL",
         "tagline": "Intelligent Valuation & Classification",
@@ -51,11 +46,18 @@
         "description": "Monitoring solution based on GPS, RFID and mobile technologies to locate, monitor in real-time and secure cargo movements. The system alerts agents of any abnormal activity such as container door opening, unauthorized stops and route deviations.",
         "features": ["GPS & RFID Tracking", "Real-time monitoring", "Abnormal activity alerts", "Cargo security"]
       },
+     
       {
-        "name": "INSPECTOR",
-        "tagline": "Mobile Inspection Application",
-        "description": "Mobile application for field inspection data collection, control documentation, and instant reporting.",
-        "features": ["Intuitive mobile interface", "Offline data collection", "Geolocation", "Cloud synchronization"]
+        "name": "NUCTECH",
+        "tagline": "Customs X-Ray Scanners",
+        "description": "Installation, commissioning, and repair of Nuctech X-ray scanners for non-intrusive inspection of containers, vehicles, and cargo. Complete customs control solutions with operator training.",
+        "features": ["Installation & commissioning", "Preventive & corrective maintenance", "Operator training", "24/7 technical support"]
+      },
+      {
+        "name": "TRACK+",
+        "tagline": "Tracking Beacon Maintenance",
+        "description": "Maintenance, repair, and calibration of GPS, RFID beacons and tracking devices for container and cargo monitoring. Advanced diagnostics, component replacement, and performance testing.",
+        "features": ["GPS/RFID beacon repair", "Calibration & testing", "Battery replacement", "Electronic diagnostics"]
       }
     ]
   },
@@ -110,10 +112,9 @@
     }
   },
   "footer": {
-    "newsletter": {
-      "title": "Subscribe",
-      "subtitle": "Receive our news by email.",
-      "button": "SUBSCRIBE"
+    "certifications": {
+      "title": "Certifications",
+      "subtitle": "Our internationally recognized quality and security standards."
     },
     "social": {
       "title": "Follow Us",

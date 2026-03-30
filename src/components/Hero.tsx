@@ -11,7 +11,7 @@ export default function Hero() {
   const images = [
     { src: "/images/male-engineer-analyzed-industry-40-system-smart-manufacturing-plant.jpg", label: "Maintenance Industrielle" },
     { src: "/images/network-switch-with-cables.jpg", label: "Intégration Technologique" },
-    { src: "/images/cyberpunk-location-tracking-mobile-device.jpg", label: "Suivie Electronique" },
+    { src: "/images/cyberpunk-location-tracking-mobile-device.jpg", label: "Suivi Electronique" },
     { src: "/images/programmer-home-office-concentrating-finding-bugs-while-he-codes.jpg", label: "Développement de solutions" },
   ];
 
@@ -31,32 +31,27 @@ export default function Hero() {
         <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-32 lg:pt-40 lg:pb-20">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 sm:pt-32 sm:pb-24 lg:pt-40 lg:pb-28">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left content */}
-          <div>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider mb-6 border border-orange-400/30 text-orange-300" style={{ background: "rgba(232, 118, 58, 0.1)" }}>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E8763A] animate-pulse" />
-              {t("badge")}
-            </div>
-
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight mb-6">
+          <div className="text-center lg:text-left">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight tracking-tight mb-6">
               {t("title")}{" "}
-              <span className="block" style={{ background: "linear-gradient(135deg, #E8763A 0%, #F4A472 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+              <span className="block mt-2" style={{ background: "linear-gradient(135deg, #E8763A 0%, #F4A472 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                 {t("titleHighlight")}
               </span>
             </h1>
 
-            <p className="text-lg text-blue-100/80 leading-relaxed mb-10 max-w-xl">
+            <p className="text-base sm:text-lg lg:text-xl text-blue-100/80 leading-relaxed mb-8 lg:mb-10 max-w-2xl mx-auto lg:mx-0">
               {t("subtitle")}
             </p>
 
-            <div className="flex flex-wrap gap-4">
-              <a href="#services" className="px-7 py-3.5 rounded-full font-semibold text-white transition-all hover:opacity-90 hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2" style={{ background: "linear-gradient(135deg, #E8763A 0%, #F4A472 100%)" }}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a href="#services" className="px-8 py-4 rounded-full font-semibold text-white transition-all hover:opacity-90 hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2" style={{ background: "linear-gradient(135deg, #E8763A 0%, #F4A472 100%)" }}>
                 {t("cta")}
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
               </a>
-              <a href="#contact" className="px-7 py-3.5 rounded-full font-semibold text-white border border-white/20 transition-all hover:bg-white/10 hover:-translate-y-0.5">
+              <a href="#contact" className="px-8 py-4 rounded-full font-semibold text-white border-2 border-white/30 transition-all hover:bg-white/10 hover:border-white/50 hover:-translate-y-0.5">
                 {t("ctaSecondary")}
               </a>
             </div>
@@ -108,14 +103,6 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="mt-12 flex flex-wrap items-center gap-6 text-sm text-blue-200/60">
-              {["5+ projects", "3+ years experience", "98% satisfaction"].map((item) => (
-                <div key={item} className="flex items-center gap-2">
-                  <svg className="w-4 h-4 text-[#E8763A]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
-                  {item}
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Right: Professional Image Showcase */}

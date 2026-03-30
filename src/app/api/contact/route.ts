@@ -26,7 +26,7 @@ export async function POST(request: Request) {
     }
 
     // Send email using Resend
-    const data = await resend.emails.send({
+    const { data, error: sendError } = await resend.emails.send({
       from: 'ATECH Solutions <onboarding@resend.dev>', // Vous devrez configurer votre domaine
       to: [process.env.CONTACT_EMAIL || 'info@atech-bf.com'],
       replyTo: email,
@@ -83,8 +83,12 @@ export async function POST(request: Request) {
       `,
     });
 
+    if (sendError) {
+      throw new Error(sendError.message);
+    }
+
     return NextResponse.json(
-      { success: true, messageId: data.id },
+      { success: true, messageId: data?.id },
       { status: 200 }
     );
   } catch (error) {

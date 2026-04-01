@@ -20,12 +20,54 @@
     "title": "Un accompagnement complet",
     "subtitle": "De la stratégie à la mise en œuvre, nous vous accompagnons à chaque étape de votre transformation digitale",
     "items": [
-      { "icon": "consulting",  "title": "Stratégie & Planification", "description": "Renforcement institutionnel à travers la formation, le transfert de connaissances et l'élaboration de stratégies digitales alignées sur vos objectifs." },
-      { "icon": "integration", "title": "Scanners Douaniers - Installation & Maintenance", "description": "Installation, configuration et maintenance préventive et corrective de scanners à rayons X pour l'inspection de conteneurs et cargaisons. Support technique 24/7 et formation des opérateurs." },
-      { "icon": "analytics",   "title": "Développement des Capacités", "description": "Construction de capacités organisationnelles durables pour assurer l'autonomie et la pérennité de vos systèmes digitaux." },
-      { "icon": "code",        "title": "Solutions Digitales Sur Mesure", "description": "Conception et développement de plateformes digitales adaptées aux besoins spécifiques des administrations et institutions." },
-      { "icon": "automation",  "title": "Intelligence Artificielle & Analytique", "description": "Exploitation de l'IA et de l'analytique avancée pour optimiser vos processus de gestion des risques et de prise de décision." },
-      { "icon": "cloud",       "title": "Infrastructure & Sécurité", "description": "Mise en place d'infrastructures cloud sécurisées et scalables pour garantir la continuité et la protection de vos services." }
+      {
+        "icon": "consulting",
+        "title": "Stratégie & Planification",
+        "description": "Renforcement institutionnel à travers la formation, le transfert de connaissances et l'élaboration de stratégies digitales alignées sur vos objectifs.",
+        "detailedDescription": "Nous aidons les institutions à développer des stratégies complètes de transformation digitale alignées sur leur mission et leurs objectifs. Notre approche combine l'évaluation organisationnelle, l'engagement des parties prenantes et l'élaboration de feuilles de route pour assurer une mise en œuvre réussie.",
+        "keyFeatures": ["Élaboration de feuille de route stratégique", "Évaluation des capacités organisationnelles", "Évaluation de la maturité digitale", "Ateliers avec les parties prenantes", "Planification de la gestion du changement"],
+        "benefits": ["Vision et direction claires", "Risques de mise en œuvre réduits", "Adhésion renforcée des parties prenantes", "Allocation optimisée des ressources"]
+      },
+      {
+        "icon": "integration",
+        "title": "Scanners Douaniers - Installation & Maintenance",
+        "description": "Installation, configuration et maintenance préventive et corrective de scanners à rayons X pour l'inspection de conteneurs et cargaisons. Support technique 24/7 et formation des opérateurs.",
+        "detailedDescription": "Support complet du cycle de vie des équipements de scanners à rayons X douaniers, y compris les systèmes Nuctech. Nous gérons tout, de l'installation initiale et de la configuration à la maintenance continue, à la formation des opérateurs et au support technique 24/7 pour assurer un temps de disponibilité maximal et une efficacité d'inspection optimale.",
+        "keyFeatures": ["Installation et mise en service professionnelles", "Programmes de maintenance préventive", "Services de réparation d'urgence", "Formation et certification des opérateurs", "Hotline de support technique 24/7", "Surveillance et reporting des performances"],
+        "benefits": ["Temps de disponibilité maximisé", "Précision d'inspection améliorée", "Coûts opérationnels réduits", "Efficacité douanière améliorée"]
+      },
+      {
+        "icon": "analytics",
+        "title": "Développement des Capacités",
+        "description": "Construction de capacités organisationnelles durables pour assurer l'autonomie et la pérennité de vos systèmes digitaux.",
+        "detailedDescription": "Nous développons des capacités organisationnelles durables grâce à des programmes de formation complets, des initiatives de transfert de connaissances et des activités de renforcement institutionnel. Notre objectif est de garantir que votre équipe puisse gérer et faire évoluer vos systèmes digitaux de manière autonome.",
+        "keyFeatures": ["Programmes de formation personnalisés", "Ateliers pratiques", "Documentation de transfert de connaissances", "Mentorat et coaching", "Évaluations de compétences", "Support d'apprentissage continu"],
+        "benefits": ["Autonomie accrue de l'équipe", "Opérations digitales durables", "Dépendance réduite au support externe", "Capacité d'innovation renforcée"]
+      },
+      {
+        "icon": "code",
+        "title": "Solutions Digitales Sur Mesure",
+        "description": "Conception et développement de plateformes digitales adaptées aux besoins spécifiques des administrations et institutions.",
+        "detailedDescription": "Nous concevons et développons des plateformes digitales personnalisées qui répondent aux exigences uniques des administrations publiques. Nos solutions sont construites avec des technologies modernes, en suivant les meilleures pratiques en matière de sécurité, d'évolutivité et d'expérience utilisateur.",
+        "keyFeatures": ["Conception centrée sur l'utilisateur", "Technologies web et mobiles modernes", "Intégration avec les systèmes existants", "Architecture évolutive", "Approche axée sur la sécurité", "Méthodologie de développement agile"],
+        "benefits": ["Adaptées à vos besoins spécifiques", "Efficacité opérationnelle améliorée", "Satisfaction utilisateur renforcée", "Stack technologique pérenne"]
+      },
+      {
+        "icon": "automation",
+        "title": "Intelligence Artificielle & Analytique",
+        "description": "Exploitation de l'IA et de l'analytique avancée pour optimiser vos processus de gestion des risques et de prise de décision.",
+        "detailedDescription": "Exploitez la puissance de l'intelligence artificielle et de l'analytique avancée pour transformer vos données en informations exploitables. Nous mettons en œuvre des solutions basées sur l'IA pour la détection des risques, l'analytique prédictive et l'automatisation intelligente afin d'améliorer la prise de décision et l'efficacité opérationnelle.",
+        "keyFeatures": ["Modèles d'analytique prédictive", "Systèmes de détection d'anomalies", "Algorithmes de scoring de risques", "Support de décision automatisé", "Tableaux de bord temps réel", "Intégration de machine learning"],
+        "benefits": ["Prise de décision basée sur les données", "Gestion proactive des risques", "Temps de traitement réduits", "Précision et conformité améliorées"]
+      },
+      {
+        "icon": "cloud",
+        "title": "Infrastructure & Sécurité",
+        "description": "Mise en place d'infrastructures cloud sécurisées et scalables pour garantir la continuité et la protection de vos services.",
+        "detailedDescription": "Construisez une infrastructure digitale robuste et sécurisée qui soutient vos opérations et protège vos données. Nous concevons et mettons en œuvre des solutions basées sur le cloud avec une sécurité de niveau entreprise, une haute disponibilité et des capacités de reprise après sinistre.",
+        "keyFeatures": ["Conception d'architecture cloud", "Renforcement de la sécurité", "Chiffrement des données", "Sauvegarde et reprise après sinistre", "Surveillance des performances", "Gestion de la conformité"],
+        "benefits": ["Fiabilité système renforcée", "Coûts d'infrastructure réduits", "Posture de sécurité améliorée", "Assurance de continuité des activités"]
+      }
     ]
   },
   "products": {

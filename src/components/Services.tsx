@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "@/i18n/context";
+import { useState, useEffect } from "react";
 
 const iconMap: Record<string, React.ReactNode> = {
   code: (
@@ -54,44 +55,149 @@ const iconMap: Record<string, React.ReactNode> = {
   ),
 };
 
-type ServiceItem = { icon: string; title: string; description: string };
+type ServiceItem = {
+  icon: string;
+  title: string;
+  description: string;
+  detailedDescription: string;
+  keyFeatures: string[];
+  benefits: string[];
+};
 
 export default function Services() {
   const t = useTranslations("services");
+  const [selectedService, setSelectedService] = useState<number | null>(null);
 
   const items: ServiceItem[] = [0, 1, 2, 3, 4, 5].map((i) => ({
     icon: t(`items.${i}.icon`),
     title: t(`items.${i}.title`),
     description: t(`items.${i}.description`),
+    detailedDescription: t(`items.${i}.detailedDescription`),
+    keyFeatures: (t.raw(`items.${i}.keyFeatures`) as string[]) || [],
+    benefits: (t.raw(`items.${i}.benefits`) as string[]) || [],
   }));
 
-  return (
-    <section id="services" className="py-16 lg:py-20" style={{ background: "#F8F9FC" }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 text-[#E8763A]" style={{ background: "rgba(232, 118, 58, 0.1)" }}>
-            {t("badge")}
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F2540] mb-4">{t("title")}</h2>
-          <p className="text-lg text-gray-500 max-w-2xl mx-auto">{t("subtitle")}</p>
-        </div>
+  // Bloquer le scroll du site quand la modale est ouverte
+  useEffect(() => {
+    if (selectedService !== null) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {items.map((item, i) => (
-            <div key={i} className="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-orange-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110" style={{ background: "linear-gradient(135deg, rgba(232,118,58,0.1) 0%, rgba(244,164,114,0.1) 100%)", color: "#E8763A" }}>
-                {iconMap[item.icon] ?? iconMap.code}
-              </div>
-              <h3 className="text-lg font-bold text-[#0F2540] mb-3 group-hover:text-[#E8763A] transition-colors">{item.title}</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">{item.description}</p>
-              <div className="mt-6 flex items-center gap-1 text-xs font-semibold text-[#E8763A] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1">
-                Learn more
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-              </div>
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedService]);
+
+  return (
+    <>
+      <section id="services" className="py-16 lg:py-20" style={{ background: "#F8F9FC" }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 text-[#E8763A]" style={{ background: "rgba(232, 118, 58, 0.1)" }}>
+              {t("badge")}
             </div>
-          ))}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F2540] mb-4">{t("title")}</h2>
+            <p className="text-lg text-gray-500 max-w-2xl mx-auto">{t("subtitle")}</p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {items.map((item, i) => (
+              <div
+                key={i}
+                onClick={() => setSelectedService(i)}
+                className="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-orange-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+              >
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110" style={{ background: "linear-gradient(135deg, rgba(232,118,58,0.1) 0%, rgba(244,164,114,0.1) 100%)", color: "#E8763A" }}>
+                  {iconMap[item.icon] ?? iconMap.code}
+                </div>
+                <h3 className="text-lg font-bold text-[#0F2540] mb-3 group-hover:text-[#E8763A] transition-colors">{item.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{item.description}</p>
+                <div className="mt-6 flex items-center gap-1 text-xs font-semibold text-[#E8763A] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1">
+                  Learn more
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Modal */}
+      {selectedService !== null && (
+        <>
+          {/* Side Panel */}
+          <div
+            className="fixed right-6 top-24 bottom-6 w-full max-w-lg bg-white z-40 shadow-2xl rounded-2xl overflow-y-auto"
+            style={{
+              animation: 'slideInRight 0.4s ease-out',
+            }}
+          >
+            <style jsx>{`
+              @keyframes slideInRight {
+                from {
+                  transform: translateX(100%);
+                  opacity: 0;
+                }
+                to {
+                  transform: translateX(0);
+                  opacity: 1;
+                }
+              }
+            `}</style>
+            {/* Header */}
+            <div className="sticky top-0 bg-[#0F2540] px-6 py-5 flex items-center justify-between z-10">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(232,118,58,0.2)", color: "#E8763A" }}>
+                  {iconMap[items[selectedService].icon] ?? iconMap.code}
+                </div>
+                <h3 className="text-xl font-bold text-white">{items[selectedService].title}</h3>
+              </div>
+              <button
+                onClick={() => setSelectedService(null)}
+                className="p-2 hover:bg-white/10 rounded-full transition-colors"
+              >
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Content */}
+            <div className="px-6 py-6 space-y-6">
+              {/* Description */}
+              <div>
+                <h4 className="text-lg font-semibold text-[#0F2540] mb-3">Overview</h4>
+                <p className="text-gray-600 leading-relaxed">{items[selectedService].detailedDescription}</p>
+              </div>
+
+              {/* Key Features */}
+              <div>
+                <h4 className="text-lg font-semibold text-[#0F2540] mb-4">Key Features</h4>
+                <div className="space-y-3">
+                  {items[selectedService].keyFeatures.map((feature, idx) => (
+                    <div key={idx} className="flex items-start gap-3">
+                      <div className="mt-1 flex-shrink-0">
+                        <svg className="w-5 h-5 text-[#E8763A]" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <p className="text-gray-600">{feature}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Benefits */}
+             
+
+              {/* CTA */}
+              
+            </div>
+          </div>
+        </>
+      )}
+    </>
   );
 }

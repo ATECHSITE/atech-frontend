@@ -31,7 +31,7 @@ export function useLocale(): string {
 export function useTranslations(namespace: string) {
   const { messages } = useContext(Ctx);
 
-  return function t(key: string): string {
+  const t = function (key: string): string {
     const fullKey = `${namespace}.${key}`;
     const parts = fullKey.split(".");
     let current: NestedRecord | string = messages;
@@ -44,4 +44,21 @@ export function useTranslations(namespace: string) {
 
     return typeof current === "string" ? current : key;
   };
+
+  // Add raw method to get arrays and objects
+  t.raw = function (key: string): any {
+    const fullKey = `${namespace}.${key}`;
+    const parts = fullKey.split(".");
+    let current: any = messages;
+
+    for (const part of parts) {
+      if (typeof current !== "object" || current === null) return undefined;
+      current = current[part];
+      if (current === undefined) return undefined;
+    }
+
+    return current;
+  };
+
+  return t;
 }

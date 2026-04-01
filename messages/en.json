@@ -20,12 +20,54 @@
     "title": "Comprehensive Support",
     "subtitle": "From strategy to implementation, we support you at every step of your digital transformation",
     "items": [
-      { "icon": "consulting",  "title": "Strategy & Planning", "description": "Institutional strengthening through training, knowledge transfer, and development of digital strategies aligned with your objectives." },
-      { "icon": "integration", "title": "Customs Scanners - Installation & Maintenance", "description": "Installation, configuration, and preventive and corrective maintenance of X-ray scanners for container and cargo inspection. 24/7 technical support and operator training." },
-      { "icon": "analytics",   "title": "Capacity Development", "description": "Building sustainable organizational capacities to ensure autonomy and sustainability of your digital systems." },
-      { "icon": "code",        "title": "Custom Digital Solutions", "description": "Design and development of digital platforms tailored to the specific needs of administrations and institutions." },
-      { "icon": "automation",  "title": "Artificial Intelligence & Analytics", "description": "Leveraging AI and advanced analytics to optimize your risk management and decision-making processes." },
-      { "icon": "cloud",       "title": "Infrastructure & Security", "description": "Implementation of secure and scalable cloud infrastructure to ensure continuity and protection of your services." }
+      {
+        "icon": "consulting",
+        "title": "Strategy & Planning",
+        "description": "Institutional strengthening through training, knowledge transfer, and development of digital strategies aligned with your objectives.",
+        "detailedDescription": "We help institutions develop comprehensive digital transformation strategies that align with their mission and objectives. Our approach combines organizational assessment, stakeholder engagement, and roadmap development to ensure successful implementation.",
+        "keyFeatures": ["Strategic roadmap development", "Organizational capacity assessment", "Digital maturity evaluation", "Stakeholder engagement workshops", "Change management planning"],
+        "benefits": ["Clear vision and direction", "Reduced implementation risks", "Enhanced stakeholder buy-in", "Optimized resource allocation"]
+      },
+      {
+        "icon": "integration",
+        "title": "Customs Scanners - Installation & Maintenance",
+        "description": "Installation, configuration, and preventive and corrective maintenance of X-ray scanners for container and cargo inspection. 24/7 technical support and operator training.",
+        "detailedDescription": "Complete lifecycle support for customs X-ray scanning equipment including Nuctech systems. We handle everything from initial installation and configuration to ongoing maintenance, operator training, and 24/7 technical support to ensure maximum uptime and inspection efficiency.",
+        "keyFeatures": ["Professional installation and commissioning", "Preventive maintenance programs", "Emergency repair services", "Operator training and certification", "24/7 technical support hotline", "Performance monitoring and reporting"],
+        "benefits": ["Maximized equipment uptime", "Enhanced inspection accuracy", "Reduced operational costs", "Improved customs efficiency"]
+      },
+      {
+        "icon": "analytics",
+        "title": "Capacity Development",
+        "description": "Building sustainable organizational capacities to ensure autonomy and sustainability of your digital systems.",
+        "detailedDescription": "We build lasting organizational capabilities through comprehensive training programs, knowledge transfer initiatives, and institutional strengthening activities. Our goal is to ensure your team can independently manage and evolve your digital systems.",
+        "keyFeatures": ["Customized training programs", "Hands-on workshops", "Knowledge transfer documentation", "Mentoring and coaching", "Competency assessments", "Continuous learning support"],
+        "benefits": ["Increased team autonomy", "Sustainable digital operations", "Reduced dependency on external support", "Enhanced innovation capability"]
+      },
+      {
+        "icon": "code",
+        "title": "Custom Digital Solutions",
+        "description": "Design and development of digital platforms tailored to the specific needs of administrations and institutions.",
+        "detailedDescription": "We design and develop custom digital platforms that address the unique requirements of public administrations. Our solutions are built using modern technologies, following best practices for security, scalability, and user experience.",
+        "keyFeatures": ["User-centered design", "Modern web and mobile technologies", "Integration with existing systems", "Scalable architecture", "Security-first approach", "Agile development methodology"],
+        "benefits": ["Tailored to your specific needs", "Improved operational efficiency", "Enhanced user satisfaction", "Future-proof technology stack"]
+      },
+      {
+        "icon": "automation",
+        "title": "Artificial Intelligence & Analytics",
+        "description": "Leveraging AI and advanced analytics to optimize your risk management and decision-making processes.",
+        "detailedDescription": "Harness the power of artificial intelligence and advanced analytics to transform your data into actionable insights. We implement AI-driven solutions for risk detection, predictive analytics, and intelligent automation to enhance decision-making and operational efficiency.",
+        "keyFeatures": ["Predictive analytics models", "Anomaly detection systems", "Risk scoring algorithms", "Automated decision support", "Real-time dashboards", "Machine learning integration"],
+        "benefits": ["Data-driven decision making", "Proactive risk management", "Reduced processing times", "Improved accuracy and compliance"]
+      },
+      {
+        "icon": "cloud",
+        "title": "Infrastructure & Security",
+        "description": "Implementation of secure and scalable cloud infrastructure to ensure continuity and protection of your services.",
+        "detailedDescription": "Build robust and secure digital infrastructure that supports your operations and protects your data. We design and implement cloud-based solutions with enterprise-grade security, high availability, and disaster recovery capabilities.",
+        "keyFeatures": ["Cloud architecture design", "Security hardening", "Data encryption", "Backup and disaster recovery", "Performance monitoring", "Compliance management"],
+        "benefits": ["Enhanced system reliability", "Reduced infrastructure costs", "Improved security posture", "Business continuity assurance"]
+      }
     ]
   },
   "products": {

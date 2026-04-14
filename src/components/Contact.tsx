@@ -203,10 +203,13 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-[#E8763A] hover:bg-[#d6692f] text-white font-semibold py-4 rounded-lg transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
+                    className="w-full bg-[#E8763A] hover:bg-[#d6692f] text-white font-semibold py-4 rounded-lg transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-md hover:shadow-lg relative overflow-hidden"
                   >
+                    {loading && (
+                      <span className="absolute inset-0 animate-shimmer" />
+                    )}
                     {loading ? (
-                      <span className="flex items-center justify-center gap-2">
+                      <span className="flex items-center justify-center gap-2 relative z-10">
                         <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
@@ -214,7 +217,7 @@ export default function Contact() {
                         Envoi...
                       </span>
                     ) : (
-                      t("form.submit")
+                      <span className="relative z-10">{t("form.submit")}</span>
                     )}
                   </button>
                 </form>

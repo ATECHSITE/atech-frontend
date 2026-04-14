@@ -2,6 +2,7 @@
 
 import { useTranslations } from "@/i18n/context";
 import Image from "next/image";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 type ProductItem = {
   name: string;
@@ -23,6 +24,7 @@ const productImages = [
 
 export default function Products() {
   const t = useTranslations("products");
+  const { ref, isVisible } = useScrollAnimation();
 
   const items: ProductItem[] = [0, 1, 2, 3].map((i) => ({
     name: t(`items.${i}.name`),
@@ -32,10 +34,16 @@ export default function Products() {
   }));
 
   return (
-    <section id="products" className="py-16 lg:py-20 bg-white">
+    <section
+      ref={ref as React.RefObject<HTMLElement>}
+      id="products"
+      className={`py-16 lg:py-20 bg-white transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 text-[#E8763A]" style={{ background: "rgba(232, 118, 58, 0.1)" }}>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 text-[#E8763A] opacity-0" style={{ background: "rgba(232, 118, 58, 0.1)", animation: 'bounce-in 0.6s ease-out 0.1s forwards' }}>
             {t("badge")}
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F2540] mb-4">{t("title")}</h2>
@@ -44,50 +52,57 @@ export default function Products() {
 
         <div className="grid md:grid-cols-2 gap-6">
           {items.map((item, i) => (
-            <div key={i} className="group relative rounded-2xl overflow-hidden border border-gray-100 hover:border-orange-200 hover:shadow-xl transition-all duration-300 cursor-pointer">
+            <div
+              key={i}
+              className="group relative rounded-2xl overflow-hidden border border-gray-100 hover:border-orange-200 hover:shadow-2xl transition-all duration-500 cursor-pointer hover:-translate-y-2 opacity-0 animate-fade-in-up"
+              style={{
+                animationDelay: `${i * 150}ms`,
+                animationFillMode: 'forwards'
+              }}
+            >
               {/* Product Image */}
-              <div className="relative h-40 overflow-hidden">
+              <div className="relative h-48 overflow-hidden">
                 <Image
                   src={productImages[i]}
                   alt={item.name}
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F2540] via-[#0F2540]/50 to-transparent opacity-80" />
-                <div className="absolute bottom-3 left-4 right-4 z-10">
-                  <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-1.5" style={{ background: "rgba(232,118,58,0.9)", color: "white" }}>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0F2540] via-[#0F2540]/60 to-transparent opacity-90 group-hover:opacity-95 transition-opacity" />
+                <div className="absolute bottom-4 left-5 right-5 z-10">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-2 shadow-lg" style={{ background: "rgba(232,118,58,0.95)", color: "white" }}>
                     {item.name}
                   </div>
-                  <h3 className="text-lg font-bold text-white">{item.tagline}</h3>
+                  <h3 className="text-xl font-bold text-white group-hover:text-[#E8763A] transition-colors">{item.tagline}</h3>
                 </div>
               </div>
 
               {/* Description */}
               <div className="p-4 bg-gradient-to-br from-[#0F2540] to-[#1B3D6F]">
-                <p className="text-xs text-blue-200/90 leading-relaxed">{item.description}</p>
+                <p className="text-sm text-blue-100 leading-relaxed">{item.description}</p>
               </div>
 
               {/* Features list */}
-              <div className="p-5 bg-white">
-                <div className="space-y-2">
+              <div className="p-6 bg-white">
+                <div className="space-y-3">
                   {item.features.map((feature, j) => (
-                    <div key={j} className="flex items-start gap-2">
-                      <div className="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "rgba(232,118,58,0.15)" }}>
-                        <svg className="w-2.5 h-2.5 text-[#E8763A]" fill="currentColor" viewBox="0 0 20 20">
+                    <div key={j} className="flex items-start gap-3 group/feature">
+                      <div className="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 transition-all group-hover/feature:scale-110" style={{ background: "rgba(232,118,58,0.15)" }}>
+                        <svg className="w-3 h-3 text-[#E8763A]" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                       </div>
-                      <span className="text-xs text-gray-700">{feature}</span>
+                      <span className="text-sm text-gray-700 leading-relaxed">{feature}</span>
                     </div>
                   ))}
                 </div>
 
                 {/* Call to action */}
                 <div className="mt-6 pt-6 border-t border-gray-100">
-                  <button className="text-sm font-semibold text-[#E8763A] flex items-center gap-2 hover:gap-3 transition-all">
+                  <button className="group/btn text-sm font-bold text-[#E8763A] flex items-center gap-2 hover:gap-4 transition-all">
                     En savoir plus
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </button>

@@ -5,12 +5,14 @@ import Products from "@/components/Products";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import ScrollProgress from "@/components/ScrollProgress";
 
 export const dynamic = "force-dynamic";
 
 export default function HomePage() {
   return (
     <main>
+      <ScrollProgress />
       <Navbar />
       <Hero />
       <Services />

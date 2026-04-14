@@ -68,9 +68,25 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50%       { transform: translateY(-8px); }
+}
+
+@keyframes bounce-in {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
 }
 
 .animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
@@ -80,3 +96,73 @@ body {
 ::-webkit-scrollbar-track { background: var(--atech-gray-100); }
 ::-webkit-scrollbar-thumb { background: var(--atech-orange); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--atech-navy); }
+
+/* Micro-interactions */
+@keyframes ripple {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(232, 118, 58, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(232, 118, 58, 0); }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.cursor-interactive {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.cursor-interactive:hover {
+  transform: scale(1.02);
+}
+
+.animate-ripple {
+  animation: ripple 0.6s ease-out;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.3) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  background-size: 1000px 100%;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+.gradient-animate {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Ripple effect */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.6);
+  width: 100px;
+  height: 100px;
+  pointer-events: none;
+  animation: ripple 0.6s ease-out;
+}
+
+button, a {
+  position: relative;
+  overflow: hidden;
+}

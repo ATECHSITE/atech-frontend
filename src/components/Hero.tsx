@@ -3,10 +3,15 @@
 import { useTranslations } from "@/i18n/context";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { useRipple } from "@/hooks/useRipple";
+import { useMagnetic } from "@/hooks/useMagnetic";
 
 export default function Hero() {
   const t = useTranslations("hero");
   const [currentImage, setCurrentImage] = useState(0);
+  const [scrollY, setScrollY] = useState(0);
+  const { createRipple } = useRipple();
+  const magneticCTA = useMagnetic(0.25);
 
   const images = [
     { src: "/images/male-engineer-analyzed-industry-40-system-smart-manufacturing-plant.jpg", label: "Maintenance Industrielle" },
@@ -22,12 +27,32 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, [images.length]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden" style={{ background: "linear-gradient(135deg, #0F2540 0%, #1B3D6F 60%, #2A5298 100%)" }}>
-      {/* Background decor */}
+      {/* Background decor with parallax */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full opacity-10" style={{ background: "radial-gradient(circle, #E8763A 0%, transparent 70%)" }} />
-        <div className="absolute bottom-0 -left-32 w-80 h-80 rounded-full opacity-10" style={{ background: "radial-gradient(circle, #F4A472 0%, transparent 70%)" }} />
+        <div
+          className="absolute -top-24 -right-24 w-96 h-96 rounded-full opacity-10 transition-transform duration-300"
+          style={{
+            background: "radial-gradient(circle, #E8763A 0%, transparent 70%)",
+            transform: `translate(${scrollY * 0.1}px, ${scrollY * 0.15}px)`
+          }}
+        />
+        <div
+          className="absolute bottom-0 -left-32 w-80 h-80 rounded-full opacity-10 transition-transform duration-300"
+          style={{
+            background: "radial-gradient(circle, #F4A472 0%, transparent 70%)",
+            transform: `translate(${-scrollY * 0.08}px, ${-scrollY * 0.1}px)`
+          }}
+        />
         <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
       </div>
 
@@ -35,23 +60,36 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left content */}
           <div className="text-center lg:text-left">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight tracking-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight tracking-tight mb-6 opacity-0" style={{ animation: 'slideInLeft 0.8s ease-out 0.2s forwards' }}>
               {t("title")}{" "}
               <span className="block mt-2" style={{ background: "linear-gradient(135deg, #E8763A 0%, #F4A472 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                 {t("titleHighlight")}
               </span>
             </h1>
 
-            <p className="text-base sm:text-lg lg:text-xl text-blue-100/80 leading-relaxed mb-8 lg:mb-10 max-w-2xl mx-auto lg:mx-0">
+            <p className="text-base sm:text-lg lg:text-xl text-blue-50/95 leading-relaxed mb-8 lg:mb-10 max-w-2xl mx-auto lg:mx-0 opacity-0" style={{ animation: 'slideInLeft 0.8s ease-out 0.4s forwards' }}>
               {t("subtitle")}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <a href="#services" className="px-8 py-4 rounded-full font-semibold text-white transition-all hover:opacity-90 hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2" style={{ background: "linear-gradient(135deg, #E8763A 0%, #F4A472 100%)" }}>
-                {t("cta")}
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start opacity-0" style={{ animation: 'fadeInUp 0.8s ease-out 0.6s forwards' }}>
+              <a
+                ref={magneticCTA.ref as React.RefObject<HTMLAnchorElement>}
+                href="#contact"
+                onClick={createRipple}
+                onMouseMove={magneticCTA.onMouseMove}
+                onMouseLeave={magneticCTA.onMouseLeave}
+                className="group px-8 py-4 rounded-full font-bold text-white transition-all duration-300 hover:shadow-2xl flex items-center justify-center gap-2 relative overflow-hidden will-change-transform"
+                style={{ background: "linear-gradient(135deg, #E8763A 0%, #F4A472 100%)" }}
+              >
+                <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+                <span className="relative">{t("cta")}</span>
+                <svg className="w-5 h-5 relative group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
               </a>
-              <a href="#contact" className="px-8 py-4 rounded-full font-semibold text-white border-2 border-white/30 transition-all hover:bg-white/10 hover:border-white/50 hover:-translate-y-0.5">
+              <a
+                href="#services"
+                onClick={createRipple}
+                className="px-8 py-4 rounded-full font-semibold text-white border-2 border-white/40 backdrop-blur-sm transition-all hover:bg-white/15 hover:border-white/60 hover:-translate-y-1 hover:shadow-lg"
+              >
                 {t("ctaSecondary")}
               </a>
             </div>
@@ -72,6 +110,8 @@ export default function Hero() {
                       fill
                       className="object-cover"
                       priority={idx === 0}
+                      quality={85}
+                      sizes="(max-width: 1024px) 100vw, 560px"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0F2540]/80 via-transparent to-transparent" />
                   </div>

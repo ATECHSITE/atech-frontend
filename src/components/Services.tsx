@@ -2,6 +2,7 @@
 
 import { useTranslations } from "@/i18n/context";
 import { useState, useEffect } from "react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const iconMap: Record<string, React.ReactNode> = {
   code: (
@@ -67,6 +68,7 @@ type ServiceItem = {
 export default function Services() {
   const t = useTranslations("services");
   const [selectedService, setSelectedService] = useState<number | null>(null);
+  const { ref, isVisible } = useScrollAnimation();
 
   const items: ServiceItem[] = [0, 1, 2, 3, 4, 5].map((i) => ({
     icon: t(`items.${i}.icon`),
@@ -92,10 +94,17 @@ export default function Services() {
 
   return (
     <>
-      <section id="services" className="py-16 lg:py-20" style={{ background: "#F8F9FC" }}>
+      <section
+        ref={ref as React.RefObject<HTMLElement>}
+        id="services"
+        className={`py-16 lg:py-20 transition-all duration-1000 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+        style={{ background: "#F8F9FC" }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 text-[#E8763A]" style={{ background: "rgba(232, 118, 58, 0.1)" }}>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 text-[#E8763A] opacity-0" style={{ background: "rgba(232, 118, 58, 0.1)", animation: 'bounce-in 0.6s ease-out 0.1s forwards' }}>
               {t("badge")}
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F2540] mb-4">{t("title")}</h2>
@@ -107,13 +116,21 @@ export default function Services() {
               <div
                 key={i}
                 onClick={() => setSelectedService(i)}
-                className="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-orange-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+                className="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-orange-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer opacity-0 animate-fade-in-up relative overflow-hidden"
+                style={{
+                  animationDelay: `${i * 100}ms`,
+                  animationFillMode: 'forwards'
+                }}
               >
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110" style={{ background: "linear-gradient(135deg, rgba(232,118,58,0.1) 0%, rgba(244,164,114,0.1) 100%)", color: "#E8763A" }}>
+                {/* Glow effect on hover */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-100/30 to-transparent animate-shimmer" />
+                </div>
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 relative z-10" style={{ background: "linear-gradient(135deg, rgba(232,118,58,0.1) 0%, rgba(244,164,114,0.1) 100%)", color: "#E8763A" }}>
                   {iconMap[item.icon] ?? iconMap.code}
                 </div>
-                <h3 className="text-lg font-bold text-[#0F2540] mb-3 group-hover:text-[#E8763A] transition-colors">{item.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{item.description}</p>
+                <h3 className="text-lg font-bold text-[#0F2540] mb-3 group-hover:text-[#E8763A] transition-colors relative z-10">{item.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed relative z-10">{item.description}</p>
                 <div className="mt-6 flex items-center gap-1 text-xs font-semibold text-[#E8763A] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1">
                   Learn more
                   <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
@@ -127,12 +144,19 @@ export default function Services() {
       {/* Modal */}
       {selectedService !== null && (
         <>
-          {/* Side Panel */}
+          {/* Backdrop */}
           <div
-            className="fixed right-6 top-24 bottom-6 w-full max-w-lg bg-white z-40 shadow-2xl rounded-2xl overflow-y-auto"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 animate-fadeIn"
+            onClick={() => setSelectedService(null)}
+          />
+
+          {/* Modal Panel - Responsive */}
+          <div
+            className="fixed inset-x-4 top-20 bottom-4 md:right-6 md:left-auto md:top-24 md:bottom-6 w-auto md:max-w-lg bg-white z-50 shadow-2xl rounded-2xl overflow-y-auto"
             style={{
               animation: 'slideInRight 0.4s ease-out',
             }}
+            onClick={(e) => e.stopPropagation()}
           >
             <style jsx>{`
               @keyframes slideInRight {
@@ -144,6 +168,17 @@ export default function Services() {
                   transform: translateX(0);
                   opacity: 1;
                 }
+              }
+              @keyframes fadeIn {
+                from {
+                  opacity: 0;
+                }
+                to {
+                  opacity: 1;
+                }
+              }
+              .animate-fadeIn {
+                animation: fadeIn 0.3s ease-out;
               }
             `}</style>
             {/* Header */}

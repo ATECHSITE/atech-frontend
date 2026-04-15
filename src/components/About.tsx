@@ -2,13 +2,21 @@
 
 import { useTranslations } from "@/i18n/context";
 import Logo from "./Logo";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function About() {
   const t = useTranslations("about");
   const highlights: string[] = [0, 1, 2, 3].map((i) => t(`highlights.${i}`));
+  const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="about" className="py-16 lg:py-20 bg-white overflow-hidden">
+    <section
+      ref={ref as React.RefObject<HTMLElement>}
+      id="about"
+      className={`py-16 lg:py-20 bg-white overflow-hidden transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
@@ -42,7 +50,7 @@ export default function About() {
 
           {/* Right: Text */}
           <div className="order-1 lg:order-2">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 text-[#E8763A]" style={{ background: "rgba(232,118,58,0.1)" }}>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 text-[#E8763A] opacity-0" style={{ background: "rgba(232,118,58,0.1)", animation: 'bounce-in 0.6s ease-out 0.1s forwards' }}>
               {t("badge")}
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#0F2540] mb-6 leading-tight">{t("title")}</h2>

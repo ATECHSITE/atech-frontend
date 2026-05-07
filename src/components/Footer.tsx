@@ -3,10 +3,35 @@
 import { useTranslations, useLocale } from "@/i18n/context";
 import Link from "next/link";
 import Logo from "./Logo";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+
+type Client = {
+  name: string;
+  logo: string;
+};
+
+type Partner = {
+  name: string;
+  logo: string;
+};
+
+type ClientsPartnersData = {
+  clients: Client[];
+  partners: Partner[];
+};
 
 export default function Footer() {
   const t = useTranslations("footer");
   const locale = useLocale();
+  const [data, setData] = useState<ClientsPartnersData>({ clients: [], partners: [] });
+
+  useEffect(() => {
+    fetch('/data/clients-partners.json')
+      .then(res => res.json())
+      .then(setData)
+      .catch(err => console.error('Error loading clients/partners:', err));
+  }, []);
 
   const legalLinks = [0, 1, 2, 3].map((i) => t(`legal.${i}`));
 
@@ -20,10 +45,10 @@ export default function Footer() {
 
   return (
     <footer>
-      {/* Newsletter & Social Section */}
+      {/* Clients & Partners Section */}
       <div className="relative overflow-hidden">
-        {/* Background Orange */}
-        <div className="absolute inset-0 bg-[#E8763A]" />
+        {/* Background White */}
+        <div className="absolute inset-0 bg-white" />
 
         {/* Diagonal Blue Section */}
         <div className="absolute inset-0 hidden md:block">
@@ -34,61 +59,71 @@ export default function Footer() {
 
         {/* Content */}
         <div className="relative flex flex-col md:flex-row">
-          {/* Certifications & Partners - Blue Section (40%) */}
+          {/* Clients - Blue Section (40%) */}
           <div className="bg-[#1B3D6F] md:bg-transparent px-8 md:px-16 py-16 flex items-center justify-center md:w-[40%]">
             <div className="max-w-md w-full relative z-10">
               <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                {t("certifications.title")}
+                {t("clients.title")}
               </h3>
               <p className="text-blue-100/80 text-base mb-6">
-                {t("certifications.subtitle")}
+                {t("clients.subtitle")}
               </p>
 
-              {/* Certification badges */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:bg-white/15 transition-all">
-                  <div className="flex items-center gap-2 mb-2">
-                    <svg className="w-5 h-5 text-[#E8763A]" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-white text-xs font-bold">ISO 9001</span>
-                  </div>
-                  <p className="text-blue-200/70 text-xs">Qualité</p>
+              {/* Client logos */}
+              {data.clients.length > 0 && (
+                <div className={`grid gap-4 ${
+                  data.clients.length === 1 ? 'grid-cols-1' :
+                  data.clients.length === 2 ? 'grid-cols-2' :
+                  'grid-cols-2'
+                }`}>
+                  {data.clients.map((client, i) => (
+                    <div key={i} className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:bg-white/15 transition-all flex items-center justify-center">
+                      <div className="relative w-full h-12">
+                        <Image
+                          src={client.logo}
+                          alt={client.name}
+                          fill
+                          className="object-contain grayscale hover:grayscale-0 transition-all"
+                          sizes="200px"
+                        />
+                      </div>
+                    </div>
+                  ))}
                 </div>
-
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:bg-white/15 transition-all">
-                  <div className="flex items-center gap-2 mb-2">
-                    <svg className="w-5 h-5 text-[#E8763A]" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-white text-xs font-bold">ISO 27001</span>
-                  </div>
-                  <p className="text-blue-200/70 text-xs">Sécurité</p>
-                </div>
-              </div>
+              )}
             </div>
           </div>
 
-          {/* Social Media - Orange Section (60%) */}
+          {/* Partners - White Section (60%) */}
           <div className="px-8 md:px-16 py-16 flex items-center justify-center md:w-[60%]">
             <div className="max-w-md w-full">
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                {t("social.title")}
+              <h3 className="text-3xl md:text-4xl font-bold text-[#0F2540] mb-3">
+                {t("partners.title")}
               </h3>
-              <p className="text-white/90 text-base mb-8">
-                {t("social.subtitle")}
+              <p className="text-gray-600 text-base mb-8">
+                {t("partners.subtitle")}
               </p>
-              <div className="flex gap-4">
-                {socials.map((s) => (
-                  <a
-                    key={s.name}
-                    href="#"
-                    className="w-12 h-12 rounded-full border-2 border-white/50 flex items-center justify-center text-white hover:bg-white hover:text-[#E8763A] transition-all"
-                  >
-                    <span className="w-5 h-5">{s.svg}</span>
-                  </a>
-                ))}
-              </div>
+              {data.partners.length > 0 && (
+                <div className={`grid gap-4 ${
+                  data.partners.length === 1 ? 'grid-cols-1' :
+                  data.partners.length === 2 ? 'grid-cols-2' :
+                  'grid-cols-2'
+                }`}>
+                  {data.partners.map((partner, i) => (
+                    <div key={i} className="bg-gray-100 rounded-xl p-4 border border-gray-200 hover:border-[#E8763A] hover:shadow-md transition-all flex items-center justify-center">
+                      <div className="relative w-full h-12">
+                        <Image
+                          src={partner.logo}
+                          alt={partner.name}
+                          fill
+                          className="object-contain grayscale hover:grayscale-0 transition-all"
+                          sizes="200px"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>

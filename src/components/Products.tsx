@@ -13,20 +13,21 @@ type ProductItem = {
 
 // Images appropriées pour chaque produit
 const productImages = [
-  //"https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop", // TRADEVAL - Analytics/Data visualization
-  "/images/tradeval.avif",
-  //"https://images.unsplash.com/photo-1494412519320-aa613dfb7738?w=800&auto=format&fit=crop", // SSEM - GPS/Logistics tracking
-  "/images/ssem.avif",
-  "/images/scanner_hcvg.jpg", // Scanners HCVG Smith Detection
-  "/images/track.avif",
-  //"https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&auto=format&fit=crop", // TRACK+ - GPS tracking device / Electronic beacon
+  "/images/cyberpunk-location-tracking-mobile-device.jpg", // CONNECT - Digital Communication
+  "/images/male-engineer-analyzed-industry-40-system-smart-manufacturing-plant.jpg", // DETECT - Risk Management
+  "/images/tradeval.avif", // TRADEVAL
+  "/images/programmer-home-office-concentrating-finding-bugs-while-he-codes.jpg", // REPORTER - Mobile inspection
+  "/images/analyse.jpg", // ANALYTICA - BI
+  "/images/pesage.png", // Weighing in Motion
+  "/images/drive.png", // Driver License & Vehicle Registration
+  "/images/trafik.jpg", // SAFEROAD - Traffic Management
 ];
 
 export default function Products() {
   const t = useTranslations("products");
   const { ref, isVisible } = useScrollAnimation();
 
-  const items: ProductItem[] = [0, 1, 2, 3].map((i) => ({
+  const items: ProductItem[] = [0, 1, 2, 3, 4, 5, 6, 7].map((i) => ({
     name: t(`items.${i}.name`),
     tagline: t(`items.${i}.tagline`),
     description: t(`items.${i}.description`),
@@ -50,7 +51,7 @@ export default function Products() {
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">{t("subtitle")}</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {items.map((item, i) => (
             <div
               key={i}

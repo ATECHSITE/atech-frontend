@@ -3,57 +3,12 @@
 import { useTranslations } from "@/i18n/context";
 import { useState, useEffect } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import Image from "next/image";
 
-const iconMap: Record<string, React.ReactNode> = {
-  code: (
-    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-      <path d="M8 8L3 12L8 16" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M16 8L21 12L16 16" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
-      <circle cx="12" cy="6" r="1" fill="currentColor" opacity="0.5"/>
-      <circle cx="12" cy="18" r="1" fill="currentColor" opacity="0.5"/>
-    </svg>
-  ),
-  automation: (
-    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-      <circle cx="12" cy="12" r="3" strokeWidth="2"/>
-      <path d="M12 2V6M12 18V22M22 12H18M6 12H2" strokeWidth="2" strokeLinecap="round"/>
-      <path d="M19 5L16.5 7.5M7.5 16.5L5 19M19 19L16.5 16.5M7.5 7.5L5 5" strokeWidth="1.5" strokeLinecap="round"/>
-      <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
-    </svg>
-  ),
-  cloud: (
-    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-      <path d="M18 10C19.7 10 21 11.3 21 13C21 14.7 19.7 16 18 16H7C4.8 16 3 14.2 3 12C3 9.9 4.6 8.2 6.6 8C7.2 5.6 9.4 4 12 4C15 4 17.4 6.2 17.9 9.1C17.9 9.1 18 9.1 18 9.1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M9 14L9 19M12 14L12 19M15 14L15 19" strokeWidth="1.5" strokeLinecap="round" opacity="0.6"/>
-    </svg>
-  ),
-  analytics: (
-    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-      <path d="M3 17L7 13L11 17L17 8L21 12" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      <circle cx="7" cy="13" r="1.5" fill="currentColor"/>
-      <circle cx="11" cy="17" r="1.5" fill="currentColor"/>
-      <circle cx="17" cy="8" r="1.5" fill="currentColor"/>
-      <path d="M21 21H3" strokeWidth="2" strokeLinecap="round"/>
-    </svg>
-  ),
-  consulting: (
-    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-      <circle cx="12" cy="10" r="3" strokeWidth="2"/>
-      <path d="M12 7V2M9 8L5.5 4.5M15 8L18.5 4.5" strokeWidth="1.5" strokeLinecap="round"/>
-      <path d="M6 21C6 18 8.5 15.5 12 15.5C15.5 15.5 18 18 18 21" strokeWidth="2" strokeLinecap="round"/>
-      <path d="M8 17L6 22M16 17L18 22" strokeWidth="1.5" strokeLinecap="round" opacity="0.6"/>
-    </svg>
-  ),
-  integration: (
-    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-      <rect x="3" y="3" width="7" height="7" rx="1.5" strokeWidth="2"/>
-      <rect x="14" y="3" width="7" height="7" rx="1.5" strokeWidth="2"/>
-      <rect x="3" y="14" width="7" height="7" rx="1.5" strokeWidth="2"/>
-      <rect x="14" y="14" width="7" height="7" rx="1.5" strokeWidth="2"/>
-      <path d="M10.5 6.5H13.5M6.5 10.5V13.5M17.5 10.5V13.5M10.5 17.5H13.5" strokeWidth="1.5" strokeLinecap="round"/>
-    </svg>
-  ),
+const iconMap: Record<string, string> = {
+  consulting: "/images/icones/planning.png",
+  integration: "/images/icones/support.png",
+  analytics: "/images/icones/developpement.png",
 };
 
 type ServiceItem = {
@@ -70,7 +25,7 @@ export default function Services() {
   const [selectedService, setSelectedService] = useState<number | null>(null);
   const { ref, isVisible } = useScrollAnimation();
 
-  const items: ServiceItem[] = [0, 1, 2, 3, 4, 5].map((i) => ({
+  const items: ServiceItem[] = [0, 1, 2].map((i) => ({
     icon: t(`items.${i}.icon`),
     title: t(`items.${i}.title`),
     description: t(`items.${i}.description`),
@@ -97,44 +52,53 @@ export default function Services() {
       <section
         ref={ref as React.RefObject<HTMLElement>}
         id="services"
-        className={`py-16 lg:py-20 transition-all duration-1000 ${
+        className={`py-20 lg:py-28 transition-all duration-1000 bg-white ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
-        style={{ background: "#F8F9FC" }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 text-[#E8763A] opacity-0" style={{ background: "rgba(232, 118, 58, 0.1)", animation: 'bounce-in 0.6s ease-out 0.1s forwards' }}>
-              {t("badge")}
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F2540] mb-4">{t("title")}</h2>
-            <p className="text-lg text-gray-500 max-w-2xl mx-auto">{t("subtitle")}</p>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0F2540] mb-6">{t("title")}</h2>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">{t("subtitle")}</p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-10 max-w-6xl mx-auto">
             {items.map((item, i) => (
               <div
                 key={i}
                 onClick={() => setSelectedService(i)}
-                className="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-orange-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer opacity-0 animate-fade-in-up relative overflow-hidden"
+                className="group rounded-3xl p-10 bg-white border-2 border-gray-200 hover:border-[#2B7BE5] hover:shadow-xl transition-all duration-300 cursor-pointer opacity-0 animate-fade-in-up relative"
                 style={{
-                  animationDelay: `${i * 100}ms`,
+                  animationDelay: `${i * 150}ms`,
                   animationFillMode: 'forwards'
                 }}
               >
-                {/* Glow effect on hover */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-100/30 to-transparent animate-shimmer" />
+                <div className="w-16 h-16 rounded-2xl bg-gray-100 flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110">
+                  <div className="relative w-10 h-10">
+                    <Image
+                      src={iconMap[item.icon] || "/images/icones/planning.png"}
+                      alt={item.title}
+                      fill
+                      className="object-contain"
+                      sizes="40px"
+                    />
+                  </div>
                 </div>
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 relative z-10" style={{ background: "linear-gradient(135deg, rgba(232,118,58,0.1) 0%, rgba(244,164,114,0.1) 100%)", color: "#E8763A" }}>
-                  {iconMap[item.icon] ?? iconMap.code}
-                </div>
-                <h3 className="text-lg font-bold text-[#0F2540] mb-3 group-hover:text-[#E8763A] transition-colors relative z-10">{item.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed relative z-10">{item.description}</p>
-                <div className="mt-6 flex items-center gap-1 text-xs font-semibold text-[#E8763A] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1">
-                  Learn more
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                </div>
+
+                <h3 className="text-xl font-bold mb-4 text-[#0F2540] group-hover:text-[#2B7BE5] transition-colors">
+                  {item.title}
+                </h3>
+
+                <p className="text-base leading-relaxed mb-6 text-gray-600">
+                  {item.description}
+                </p>
+
+                <button className="flex items-center gap-2 text-sm font-semibold text-[#2B7BE5] transition-all duration-300 group-hover:gap-3">
+                  En savoir plus
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </button>
               </div>
             ))}
           </div>
@@ -184,8 +148,16 @@ export default function Services() {
             {/* Header */}
             <div className="sticky top-0 bg-[#0F2540] px-6 py-5 flex items-center justify-between z-10">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(232,118,58,0.2)", color: "#E8763A" }}>
-                  {iconMap[items[selectedService].icon] ?? iconMap.code}
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 p-2" style={{ background: "rgba(255,255,255,0.9)" }}>
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={iconMap[items[selectedService].icon] || "/images/icones/planning.png"}
+                      alt={items[selectedService].title}
+                      fill
+                      className="object-contain"
+                      sizes="40px"
+                    />
+                  </div>
                 </div>
                 <h3 className="text-xl font-bold text-white">{items[selectedService].title}</h3>
               </div>

@@ -1,0 +1,24 @@
+{
+  "clients": [
+    {
+      "name": "DOUANE Burkina",
+      "logo": "/images/clients/client1.png"
+    }
+    
+  ],
+  "partners": [
+    {
+      "name": "Digitek Consulting",
+      "logo": "/images/partners/partner1.png"
+    },
+    {
+      "name": "Smith Detection",
+      "logo": "/images/partners/Smiths_logo.jpg"
+    },
+    {
+      "name": "Nutech",
+      "logo": "/images/partners/Nuctech-logo.png"
+    }
+    
+  ]
+}

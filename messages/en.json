@@ -17,56 +17,32 @@
   },
   "services": {
     "badge": "Our Services",
-    "title": "Comprehensive Support",
-    "subtitle": "From strategy to implementation, we support you at every step of your digital transformation",
+    "title": "Our Services",
+    "subtitle": "With our deep industry expertise, we help Public Administrations evaluate their processes, define strategies for digital growth, and optimize operations. From assessment to delivery, we guide every step to ensure actionable strategies and clear milestones.",
     "items": [
       {
         "icon": "consulting",
         "title": "Strategy & Planning",
-        "description": "Institutional strengthening through training, knowledge transfer, and development of digital strategies aligned with your objectives.",
+        "description": "We strengthen institutions through tailored training and knowledge transfer — building capabilities that sustain change and improve public service delivery",
         "detailedDescription": "We help institutions develop comprehensive digital transformation strategies that align with their mission and objectives. Our approach combines organizational assessment, stakeholder engagement, and roadmap development to ensure successful implementation.",
-        "keyFeatures": ["Strategic roadmap development", "Organizational capacity assessment", "Digital maturity evaluation", "Stakeholder engagement workshops", "Change management planning"],
+        "keyFeatures": ["Strategic roadmap development", "Organizational capacity assessment", "Digital maturity evaluation", "Stakeholder workshops", "Change management planning"],
         "benefits": ["Clear vision and direction", "Reduced implementation risks", "Enhanced stakeholder buy-in", "Optimized resource allocation"]
       },
       {
         "icon": "integration",
-        "title": "Customs Scanners - Installation & Maintenance",
-        "description": "Installation, configuration, and preventive and corrective maintenance of X-ray scanners for container and cargo inspection. 24/7 technical support and operator training.",
-        "detailedDescription": "Complete lifecycle support for customs X-ray scanning equipment including Nuctech systems. We handle everything from initial installation and configuration to ongoing maintenance, operator training, and 24/7 technical support to ensure maximum uptime and inspection efficiency.",
-        "keyFeatures": ["Professional installation and commissioning", "Preventive maintenance programs", "Emergency repair services", "Operator training and certification", "24/7 technical support hotline", "Performance monitoring and reporting"],
-        "benefits": ["Maximized equipment uptime", "Enhanced inspection accuracy", "Reduced operational costs", "Improved customs efficiency"]
+        "title": "Sourcing & Implementation Support",
+        "description": "We help you translate your vision into precise sourcing requirements and guide your projects through successful execution, with hands-on support every step of the way.",
+        "detailedDescription": "We accompany you in translating your vision into precise sourcing requirements and guide your projects through successful execution, with hands-on support at every stage.",
+        "keyFeatures": ["Requirements definition", "Vendor selection support", "Project management", "Quality assurance", "Implementation guidance", "Risk mitigation"],
+        "benefits": ["Successful project delivery", "Optimal vendor selection", "Reduced implementation time", "Quality outcomes"]
       },
       {
         "icon": "analytics",
         "title": "Capacity Development",
-        "description": "Building sustainable organizational capacities to ensure autonomy and sustainability of your digital systems.",
+        "description": "We strengthen institutions through tailored training and knowledge transfer — building capabilities that sustain change and improve public service delivery",
         "detailedDescription": "We build lasting organizational capabilities through comprehensive training programs, knowledge transfer initiatives, and institutional strengthening activities. Our goal is to ensure your team can independently manage and evolve your digital systems.",
-        "keyFeatures": ["Customized training programs", "Hands-on workshops", "Knowledge transfer documentation", "Mentoring and coaching", "Competency assessments", "Continuous learning support"],
-        "benefits": ["Increased team autonomy", "Sustainable digital operations", "Reduced dependency on external support", "Enhanced innovation capability"]
-      },
-      {
-        "icon": "code",
-        "title": "Custom Digital Solutions",
-        "description": "Design and development of digital platforms tailored to the specific needs of administrations and institutions.",
-        "detailedDescription": "We design and develop custom digital platforms that address the unique requirements of public administrations. Our solutions are built using modern technologies, following best practices for security, scalability, and user experience.",
-        "keyFeatures": ["User-centered design", "Modern web and mobile technologies", "Integration with existing systems", "Scalable architecture", "Security-first approach", "Agile development methodology"],
-        "benefits": ["Tailored to your specific needs", "Improved operational efficiency", "Enhanced user satisfaction", "Future-proof technology stack"]
-      },
-      {
-        "icon": "automation",
-        "title": "Artificial Intelligence & Analytics",
-        "description": "Leveraging AI and advanced analytics to optimize your risk management and decision-making processes.",
-        "detailedDescription": "Harness the power of artificial intelligence and advanced analytics to transform your data into actionable insights. We implement AI-driven solutions for risk detection, predictive analytics, and intelligent automation to enhance decision-making and operational efficiency.",
-        "keyFeatures": ["Predictive analytics models", "Anomaly detection systems", "Risk scoring algorithms", "Automated decision support", "Real-time dashboards", "Machine learning integration"],
-        "benefits": ["Data-driven decision making", "Proactive risk management", "Reduced processing times", "Improved accuracy and compliance"]
-      },
-      {
-        "icon": "cloud",
-        "title": "Infrastructure & Security",
-        "description": "Implementation of secure and scalable cloud infrastructure to ensure continuity and protection of your services.",
-        "detailedDescription": "Build robust and secure digital infrastructure that supports your operations and protects your data. We design and implement cloud-based solutions with enterprise-grade security, high availability, and disaster recovery capabilities.",
-        "keyFeatures": ["Cloud architecture design", "Security hardening", "Data encryption", "Backup and disaster recovery", "Performance monitoring", "Compliance management"],
-        "benefits": ["Enhanced system reliability", "Reduced infrastructure costs", "Improved security posture", "Business continuity assurance"]
+        "keyFeatures": ["Custom training programs", "Hands-on workshops", "Knowledge transfer documentation", "Mentoring and coaching", "Skills assessments", "Continuous learning support"],
+        "benefits": ["Increased team autonomy", "Sustainable digital operations", "Reduced external dependency", "Enhanced innovation capacity"]
       }
     ]
   },
@@ -75,33 +51,63 @@
     "title": "Ready-to-Deploy Solutions",
     "subtitle": "Innovative digital platforms designed to meet the specific needs of modern administrations",
     "items": [
-      
+      {
+        "name": "CONNECT",
+        "tagline": "Digital Communication Portal",
+        "description": "Modern e-Portal offering seamless access to regulatory info and connecting traders with Customs.",
+        "features": ["Online regulatory access", "Trader-customs interface", "Document management", "Real-time notifications"]
+      },
+      {
+        "name": "DETECT",
+        "tagline": "Dynamic Risk Management System",
+        "description": "AI-driven risk management system for targeting high-risk shipments, fraudulent taxpayers, and risky passengers.",
+        "features": ["Predictive risk analysis", "Fraud detection", "Intelligent profiling", "Real-time dashboards"]
+      },
       {
         "name": "TRADEVAL",
-        "tagline": "Intelligent Valuation & Classification",
-        "description": "Advanced analytical system for valuation and classification with national reference database and anomaly detection.",
-        "features": ["Predictive analytics", "National database", "Anomaly detection", "Automated reporting"]
+        "tagline": "Customs Valuation and Classification System",
+        "description": "Intuitive system with advanced analytics for accurate shipment classification and valuation. It sets up a National Prices Database.",
+        "features": ["Predictive analytics", "National prices database", "Automatic classification", "Anomaly detection"]
       },
       {
-        "name": "SSE",
-        "tagline": "Electronic Cargo Tracking System",
-        "description": "Monitoring solution based on GPS, RFID and mobile technologies to locate, monitor in real-time and secure cargo movements. The system alerts agents of any abnormal activity such as container door opening, unauthorized stops and route deviations.",
-        "features": ["GPS & RFID Tracking", "Real-time monitoring", "Abnormal activity alerts", "Cargo security"]
-      },
-     
-      {
-        "name": "NUCTECH",
-        "tagline": "Customs X-Ray Scanners",
-        "description": "Installation, commissioning, and repair of Nuctech X-ray scanners for non-intrusive inspection of containers, vehicles, and cargo. Complete customs control solutions with operator training.",
-        "features": ["Installation & commissioning", "Preventive & corrective maintenance", "Operator training", "24/7 technical support"]
+        "name": "REPORTER",
+        "tagline": "Inspection & Fraud Reporting System",
+        "description": "Mobile application for digitizing trade inspections and improving fraud data collection.",
+        "features": ["Mobile inspections", "Geolocated data collection", "Real-time reporting", "Evidence management"]
       },
       {
-        "name": "TRACK+",
-        "tagline": "Tracking Beacon Maintenance",
-        "description": "Maintenance, repair, and calibration of GPS, RFID beacons and tracking devices for container and cargo monitoring. Advanced diagnostics, component replacement, and performance testing.",
-        "features": ["GPS/RFID beacon repair", "Calibration & testing", "Battery replacement", "Electronic diagnostics"]
+        "name": "ANALYTICA",
+        "tagline": "Business Intelligence",
+        "description": "Predictive BI platform providing full operational visibility and smart decisions support.",
+        "features": ["Interactive dashboards", "Predictive analytics", "Data visualization", "Automated reports"]
+      },
+      {
+        "name": "Weighing in Motion System",
+        "tagline": "Road Weighing System",
+        "description": "Modern road safety system for real-time monitoring of truck weights and dimensions.",
+        "features": ["Weighing in motion", "Automatic monitoring", "Overload detection", "Control system integration"]
+      },
+      {
+        "name": "Driver License & Vehicle Registration",
+        "tagline": "License & Vehicle Management System",
+        "description": "Secure platform for end-to-end management of driver licenses and vehicle registration.",
+        "features": ["Digital license management", "Online registration", "Biometric verification", "Centralized database"]
+      },
+      {
+        "name": "SAFEROAD",
+        "tagline": "Urban Traffic Management and Safety",
+        "description": "Integrated platform for road traffic and real-time safety monitoring.",
+        "features": ["Intelligent video surveillance", "Incident management", "Traffic light control", "Real-time traffic analysis"]
       }
     ]
+  },
+  "clients": {
+    "title": "They Trust Us",
+    "subtitle": "Public institutions and organizations that trust us for their digital transformation"
+  },
+  "partners": {
+    "title": "Our Partners",
+    "subtitle": "We collaborate with world-renowned partners to deliver the best solutions"
   },
   "about": {
     "badge": "Who We Are",
@@ -114,6 +120,14 @@
       "Optimized solutions offering the best value for money",
       "Capacity building for sustainable autonomy"
     ],
+    "vision": {
+      "title": "Our Vision",
+      "description": "To bridge the technological gap between developing and developed countries by providing government and private entities with the right solutions and support to build their digital future successfully. Our reward: celebrating success with our clients."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "At Digitek Consulting, we empower public administrations with innovative, tailored technology solutions that drive digital transformation and sustainable development."
+    },
     "imageAlt": "ATECH Solutions team serving institutions"
   },
   "contact": {
@@ -154,13 +168,13 @@
     }
   },
   "footer": {
-    "certifications": {
-      "title": "Certifications",
-      "subtitle": "Our internationally recognized quality and security standards."
+    "clients": {
+      "title": "They Trust Us",
+      "subtitle": "Public institutions and organizations that trust us"
     },
-    "social": {
-      "title": "Follow Us",
-      "subtitle": "Stay updated on social media."
+    "partners": {
+      "title": "Our Partners",
+      "subtitle": "We collaborate with world-renowned partners"
     },
     "tagline": "Transforming institutions through innovation and digital transformation.",
     "links": { "company": "Company", "services": "Solutions", "legal": "Legal" },

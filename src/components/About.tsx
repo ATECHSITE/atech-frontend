@@ -68,6 +68,21 @@ export default function About() {
               ))}
             </div>
 
+            {/* Vision & Mission */}
+            <div className="mt-10 space-y-8">
+              {/* Vision */}
+              <div className="border-l-4 border-[#2B7BE5] pl-6">
+                <h3 className="text-xl font-bold text-[#0F2540] mb-3">{t("vision.title")}</h3>
+                <p className="text-gray-600 leading-relaxed">{t("vision.description")}</p>
+              </div>
+
+              {/* Mission */}
+              <div className="border-l-4 border-[#E8763A] pl-6">
+                <h3 className="text-xl font-bold text-[#0F2540] mb-3">{t("mission.title")}</h3>
+                <p className="text-gray-600 leading-relaxed">{t("mission.description")}</p>
+              </div>
+            </div>
+
             <div className="mt-10">
               <a href="#contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white transition-all hover:opacity-90 hover:shadow-lg hover:-translate-y-0.5" style={{ background: "linear-gradient(135deg, #E8763A 0%, #F4A472 100%)" }}>
                 Collaborer avec nous

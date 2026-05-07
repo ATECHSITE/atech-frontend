@@ -16,57 +16,33 @@
     "ctaSecondary": "Prise de rendez-vous"
   },
   "services": {
-    "badge": "Nos services",
-    "title": "Un accompagnement complet",
-    "subtitle": "De la stratégie à la mise en œuvre, nous vous accompagnons à chaque étape de votre transformation digitale",
+    "badge": "Nos Services",
+    "title": "Nos Services",
+    "subtitle": "Grâce à notre expertise approfondie du secteur, nous aidons les administrations publiques à évaluer leurs processus, définir des stratégies de croissance numérique et optimiser leurs opérations. De l'évaluation à la livraison, nous guidons chaque étape pour garantir des stratégies concrètes et des jalons clairs.",
     "items": [
       {
         "icon": "consulting",
         "title": "Stratégie & Planification",
-        "description": "Renforcement institutionnel à travers la formation, le transfert de connaissances et l'élaboration de stratégies digitales alignées sur vos objectifs.",
+        "description": "Nous renforçons les institutions grâce à une formation sur mesure et un transfert de connaissances — développant des capacités qui soutiennent le changement et améliorent la prestation de services publics",
         "detailedDescription": "Nous aidons les institutions à développer des stratégies complètes de transformation digitale alignées sur leur mission et leurs objectifs. Notre approche combine l'évaluation organisationnelle, l'engagement des parties prenantes et l'élaboration de feuilles de route pour assurer une mise en œuvre réussie.",
         "keyFeatures": ["Élaboration de feuille de route stratégique", "Évaluation des capacités organisationnelles", "Évaluation de la maturité digitale", "Ateliers avec les parties prenantes", "Planification de la gestion du changement"],
         "benefits": ["Vision et direction claires", "Risques de mise en œuvre réduits", "Adhésion renforcée des parties prenantes", "Allocation optimisée des ressources"]
       },
       {
         "icon": "integration",
-        "title": "Scanners Douaniers - Installation & Maintenance",
-        "description": "Installation, configuration et maintenance préventive et corrective de scanners à rayons X pour l'inspection de conteneurs et cargaisons. Support technique 24/7 et formation des opérateurs.",
-        "detailedDescription": "Support complet du cycle de vie des équipements de scanners à rayons X douaniers, y compris les systèmes Nuctech. Nous gérons tout, de l'installation initiale et de la configuration à la maintenance continue, à la formation des opérateurs et au support technique 24/7 pour assurer un temps de disponibilité maximal et une efficacité d'inspection optimale.",
-        "keyFeatures": ["Installation et mise en service professionnelles", "Programmes de maintenance préventive", "Services de réparation d'urgence", "Formation et certification des opérateurs", "Hotline de support technique 24/7", "Surveillance et reporting des performances"],
-        "benefits": ["Temps de disponibilité maximisé", "Précision d'inspection améliorée", "Coûts opérationnels réduits", "Efficacité douanière améliorée"]
+        "title": "Sourcing & Support à la Mise en Œuvre",
+        "description": "Nous vous aidons à traduire votre vision en exigences de sourcing précises et guidons vos projets vers une exécution réussie, avec un support pratique à chaque étape.",
+        "detailedDescription": "Nous vous accompagnons dans la traduction de votre vision en exigences de sourcing précises et guidons vos projets à travers une exécution réussie, avec un support pratique à chaque étape.",
+        "keyFeatures": ["Définition des exigences", "Support à la sélection de fournisseurs", "Gestion de projet", "Assurance qualité", "Orientation de mise en œuvre", "Atténuation des risques"],
+        "benefits": ["Livraison réussie du projet", "Sélection optimale de fournisseurs", "Temps de mise en œuvre réduit", "Résultats de qualité"]
       },
       {
         "icon": "analytics",
         "title": "Développement des Capacités",
-        "description": "Construction de capacités organisationnelles durables pour assurer l'autonomie et la pérennité de vos systèmes digitaux.",
+        "description": "Nous renforçons les institutions grâce à une formation sur mesure et un transfert de connaissances — développant des capacités qui soutiennent le changement et améliorent la prestation de services publics",
         "detailedDescription": "Nous développons des capacités organisationnelles durables grâce à des programmes de formation complets, des initiatives de transfert de connaissances et des activités de renforcement institutionnel. Notre objectif est de garantir que votre équipe puisse gérer et faire évoluer vos systèmes digitaux de manière autonome.",
         "keyFeatures": ["Programmes de formation personnalisés", "Ateliers pratiques", "Documentation de transfert de connaissances", "Mentorat et coaching", "Évaluations de compétences", "Support d'apprentissage continu"],
-        "benefits": ["Autonomie accrue de l'équipe", "Opérations digitales durables", "Dépendance réduite au support externe", "Capacité d'innovation renforcée"]
-      },
-      {
-        "icon": "code",
-        "title": "Solutions Digitales Sur Mesure",
-        "description": "Conception et développement de plateformes digitales adaptées aux besoins spécifiques des administrations et institutions.",
-        "detailedDescription": "Nous concevons et développons des plateformes digitales personnalisées qui répondent aux exigences uniques des administrations publiques. Nos solutions sont construites avec des technologies modernes, en suivant les meilleures pratiques en matière de sécurité, d'évolutivité et d'expérience utilisateur.",
-        "keyFeatures": ["Conception centrée sur l'utilisateur", "Technologies web et mobiles modernes", "Intégration avec les systèmes existants", "Architecture évolutive", "Approche axée sur la sécurité", "Méthodologie de développement agile"],
-        "benefits": ["Adaptées à vos besoins spécifiques", "Efficacité opérationnelle améliorée", "Satisfaction utilisateur renforcée", "Stack technologique pérenne"]
-      },
-      {
-        "icon": "automation",
-        "title": "Intelligence Artificielle & Analytique",
-        "description": "Exploitation de l'IA et de l'analytique avancée pour optimiser vos processus de gestion des risques et de prise de décision.",
-        "detailedDescription": "Exploitez la puissance de l'intelligence artificielle et de l'analytique avancée pour transformer vos données en informations exploitables. Nous mettons en œuvre des solutions basées sur l'IA pour la détection des risques, l'analytique prédictive et l'automatisation intelligente afin d'améliorer la prise de décision et l'efficacité opérationnelle.",
-        "keyFeatures": ["Modèles d'analytique prédictive", "Systèmes de détection d'anomalies", "Algorithmes de scoring de risques", "Support de décision automatisé", "Tableaux de bord temps réel", "Intégration de machine learning"],
-        "benefits": ["Prise de décision basée sur les données", "Gestion proactive des risques", "Temps de traitement réduits", "Précision et conformité améliorées"]
-      },
-      {
-        "icon": "cloud",
-        "title": "Infrastructure & Sécurité",
-        "description": "Mise en place d'infrastructures cloud sécurisées et scalables pour garantir la continuité et la protection de vos services.",
-        "detailedDescription": "Construisez une infrastructure digitale robuste et sécurisée qui soutient vos opérations et protège vos données. Nous concevons et mettons en œuvre des solutions basées sur le cloud avec une sécurité de niveau entreprise, une haute disponibilité et des capacités de reprise après sinistre.",
-        "keyFeatures": ["Conception d'architecture cloud", "Renforcement de la sécurité", "Chiffrement des données", "Sauvegarde et reprise après sinistre", "Surveillance des performances", "Gestion de la conformité"],
-        "benefits": ["Fiabilité système renforcée", "Coûts d'infrastructure réduits", "Posture de sécurité améliorée", "Assurance de continuité des activités"]
+        "benefits": ["Autonomie accrue de l'équipe", "Opérations digitales durables", "Dépendance externe réduite", "Capacité d'innovation renforcée"]
       }
     ]
   },
@@ -75,33 +51,63 @@
     "title": "Des solutions prêtes à déployer",
     "subtitle": "Des plateformes digitales innovantes conçues pour répondre aux besoins spécifiques des administrations modernes",
     "items": [
-      
+      {
+        "name": "CONNECT",
+        "tagline": "Portail de Communication Digitale",
+        "description": "E-Portail moderne offrant un accès transparent aux informations réglementaires et connectant les opérateurs avec les Douanes.",
+        "features": ["Accès réglementaire en ligne", "Interface opérateurs-douanes", "Gestion documentaire", "Notifications en temps réel"]
+      },
+      {
+        "name": "DETECT",
+        "tagline": "Système Dynamique de Gestion des Risques",
+        "description": "Système de gestion des risques piloté par l'IA pour cibler les expéditions à haut risque, les contribuables frauduleux et les passagers à risque.",
+        "features": ["Analyse prédictive des risques", "Détection de fraude", "Profilage intelligent", "Tableaux de bord en temps réel"]
+      },
       {
         "name": "TRADEVAL",
-        "tagline": "Valorisation & Classification Intelligente",
-        "description": "Système analytique avancé pour la valorisation et la classification avec base de données nationale de référence et détection d'anomalies.",
-        "features": ["Analytique prédictive", "Base de données nationale", "Détection d'anomalies", "Rapports automatisés"]
+        "tagline": "Système de Valorisation et Classification Douanière",
+        "description": "Système intuitif avec analytique avancée pour une classification et valorisation précises des expéditions. Il établit une base de données nationale des prix.",
+        "features": ["Analytique prédictive", "Base de données nationale des prix", "Classification automatique", "Détection d'anomalies"]
       },
       {
-        "name": "SSEM",
-        "tagline": "Système de Suivi Électronique des Marchandises",
-        "description": "Solution de surveillance basée sur les technologies GPS, RFID et mobiles pour localiser, surveiller en temps réel et sécuriser les mouvements de marchandises. Le système alerte les agents de toute activité anormale comme l'ouverture d'une porte de conteneur, les arrêts non autorisés et les déviations de route.",
-        "features": ["Tracking GPS & RFID", "Surveillance temps réel", "Alertes d'activités anormales", "Sécurisation des cargaisons"]
-      },
-      
-      {
-        "name": "Scanners à Rayons X",
-        "tagline": "Scanners à Rayons X Douaniers",
-        "description": "Installation, mise en service et réparation de scanners à rayons X Nuctech pour l'inspection non-intrusive de conteneurs, véhicules et cargaisons. Solutions complètes de contrôle douanier avec formation des opérateurs.",
-        "features": ["Installation & mise en service", "Maintenance préventive et corrective", "Formation des opérateurs", "Support technique 24/7"]
+        "name": "REPORTER",
+        "tagline": "Système d'Inspection et de Signalement de Fraude",
+        "description": "Application mobile pour numériser les inspections commerciales et améliorer la collecte de données sur la fraude.",
+        "features": ["Inspections mobiles", "Collecte de données géolocalisées", "Rapports en temps réel", "Gestion des preuves"]
       },
       {
-        "name": "Balise GPSv",
-        "tagline": "Maintenance de Balises de Tracking",
-        "description": "Maintenance, réparation et calibration de balises GPS, RFID et dispositifs de tracking pour le suivi de conteneurs et marchandises. Diagnostics avancés, remplacement de composants et tests de performance.",
-        "features": ["Réparation de balises GPS/RFID", "Calibration et tests", "Remplacement de batteries", "Diagnostic électronique"]
+        "name": "ANALYTICA",
+        "tagline": "Business Intelligence",
+        "description": "Plateforme BI prédictive offrant une visibilité opérationnelle complète et un support aux décisions intelligentes.",
+        "features": ["Tableaux de bord interactifs", "Analytique prédictive", "Visualisation des données", "Rapports automatisés"]
+      },
+      {
+        "name": "Système de Pesage en Mouvement",
+        "tagline": "Système de Pesage Routier",
+        "description": "Système moderne de sécurité routière pour la surveillance en temps réel des poids et dimensions des camions.",
+        "features": ["Pesage en mouvement", "Surveillance automatique", "Détection de surcharge", "Intégration systèmes de contrôle"]
+      },
+      {
+        "name": "Permis de Conduire & Immatriculation",
+        "tagline": "Système de Gestion des Permis et Véhicules",
+        "description": "Plateforme sécurisée pour la gestion de bout en bout des permis de conduire et de l'immatriculation des véhicules.",
+        "features": ["Gestion des permis digitaux", "Immatriculation en ligne", "Vérification biométrique", "Base de données centralisée"]
+      },
+      {
+        "name": "SAFEROAD",
+        "tagline": "Gestion du Trafic Urbain et Sécurité",
+        "description": "Plateforme intégrée pour la gestion du trafic routier et la surveillance de la sécurité en temps réel.",
+        "features": ["Surveillance vidéo intelligente", "Gestion des incidents", "Contrôle des feux", "Analyse du trafic en temps réel"]
       }
     ]
+  },
+  "clients": {
+    "title": "Ils nous font confiance",
+    "subtitle": "Des institutions publiques et organisations qui nous font confiance pour leur transformation digitale"
+  },
+  "partners": {
+    "title": "Nos Partenaires",
+    "subtitle": "Nous collaborons avec des partenaires de renommée mondiale pour offrir les meilleures solutions"
   },
   "about": {
     "badge": "Qui nous sommes",
@@ -114,6 +120,14 @@
       "Solutions optimisées offrant le meilleur rapport qualité-prix",
       "Renforcement des capacités pour une autonomie durable"
     ],
+    "vision": {
+      "title": "Notre Vision",
+      "description": "Combler le fossé technologique entre les pays en développement et les pays développés en fournissant aux entités gouvernementales et privées les bonnes solutions et le soutien nécessaire pour construire avec succès leur avenir numérique. Notre récompense : célébrer le succès avec nos clients."
+    },
+    "mission": {
+      "title": "Notre Mission",
+      "description": "Chez Digitek Consulting, nous autonomisons les administrations publiques avec des solutions technologiques innovantes et sur mesure qui favorisent la transformation digitale et le développement durable."
+    },
     "imageAlt": "L'équipe de Automatech au service des institutions"
   },
   "contact": {
@@ -154,13 +168,13 @@
     }
   },
   "footer": {
-    "certifications": {
-      "title": "Certifications",
-      "subtitle": "Nos standards de qualité et sécurité reconnus internationalement."
+    "clients": {
+      "title": "Ils nous font confiance",
+      "subtitle": "Des institutions publiques et organisations qui nous font confiance"
     },
-    "social": {
-      "title": "Suivez-nous",
-      "subtitle": "Restez à jour sur les réseaux sociaux."
+    "partners": {
+      "title": "Nos Partenaires",
+      "subtitle": "Nous collaborons avec des partenaires de renommée mondiale"
     },
     "tagline": "Transformer les institutions grâce à l'innovation et la transformation digitale.",
     "links": { "company": "Entreprise", "services": "Solutions", "legal": "Légal" },

@@ -40,7 +40,7 @@ export default function Services() {
               <h3 className="text-lg font-bold text-[#0F2540] mb-3 group-hover:text-[#E8763A] transition-colors">{item.title}</h3>
               <p className="text-sm text-gray-500 leading-relaxed">{item.description}</p>
               <div className="mt-6 flex items-center gap-1 text-xs font-semibold text-[#E8763A] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1">
-                Learn more
+                Lire plus
                 <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
               </div>
             </div>

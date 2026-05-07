@@ -9,220 +9,113 @@ import { useMagnetic } from "@/hooks/useMagnetic";
 export default function Hero() {
   const t = useTranslations("hero");
   const [currentImage, setCurrentImage] = useState(0);
-  const [scrollY, setScrollY] = useState(0);
   const { createRipple } = useRipple();
   const magneticCTA = useMagnetic(0.25);
+  const magneticSecondary = useMagnetic(0.2);
 
   const images = [
-    { src: "/images/male-engineer-analyzed-industry-40-system-smart-manufacturing-plant.jpg", label: "Maintenance Industrielle" },
-    { src: "/images/network-switch-with-cables.jpg", label: "Intégration Technologique" },
-    { src: "/images/cyberpunk-location-tracking-mobile-device.jpg", label: "Suivi Electronique" },
-    { src: "/images/programmer-home-office-concentrating-finding-bugs-while-he-codes.jpg", label: "Développement de solutions" },
+    { src: "/images/male-engineer-analyzed-industry-40-system-smart-manufacturing-plant.jpg", label: "Maintenance Industrielle", keyword: "Digitaliser" },
+    { src: "/images/network-switch-with-cables.jpg", label: "Intégration Technologique", keyword: "Moderniser" },
+    { src: "/images/cyberpunk-location-tracking-mobile-device.jpg", label: "Suivi Electronique", keyword: "Transformer" },
+    { src: "/images/programmer-home-office-concentrating-finding-bugs-while-he-codes.jpg", label: "Développement de solutions", keyword: "Digitaliser" },
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 4000);
+    }, 10000);
     return () => clearInterval(interval);
   }, [images.length]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden" style={{ background: "linear-gradient(135deg, #0F2540 0%, #1B3D6F 60%, #2A5298 100%)" }}>
-      {/* Background decor with parallax */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div
-          className="absolute -top-24 -right-24 w-96 h-96 rounded-full opacity-10 transition-transform duration-300"
-          style={{
-            background: "radial-gradient(circle, #E8763A 0%, transparent 70%)",
-            transform: `translate(${scrollY * 0.1}px, ${scrollY * 0.15}px)`
-          }}
-        />
-        <div
-          className="absolute bottom-0 -left-32 w-80 h-80 rounded-full opacity-10 transition-transform duration-300"
-          style={{
-            background: "radial-gradient(circle, #F4A472 0%, transparent 70%)",
-            transform: `translate(${-scrollY * 0.08}px, ${-scrollY * 0.1}px)`
-          }}
-        />
-        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
+    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Full-screen background images - CLEAR AND CRISP */}
+      <div className="absolute inset-0">
+        {images.map((img, idx) => (
+          <div
+            key={idx}
+            className={`absolute inset-0 transition-all duration-[1500ms] ease-in-out ${
+              idx === currentImage ? "opacity-100 scale-100" : "opacity-0 scale-105"
+            }`}
+          >
+            <Image
+              src={img.src}
+              alt={img.label}
+              fill
+              className="object-cover object-center scale-100"
+              priority={idx === 0}
+              quality={100}
+              sizes="100vw"
+              unoptimized={false}
+              style={{ imageRendering: 'crisp-edges' }}
+            />
+            {/* Dark overlay for text readability - NO BLUR */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/95 via-[#0F2540]/85 to-[#0F2540]/60" style={{ backdropFilter: 'none' }} />
+          </div>
+        ))}
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 sm:pt-32 sm:pb-24 lg:pt-40 lg:pb-28">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-32 w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left content */}
-          <div className="text-center lg:text-left">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight tracking-tight mb-6 opacity-0" style={{ animation: 'slideInLeft 0.8s ease-out 0.2s forwards' }}>
-              {t("title")}{" "}
-              <span className="block mt-2" style={{ background: "linear-gradient(135deg, #E8763A 0%, #F4A472 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-                {t("titleHighlight")}
+          {/* Left: Text Content */}
+          <div className="text-left">
+            {/* Badge */}
+           
+
+            {/* Main Heading */}
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight tracking-tight mb-6 opacity-0"
+                style={{ animation: 'slideInLeft 0.8s ease-out 0.2s forwards' }}>
+              <span className="block text-white">Digitaliser.</span>
+              <span className="block text-white">Moderniser.</span>
+              <span className="block mt-2" style={{
+                background: "linear-gradient(135deg, #E8763A 0%, #F4A472 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text"
+              }}>
+                Transformer.
               </span>
             </h1>
 
-            <p className="text-base sm:text-lg lg:text-xl text-blue-50/95 leading-relaxed mb-8 lg:mb-10 max-w-2xl mx-auto lg:mx-0 opacity-0" style={{ animation: 'slideInLeft 0.8s ease-out 0.4s forwards' }}>
+            {/* Subtitle */}
+            <p className="text-lg sm:text-xl lg:text-2xl text-blue-50/95 leading-relaxed mb-10 max-w-xl opacity-0"
+               style={{ animation: 'slideInLeft 0.8s ease-out 0.4s forwards' }}>
               {t("subtitle")}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start opacity-0" style={{ animation: 'fadeInUp 0.8s ease-out 0.6s forwards' }}>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 opacity-0" style={{ animation: 'fadeInUp 0.8s ease-out 0.6s forwards' }}>
               <a
                 ref={magneticCTA.ref as React.RefObject<HTMLAnchorElement>}
-                href="#contact"
+                href="#services"
                 onClick={createRipple}
                 onMouseMove={magneticCTA.onMouseMove}
                 onMouseLeave={magneticCTA.onMouseLeave}
-                className="group px-8 py-4 rounded-full font-bold text-white transition-all duration-300 hover:shadow-2xl flex items-center justify-center gap-2 relative overflow-hidden will-change-transform"
-                style={{ background: "linear-gradient(135deg, #E8763A 0%, #F4A472 100%)" }}
+                className="group px-8 py-4 rounded-full font-bold text-lg text-white transition-all duration-300 hover:shadow-2xl flex items-center justify-center gap-2 relative overflow-hidden will-change-transform"
+                style={{ backgroundColor: "#E8763A" }}
               >
                 <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
-                <span className="relative">{t("cta")}</span>
-                <svg className="w-5 h-5 relative group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                <span className="relative">Découvrir nos services</span>
+                <svg className="w-5 h-5 relative group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
               </a>
+
               <a
-                href="#services"
+                ref={magneticSecondary.ref as React.RefObject<HTMLAnchorElement>}
+                href="#contact"
                 onClick={createRipple}
-                className="px-8 py-4 rounded-full font-semibold text-white border-2 border-white/40 backdrop-blur-sm transition-all hover:bg-white/15 hover:border-white/60 hover:-translate-y-1 hover:shadow-lg"
+                onMouseMove={magneticSecondary.onMouseMove}
+                onMouseLeave={magneticSecondary.onMouseLeave}
+                className="px-8 py-4 rounded-full font-semibold text-lg text-white border-2 border-white/40 transition-all hover:bg-white/10 hover:border-white/60 hover:-translate-y-1 hover:shadow-lg"
               >
-                {t("ctaSecondary")}
+                Prise de rendez-vous
               </a>
             </div>
-
-            {/* Mobile Image Showcase */}
-            <div className="lg:hidden mt-10">
-              <div className="relative w-full h-64 rounded-2xl overflow-hidden border-2 border-[#E8763A]/30 shadow-2xl">
-                {images.map((img, idx) => (
-                  <div
-                    key={idx}
-                    className={`absolute inset-0 transition-opacity duration-1000 ${
-                      idx === currentImage ? "opacity-100" : "opacity-0"
-                    }`}
-                  >
-                    <Image
-                      src={img.src}
-                      alt={img.label}
-                      fill
-                      className="object-cover"
-                      priority={idx === 0}
-                      quality={85}
-                      sizes="(max-width: 1024px) 100vw, 560px"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0F2540]/80 via-transparent to-transparent" />
-                  </div>
-                ))}
-
-                {/* Mobile info bar */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-[#0F2540]/95 via-[#0F2540]/90 to-transparent">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-white text-sm font-bold">
-                      {images[currentImage].label}
-                    </h3>
-                    {/* Navigation dots */}
-                    <div className="flex items-center gap-2">
-                      {images.map((_, idx) => (
-                        <button
-                          key={idx}
-                          onClick={() => setCurrentImage(idx)}
-                          className={`transition-all duration-300 rounded-full ${
-                            idx === currentImage
-                              ? "w-6 h-2 bg-[#E8763A]"
-                              : "w-2 h-2 bg-white/30"
-                          }`}
-                          aria-label={`Image ${idx + 1}`}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
           </div>
 
-          {/* Right: Professional Image Showcase */}
-          <div className="hidden lg:flex justify-center items-center">
-            <div className="relative w-[560px] h-[560px]">
-              {/* Decorative corner accents */}
-              <div className="absolute -top-5 -left-5 w-20 h-20 border-t-4 border-l-4 border-[#E8763A] rounded-tl-3xl opacity-80" />
-              <div className="absolute -top-5 -right-5 w-20 h-20 border-t-4 border-r-4 border-[#E8763A] rounded-tr-3xl opacity-80" />
-              <div className="absolute -bottom-5 -left-5 w-20 h-20 border-b-4 border-l-4 border-[#E8763A] rounded-bl-3xl opacity-80" />
-              <div className="absolute -bottom-5 -right-5 w-20 h-20 border-b-4 border-r-4 border-[#E8763A] rounded-br-3xl opacity-80" />
-
-              {/* Main frame with gradient border */}
-              <div className="relative w-full h-full rounded-3xl p-1.5 bg-gradient-to-br from-[#E8763A] via-[#F4A472] to-[#E8763A] shadow-2xl">
-                <div className="relative w-full h-full rounded-3xl overflow-hidden bg-[#0F2540]">
-                  {/* Image container with fade transitions */}
-                  <div className="relative w-full h-full">
-                    {images.map((img, idx) => (
-                      <div
-                        key={idx}
-                        className={`absolute inset-0 transition-opacity duration-1000 ${
-                          idx === currentImage ? "opacity-100" : "opacity-0"
-                        }`}
-                      >
-                        <Image
-                          src={img.src}
-                          alt={img.label}
-                          fill
-                          className="object-cover"
-                          priority={idx === 0}
-                        />
-                        {/* Subtle gradient overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0F2540]/60 via-transparent to-transparent" />
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Glass morphism info bar at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-[#0F2540]/95 via-[#0F2540]/90 to-transparent backdrop-blur-sm">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h3 className="text-white text-xl font-bold tracking-wide mb-2">
-                          {images[currentImage].label}
-                        </h3>
-                        <div className="flex items-center gap-2">
-                          <div className="w-2.5 h-2.5 rounded-full bg-[#E8763A] animate-pulse" />
-                          <span className="text-blue-200/70 text-sm font-medium">Solutions Professionnelles</span>
-                        </div>
-                      </div>
-
-                      {/* Navigation dots */}
-                      <div className="flex items-center gap-2.5">
-                        {images.map((_, idx) => (
-                          <button
-                            key={idx}
-                            onClick={() => setCurrentImage(idx)}
-                            className={`transition-all duration-300 rounded-full ${
-                              idx === currentImage
-                                ? "w-10 h-2.5 bg-[#E8763A]"
-                                : "w-2.5 h-2.5 bg-white/30 hover:bg-white/50"
-                            }`}
-                            aria-label={`Image ${idx + 1}`}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Floating decorative elements */}
-                  
-                </div>
-              </div>
-
-              {/* Floating stats cards */}
-              
-
-              {/* Subtle animated background circles */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-[#E8763A]/10 rounded-full animate-pulse pointer-events-none" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[640px] h-[640px] border border-white/5 rounded-full animate-pulse pointer-events-none" style={{ animationDelay: "1s" }} />
-            </div>
-          </div>
+          {/* Right side - space for image to show through */}
+          <div className="hidden lg:block" />
         </div>
       </div>
 

@@ -3,6 +3,7 @@
 import { useTranslations } from "@/i18n/context";
 import Logo from "./Logo";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import Image from "next/image";
 
 export default function About() {
   const t = useTranslations("about");
@@ -18,7 +19,7 @@ export default function About() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
 
           {/* Left: Visual card */}
           <div className="relative order-2 lg:order-1">
@@ -68,27 +69,49 @@ export default function About() {
               ))}
             </div>
 
-            {/* Vision & Mission */}
-            <div className="mt-10 space-y-8">
-              {/* Vision */}
-              <div className="border-l-4 border-[#2B7BE5] pl-6">
-                <h3 className="text-xl font-bold text-[#0F2540] mb-3">{t("vision.title")}</h3>
-                <p className="text-gray-600 leading-relaxed">{t("vision.description")}</p>
-              </div>
-
-              {/* Mission */}
-              <div className="border-l-4 border-[#E8763A] pl-6">
-                <h3 className="text-xl font-bold text-[#0F2540] mb-3">{t("mission.title")}</h3>
-                <p className="text-gray-600 leading-relaxed">{t("mission.description")}</p>
-              </div>
-            </div>
-
             <div className="mt-10">
-              <a href="#contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white transition-all hover:opacity-90 hover:shadow-lg hover:-translate-y-0.5" style={{ background: "linear-gradient(135deg, #E8763A 0%, #F4A472 100%)" }}>
+              <a href="#contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white transition-all hover:opacity-90 hover:shadow-lg hover:-translate-y-0.5 bg-[#E8763A]">
                 Collaborer avec nous
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
               </a>
             </div>
+          </div>
+        </div>
+
+        {/* Vision & Mission - Below on same line */}
+        <div className="mt-16 grid md:grid-cols-2 gap-8">
+          {/* Vision */}
+          <div className="border-l-4 border-[#2B7BE5] pl-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="relative w-10 h-10 flex-shrink-0">
+                <Image
+                  src="/images/icones/vision.png"
+                  alt="Vision"
+                  fill
+                  className="object-contain"
+                  sizes="40px"
+                />
+              </div>
+              <h3 className="text-2xl font-bold text-[#0F2540]">{t("vision.title")}</h3>
+            </div>
+            <p className="text-gray-600 leading-relaxed">{t("vision.description")}</p>
+          </div>
+
+          {/* Mission */}
+          <div className="border-l-4 border-[#E8763A] pl-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="relative w-10 h-10 flex-shrink-0">
+                <Image
+                  src="/images/icones/mission.png"
+                  alt="Mission"
+                  fill
+                  className="object-contain"
+                  sizes="40px"
+                />
+              </div>
+              <h3 className="text-2xl font-bold text-[#0F2540]">{t("mission.title")}</h3>
+            </div>
+            <p className="text-gray-600 leading-relaxed">{t("mission.description")}</p>
           </div>
         </div>
       </div>

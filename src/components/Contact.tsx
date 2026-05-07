@@ -48,11 +48,11 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-16 lg:py-24 bg-[#0F2540]">
+    <section id="contact" className="py-16 lg:py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
-          <div className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6 bg-white/10 text-white/80">
+          <div className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6 text-[#E8763A]" style={{ background: "rgba(232,118,58,0.1)" }}>
             {t("badge")}
           </div>
         </div>
@@ -62,17 +62,17 @@ export default function Contact() {
           <div className="space-y-10">
             {/* Title */}
             <div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F2540] mb-6 leading-tight">
                 {t("title")}
               </h2>
             </div>
 
             {/* Description Box */}
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-              <p className="text-blue-100/80 text-base leading-relaxed mb-6">
+            <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
+              <p className="text-gray-600 text-base leading-relaxed mb-6">
                 {t("subtitle")}
               </p>
-              <div className="flex items-center gap-2 text-white font-semibold">
+              <div className="flex items-center gap-2 text-[#0F2540] font-semibold">
                 <svg className="w-5 h-5 text-[#E8763A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
@@ -82,7 +82,7 @@ export default function Contact() {
 
             {/* What Happens Next */}
             <div>
-              <h3 className="text-2xl font-bold text-white mb-6">
+              <h3 className="text-2xl font-bold text-[#0F2540] mb-6">
                 {t("nextSteps.title")}
               </h3>
               <div className="space-y-5">
@@ -91,7 +91,7 @@ export default function Contact() {
                     <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#E8763A] flex items-center justify-center text-white font-bold text-sm">
                       {i + 1}
                     </div>
-                    <p className="text-blue-100/70 pt-1 leading-relaxed">
+                    <p className="text-gray-600 pt-1 leading-relaxed">
                       {t(`nextSteps.steps.${i}`)}
                     </p>
                   </div>

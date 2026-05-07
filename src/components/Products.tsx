@@ -19,7 +19,7 @@ const productImages = [
   "/images/programmer-home-office-concentrating-finding-bugs-while-he-codes.jpg", // REPORTER - Mobile inspection
   "/images/analyse.jpg", // ANALYTICA - BI
   "/images/pesage.png", // Weighing in Motion
-  "/images/drive.png", // Driver License & Vehicle Registration
+  "/images/Drive.png", // Driver License & Vehicle Registration
   "/images/trafik.jpg", // SAFEROAD - Traffic Management
 ];
 

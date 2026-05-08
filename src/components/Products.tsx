@@ -1,8 +1,10 @@
 "use client";
 
-import { useTranslations } from "@/i18n/context";
+import { useTranslations, useLocale } from "@/i18n/context";
 import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useState, useEffect } from "react";
+import Link from "next/link";
 
 type ProductItem = {
   name: string;
@@ -25,14 +27,43 @@ const productImages = [
 
 export default function Products() {
   const t = useTranslations("products");
+  const locale = useLocale();
   const { ref, isVisible } = useScrollAnimation();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
-  const items: ProductItem[] = [0, 1, 2, 3, 4, 5, 6, 7].map((i) => ({
+  const allItems: ProductItem[] = [0, 1, 2, 3, 4, 5, 6, 7].map((i) => ({
     name: t(`items.${i}.name`),
     tagline: t(`items.${i}.tagline`),
     description: t(`items.${i}.description`),
     features: [0, 1, 2, 3].map((j) => t(`items.${i}.features.${j}`)),
   }));
+
+  // Rotation automatique toutes les 5 secondes
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 4) % allItems.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [isPaused, allItems.length]);
+
+  // 4 produits visibles à la fois
+  const visibleItems = [
+    allItems[currentIndex % allItems.length],
+    allItems[(currentIndex + 1) % allItems.length],
+    allItems[(currentIndex + 2) % allItems.length],
+    allItems[(currentIndex + 3) % allItems.length],
+  ];
+
+  const visibleImages = [
+    productImages[currentIndex % allItems.length],
+    productImages[(currentIndex + 1) % allItems.length],
+    productImages[(currentIndex + 2) % allItems.length],
+    productImages[(currentIndex + 3) % allItems.length],
+  ];
 
   return (
     <section
@@ -52,21 +83,25 @@ export default function Products() {
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">{t("subtitle")}</p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {items.map((item, i) => (
+        <div
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {visibleItems.map((item, i) => (
             <div
-              key={i}
-              className="group relative rounded-2xl overflow-hidden border border-gray-100 hover:border-blue-200 hover:shadow-2xl transition-all duration-500 cursor-pointer hover:-translate-y-2 opacity-0 animate-fade-in-up transform-gpu"
+              key={`${currentIndex}-${i}`}
+              className="group relative rounded-2xl overflow-hidden border border-gray-100 hover:border-blue-200 hover:shadow-2xl transition-all duration-700 cursor-pointer hover:-translate-y-2 transform-gpu"
               style={{
-                animationDelay: `${i * 150}ms`,
-                animationFillMode: 'forwards',
+                animation: 'fadeInUp 0.7s ease-out forwards',
+                animationDelay: `${i * 100}ms`,
                 willChange: 'transform, opacity, border-color, box-shadow'
               }}
             >
               {/* Product Image */}
               <div className="relative h-48 overflow-hidden">
                 <Image
-                  src={productImages[i]}
+                  src={visibleImages[i]}
                   alt={item.name}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110 transform-gpu"
@@ -114,6 +149,38 @@ export default function Products() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Indicateurs de progression */}
+        <div className="flex justify-center items-center gap-4 mt-12">
+          <div className="flex gap-2">
+            {[0, 4].map((index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  currentIndex === index
+                    ? 'w-8 bg-[#1B3D6F]'
+                    : 'w-2 bg-gray-300 hover:bg-gray-400'
+                }`}
+                aria-label={`Aller au groupe ${index / 4 + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Bouton CTA vers la page complète */}
+        <div className="text-center mt-12">
+          <Link
+            href={`/${locale}/products`}
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold text-white bg-[#1B3D6F] hover:bg-[#2A5298] transition-all duration-300 hover:shadow-xl hover:-translate-y-1 transform-gpu"
+            style={{ willChange: 'transform, box-shadow' }}
+          >
+            <span>Découvrir tous nos produits</span>
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
         </div>
       </div>
     </section>

@@ -57,78 +57,135 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--atech-orange) 0%, var(--atech-orange-light) 100%);
+  background: linear-gradient(135deg, var(--atech-navy) 0%, var(--atech-navy-light) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px) translateZ(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateZ(0);
+  }
 }
 
 @keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-30px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-30px) translateZ(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateZ(0);
+  }
 }
 
 @keyframes slideInRight {
-  from { opacity: 0; transform: translateX(30px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(30px) translateZ(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateZ(0);
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-8px); }
+  0%, 100% {
+    transform: translateY(0px) translateZ(0);
+  }
+  50% {
+    transform: translateY(-8px) translateZ(0);
+  }
 }
 
 @keyframes bounce-in {
-  0% { transform: scale(0); opacity: 0; }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0) translateZ(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1) translateZ(0);
+  }
+  100% {
+    transform: scale(1) translateZ(0);
+    opacity: 1;
+  }
 }
 
-.animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
-.animate-float      { animation: float 4s ease-in-out infinite; }
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+  will-change: transform, opacity;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+  will-change: transform;
+}
 
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--atech-gray-100); }
-::-webkit-scrollbar-thumb { background: var(--atech-orange); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--atech-navy); }
+::-webkit-scrollbar-thumb { background: var(--atech-navy); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--atech-navy-light); }
 
 /* Micro-interactions */
 @keyframes ripple {
-  0% { transform: scale(0); opacity: 1; }
-  100% { transform: scale(4); opacity: 0; }
+  0% {
+    transform: scale(0) translateZ(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4) translateZ(0);
+    opacity: 0;
+  }
 }
 
 @keyframes shimmer {
-  0% { background-position: -1000px 0; }
-  100% { background-position: 1000px 0; }
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(232, 118, 58, 0.4); }
-  50% { box-shadow: 0 0 0 10px rgba(232, 118, 58, 0); }
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(27, 61, 111, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(27, 61, 111, 0);
+  }
 }
 
 @keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .cursor-interactive {
   cursor: pointer;
   transition: transform 0.2s ease;
+  will-change: transform;
 }
 
 .cursor-interactive:hover {
-  transform: scale(1.02);
+  transform: scale(1.02) translateZ(0);
 }
 
 .animate-ripple {
   animation: ripple 0.6s ease-out;
+  will-change: transform, opacity;
 }
 
 .animate-shimmer {
@@ -140,15 +197,18 @@ body {
     rgba(255,255,255,0) 100%
   );
   background-size: 1000px 100%;
+  will-change: background-position;
 }
 
 .animate-pulse-glow {
   animation: pulse-glow 2s infinite;
+  will-change: box-shadow;
 }
 
 .gradient-animate {
   background-size: 200% 200%;
   animation: gradient-shift 3s ease infinite;
+  will-change: background-position;
 }
 
 /* Ripple effect */
@@ -160,9 +220,37 @@ body {
   height: 100px;
   pointer-events: none;
   animation: ripple 0.6s ease-out;
+  will-change: transform, opacity;
 }
 
 button, a {
   position: relative;
   overflow: hidden;
+}
+
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Smooth transitions for interactive elements */
+button,
+a,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* GPU acceleration for transformed elements */
+.transform-gpu {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }

@@ -44,8 +44,21 @@ export default function ProductsPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-[#0F2540] via-[#1B3D6F] to-[#0F2540] overflow-hidden">
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
+      <section className="relative py-20 lg:py-32 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/solutions.jpg"
+            alt="Nos Solutions"
+            fill
+            className="object-cover object-center"
+            priority
+            quality={100}
+            sizes="100vw"
+          />
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0F2540]/95 via-[#1B3D6F]/90 to-[#0F2540]/85" />
+        </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-6 text-white" style={{ background: "rgba(255, 255, 255, 0.1)" }}>

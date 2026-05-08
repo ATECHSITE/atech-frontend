@@ -66,13 +66,15 @@ export default function Hero() {
             <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight tracking-tight mb-6 opacity-0"
                 style={{ animation: 'slideInLeft 0.8s ease-out 0.2s forwards', willChange: 'transform, opacity' }}>
               <span className="block text-white">Digitaliser.</span>
-              <span className="block text-white">Moderniser.</span>
-              <span className="block mt-2" style={{
+              <span className="block" style={{
                 background: "linear-gradient(135deg, #1B3D6F 0%, #2A5298 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text"
               }}>
+                Moderniser.
+              </span>
+              <span className="block mt-2 text-white">
                 Transformer.
               </span>
             </h1>

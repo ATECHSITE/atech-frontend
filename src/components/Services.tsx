@@ -52,9 +52,10 @@ export default function Services() {
       <section
         ref={ref as React.RefObject<HTMLElement>}
         id="services"
-        className={`py-20 lg:py-28 transition-all duration-1000 bg-white ${
+        className={`py-20 lg:py-28 transition-all duration-1000 bg-white transform-gpu ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
+        style={{ willChange: isVisible ? 'auto' : 'transform, opacity' }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -67,13 +68,14 @@ export default function Services() {
               <div
                 key={i}
                 onClick={() => setSelectedService(i)}
-                className="group rounded-3xl p-10 bg-white border-2 border-gray-200 hover:border-[#2B7BE5] hover:shadow-xl transition-all duration-300 cursor-pointer opacity-0 animate-fade-in-up relative"
+                className="group rounded-3xl p-10 bg-white border-2 border-gray-200 hover:border-[#2B7BE5] hover:shadow-xl transition-all duration-300 cursor-pointer opacity-0 animate-fade-in-up relative transform-gpu"
                 style={{
                   animationDelay: `${i * 150}ms`,
-                  animationFillMode: 'forwards'
+                  animationFillMode: 'forwards',
+                  willChange: 'transform, opacity, border-color, box-shadow'
                 }}
               >
-                <div className="w-16 h-16 rounded-2xl bg-gray-100 flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110">
+                <div className="w-16 h-16 rounded-2xl bg-gray-100 flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 transform-gpu" style={{ willChange: 'transform' }}>
                   <div className="relative w-10 h-10">
                     <Image
                       src={iconMap[item.icon] || "/images/icones/planning.png"}
@@ -186,7 +188,7 @@ export default function Services() {
                   {items[selectedService].keyFeatures.map((feature, idx) => (
                     <div key={idx} className="flex items-start gap-3">
                       <div className="mt-1 flex-shrink-0">
-                        <svg className="w-5 h-5 text-[#E8763A]" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-5 h-5 text-[#2B7BE5]" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                         </svg>
                       </div>

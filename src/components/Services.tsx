@@ -76,13 +76,15 @@ export default function Services() {
                 }}
               >
                 <div className="w-16 h-16 rounded-2xl bg-gray-100 flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 transform-gpu" style={{ willChange: 'transform' }}>
-                  <div className="relative w-10 h-10">
+                  <div className="relative w-12 h-12">
                     <Image
                       src={iconMap[item.icon] || "/images/icones/planning.png"}
                       alt={item.title}
                       fill
                       className="object-contain"
-                      sizes="40px"
+                      sizes="48px"
+                      quality={100}
+                      priority
                     />
                   </div>
                 </div>
@@ -150,14 +152,15 @@ export default function Services() {
             {/* Header */}
             <div className="sticky top-0 bg-[#0F2540] px-6 py-5 flex items-center justify-between z-10">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 p-2" style={{ background: "rgba(255,255,255,0.9)" }}>
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 p-2" style={{ background: "rgba(255,255,255,0.9)" }}>
                   <div className="relative w-full h-full">
                     <Image
                       src={iconMap[items[selectedService].icon] || "/images/icones/planning.png"}
                       alt={items[selectedService].title}
                       fill
                       className="object-contain"
-                      sizes="40px"
+                      sizes="48px"
+                      quality={100}
                     />
                   </div>
                 </div>

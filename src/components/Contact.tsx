@@ -52,7 +52,7 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
-          <div className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6 text-[#E8763A]" style={{ background: "rgba(232,118,58,0.1)" }}>
+          <div className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6 text-[#1B3D6F]" style={{ background: "rgba(27,61,111,0.1)" }}>
             {t("badge")}
           </div>
         </div>
@@ -73,7 +73,7 @@ export default function Contact() {
                 {t("subtitle")}
               </p>
               <div className="flex items-center gap-2 text-[#0F2540] font-semibold">
-                <svg className="w-5 h-5 text-[#E8763A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-[#2A5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 <span className="text-sm">{t("email")}</span>
@@ -88,7 +88,7 @@ export default function Contact() {
               <div className="space-y-5">
                 {[0, 1, 2, 3].map((i) => (
                   <div key={i} className="flex gap-4 items-start">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#E8763A] flex items-center justify-center text-white font-bold text-sm">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#1B3D6F] flex items-center justify-center text-white font-bold text-sm">
                       {i + 1}
                     </div>
                     <p className="text-gray-600 pt-1 leading-relaxed">
@@ -108,7 +108,7 @@ export default function Contact() {
                 <h3 className="text-2xl font-bold text-[#0F2540] mb-2">
                   {t("form.title")}
                 </h3>
-                <div className="w-12 h-1 bg-[#E8763A] mx-auto rounded-full" />
+                <div className="w-12 h-1 bg-[#2A5298] mx-auto rounded-full" />
               </div>
 
               {submitted ? (
@@ -134,7 +134,7 @@ export default function Contact() {
                         name="firstName"
                         required
                         placeholder={t("form.placeholder.firstName")}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#E8763A] focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2A5298] focus:border-transparent transition-all"
                       />
                     </div>
                     <div>
@@ -146,7 +146,7 @@ export default function Contact() {
                         name="lastName"
                         required
                         placeholder={t("form.placeholder.lastName")}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#E8763A] focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2A5298] focus:border-transparent transition-all"
                       />
                     </div>
                   </div>
@@ -161,7 +161,7 @@ export default function Contact() {
                       name="email"
                       required
                       placeholder={t("form.placeholder.email")}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#E8763A] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2A5298] focus:border-transparent transition-all"
                     />
                   </div>
 
@@ -174,7 +174,7 @@ export default function Contact() {
                       type="tel"
                       name="phone"
                       placeholder={t("form.placeholder.phone")}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#E8763A] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2A5298] focus:border-transparent transition-all"
                     />
                   </div>
 
@@ -188,7 +188,7 @@ export default function Contact() {
                       required
                       rows={5}
                       placeholder={t("form.placeholder.message")}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#E8763A] focus:border-transparent transition-all resize-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2A5298] focus:border-transparent transition-all resize-none"
                     />
                   </div>
 
@@ -203,7 +203,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-[#E8763A] hover:bg-[#d6692f] text-white font-semibold py-4 rounded-lg transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-md hover:shadow-lg relative overflow-hidden"
+                    className="w-full bg-[#1B3D6F] hover:bg-[#2A5298] text-white font-semibold py-4 rounded-lg transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-md hover:shadow-lg relative overflow-hidden"
                   >
                     {loading && (
                       <span className="absolute inset-0 animate-shimmer" />

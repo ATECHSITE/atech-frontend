@@ -29,28 +29,35 @@ export default function Hero() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Full-screen background images - CLEAR AND CRISP */}
+      {/* Full-screen background images with SLIDE animation */}
       <div className="absolute inset-0">
         {images.map((img, idx) => (
           <div
             key={idx}
-            className={`absolute inset-0 transition-all duration-[1500ms] ease-in-out ${
-              idx === currentImage ? "opacity-100 scale-100" : "opacity-0 scale-105"
-            }`}
+            className="absolute inset-0 transition-all duration-[1200ms] ease-out"
+            style={{
+              transform: idx === currentImage
+                ? 'translateX(0%) scale(1)'
+                : idx < currentImage
+                  ? 'translateX(-100%) scale(1.1)'
+                  : 'translateX(100%) scale(1.1)',
+              opacity: idx === currentImage ? 1 : 0,
+              willChange: 'transform, opacity'
+            }}
           >
             <Image
               src={img.src}
               alt={img.label}
               fill
-              className="object-cover object-center scale-100"
+              className="object-cover object-center"
               priority={idx === 0}
               quality={100}
               sizes="100vw"
               unoptimized={false}
               style={{ imageRendering: 'crisp-edges' }}
             />
-            {/* Dark overlay for text readability - NO BLUR */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/95 via-[#0F2540]/85 to-[#0F2540]/60" style={{ backdropFilter: 'none' }} />
+            {/* Dark overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/95 via-[#0F2540]/85 to-[#0F2540]/60" />
           </div>
         ))}
       </div>
@@ -62,21 +69,36 @@ export default function Hero() {
             {/* Badge */}
            
 
-            {/* Main Heading */}
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight tracking-tight mb-6 opacity-0"
-                style={{ animation: 'slideInLeft 0.8s ease-out 0.2s forwards', willChange: 'transform, opacity' }}>
-              <span className="block text-white">Digitaliser.</span>
-              <span className="block" style={{
-                background: "linear-gradient(135deg, #1B3D6F 0%, #2A5298 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text"
-              }}>
-                Moderniser.
-              </span>
-              <span className="block mt-2 text-white">
-                Transformer.
-              </span>
+            {/* Main Heading with dynamic keyword */}
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight tracking-tight mb-6">
+              <span className="block text-white mb-2">Nous vous aidons à</span>
+
+              {/* Dynamic keyword that changes with images */}
+              <div className="relative h-[1.2em] overflow-hidden">
+                {images.map((img, idx) => (
+                  <span
+                    key={idx}
+                    className="absolute inset-0 block transition-all duration-700 ease-out"
+                    style={{
+                      transform: idx === currentImage
+                        ? 'translateX(0%)'
+                        : idx < currentImage
+                          ? 'translateX(-120%)'
+                          : 'translateX(120%)',
+                      opacity: idx === currentImage ? 1 : 0,
+                      background: img.keyword === "Moderniser"
+                        ? "linear-gradient(135deg, #1B3D6F 0%, #2A5298 100%)"
+                        : "none",
+                      WebkitBackgroundClip: img.keyword === "Moderniser" ? "text" : "none",
+                      WebkitTextFillColor: img.keyword === "Moderniser" ? "transparent" : "white",
+                      backgroundClip: img.keyword === "Moderniser" ? "text" : "none",
+                      color: img.keyword === "Moderniser" ? "transparent" : "white"
+                    }}
+                  >
+                    {img.keyword}.
+                  </span>
+                ))}
+              </div>
             </h1>
 
             {/* Subtitle */}

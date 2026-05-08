@@ -84,13 +84,15 @@ export default function About() {
           {/* Vision */}
           <div className="border-l-4 border-[#2B7BE5] pl-6">
             <div className="flex items-center gap-3 mb-4">
-              <div className="relative w-10 h-10 flex-shrink-0">
+              <div className="relative w-14 h-14 flex-shrink-0">
                 <Image
-                  src="/images/icones/vision.png"
+                  src="/images/icones/vision48.png"
                   alt="Vision"
                   fill
                   className="object-contain"
-                  sizes="40px"
+                  sizes="56px"
+                  quality={100}
+                  priority
                 />
               </div>
               <h3 className="text-2xl font-bold text-[#0F2540]">{t("vision.title")}</h3>
@@ -101,13 +103,15 @@ export default function About() {
           {/* Mission */}
           <div className="border-l-4 border-[#E8763A] pl-6">
             <div className="flex items-center gap-3 mb-4">
-              <div className="relative w-10 h-10 flex-shrink-0">
+              <div className="relative w-14 h-14 flex-shrink-0">
                 <Image
-                  src="/images/icones/mission.png"
+                  src="/images/icones/mission64.png"
                   alt="Mission"
                   fill
                   className="object-contain"
-                  sizes="40px"
+                  sizes="56px"
+                  quality={100}
+                  priority
                 />
               </div>
               <h3 className="text-2xl font-bold text-[#0F2540]">{t("mission.title")}</h3>

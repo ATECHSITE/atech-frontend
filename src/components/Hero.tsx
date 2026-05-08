@@ -29,7 +29,7 @@ export default function Hero() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Full-screen background images with SLIDE animation */}
+      {/* Full-screen background images with SLIDE animation (RIGHT to LEFT) */}
       <div className="absolute inset-0">
         {images.map((img, idx) => (
           <div
@@ -73,12 +73,12 @@ export default function Hero() {
             <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight tracking-tight mb-6">
               <span className="block text-white mb-2">Nous vous aidons à</span>
 
-              {/* Dynamic keyword that changes with images */}
-              <div className="relative h-[1.2em] overflow-hidden">
+              {/* Dynamic keyword that changes with images - ALL IN BLUE */}
+              <div className="relative h-[1.4em] overflow-visible pb-2">
                 {images.map((img, idx) => (
                   <span
                     key={idx}
-                    className="absolute inset-0 block transition-all duration-700 ease-out"
+                    className="absolute left-0 top-0 block transition-all duration-700 ease-out whitespace-nowrap"
                     style={{
                       transform: idx === currentImage
                         ? 'translateX(0%)'
@@ -86,13 +86,12 @@ export default function Hero() {
                           ? 'translateX(-120%)'
                           : 'translateX(120%)',
                       opacity: idx === currentImage ? 1 : 0,
-                      background: img.keyword === "Moderniser"
-                        ? "linear-gradient(135deg, #1B3D6F 0%, #2A5298 100%)"
-                        : "none",
-                      WebkitBackgroundClip: img.keyword === "Moderniser" ? "text" : "none",
-                      WebkitTextFillColor: img.keyword === "Moderniser" ? "transparent" : "white",
-                      backgroundClip: img.keyword === "Moderniser" ? "text" : "none",
-                      color: img.keyword === "Moderniser" ? "transparent" : "white"
+                      background: "linear-gradient(135deg, #1B3D6F 0%, #2A5298 100%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                      paddingRight: "0.2em",
+                      letterSpacing: "-0.02em"
                     }}
                   >
                     {img.keyword}.

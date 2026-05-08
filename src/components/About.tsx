@@ -14,9 +14,10 @@ export default function About() {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       id="about"
-      className={`py-16 lg:py-20 bg-white overflow-hidden transition-all duration-1000 ${
+      className={`py-16 lg:py-20 bg-white overflow-hidden transition-all duration-1000 transform-gpu ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
+      style={{ willChange: isVisible ? 'auto' : 'transform, opacity' }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -51,7 +52,7 @@ export default function About() {
 
           {/* Right: Text */}
           <div className="order-1 lg:order-2">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 text-[#E8763A] opacity-0" style={{ background: "rgba(232,118,58,0.1)", animation: 'bounce-in 0.6s ease-out 0.1s forwards' }}>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 text-[#1B3D6F] opacity-0" style={{ background: "rgba(27,61,111,0.1)", animation: 'bounce-in 0.6s ease-out 0.1s forwards' }}>
               {t("badge")}
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#0F2540] mb-6 leading-tight">{t("title")}</h2>
@@ -61,8 +62,8 @@ export default function About() {
             <div className="space-y-3">
               {highlights.map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
-                  <div className="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "rgba(232,118,58,0.15)" }}>
-                    <svg className="w-3 h-3 text-[#E8763A]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                  <div className="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "rgba(42,82,152,0.15)" }}>
+                    <svg className="w-3 h-3 text-[#2A5298]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                   </div>
                   <span className="text-gray-700 text-sm leading-relaxed">{item}</span>
                 </div>
@@ -70,7 +71,7 @@ export default function About() {
             </div>
 
             <div className="mt-10">
-              <a href="#contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white transition-all hover:opacity-90 hover:shadow-lg hover:-translate-y-0.5 bg-[#E8763A]">
+              <a href="#contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white transition-all hover:opacity-90 hover:shadow-lg hover:-translate-y-0.5 bg-[#1B3D6F] transform-gpu" style={{ willChange: 'transform, opacity, box-shadow' }}>
                 Collaborer avec nous
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
               </a>

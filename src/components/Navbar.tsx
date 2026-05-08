@@ -112,9 +112,9 @@ export default function Navbar() {
                 }}
                 href={link.href}
                 onClick={() => setActiveLink(index)}
-                className={`text-sm font-medium transition-colors hover:text-[#E8763A] py-2 relative ${
+                className={`text-sm font-medium transition-colors hover:text-[#2A5298] py-2 relative ${
                   scrolled ? "text-gray-700" : "text-white/90"
-                } ${activeLink === index ? "text-[#E8763A]" : ""}`}
+                } ${activeLink === index ? "text-[#2A5298]" : ""}`}
               >
                 {link.label}
               </a>
@@ -122,7 +122,7 @@ export default function Navbar() {
             {/* Animated indicator line */}
             {indicatorStyle.width > 0 && (
               <span
-                className="absolute bottom-0 h-0.5 bg-[#E8763A] transition-all duration-300 ease-out"
+                className="absolute bottom-0 h-0.5 bg-[#2A5298] transition-all duration-300 ease-out"
                 style={{
                   left: `${indicatorStyle.left}px`,
                   width: `${indicatorStyle.width}px`,
@@ -140,7 +140,7 @@ export default function Navbar() {
                   onClick={() => switchLocale(lang)}
                   className={`px-2.5 py-1 rounded-full uppercase transition-all ${
                     locale === lang
-                      ? "bg-[#E8763A] text-white shadow-sm"
+                      ? "bg-[#1B3D6F] text-white shadow-sm"
                       : scrolled ? "text-gray-500 hover:text-gray-900" : "text-white/70 hover:text-white"
                   }`}
                 >
@@ -158,7 +158,7 @@ export default function Navbar() {
                   key={lang}
                   onClick={() => switchLocale(lang)}
                   className={`px-2 py-0.5 rounded-full uppercase transition-all ${
-                    locale === lang ? "bg-[#E8763A] text-white" : scrolled ? "text-gray-500" : "text-white/70"
+                    locale === lang ? "bg-[#1B3D6F] text-white" : scrolled ? "text-gray-500" : "text-white/70"
                   }`}
                 >
                   {lang}
@@ -189,13 +189,13 @@ export default function Navbar() {
                   setActiveLink(index);
                   setMobileOpen(false);
                 }}
-                className={`block px-4 py-3 text-gray-700 hover:text-[#E8763A] hover:bg-orange-50 rounded-xl font-medium transition-colors relative ${
-                  activeLink === index ? "text-[#E8763A] bg-orange-50" : ""
+                className={`block px-4 py-3 text-gray-700 hover:text-[#2A5298] hover:bg-blue-50 rounded-xl font-medium transition-colors relative ${
+                  activeLink === index ? "text-[#2A5298] bg-blue-50" : ""
                 }`}
               >
                 {link.label}
                 {activeLink === index && (
-                  <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-[#E8763A] rounded-r-full" />
+                  <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-[#2A5298] rounded-r-full" />
                 )}
               </a>
             ))}

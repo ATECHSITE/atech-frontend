@@ -4,7 +4,6 @@ import { useTranslations } from "@/i18n/context";
 import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import Link from "next/link";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 
@@ -41,7 +40,6 @@ export default function ProductsPage() {
   return (
     <main className="min-h-screen bg-white">
       <ScrollProgress />
-      <Navbar />
 
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 overflow-hidden">

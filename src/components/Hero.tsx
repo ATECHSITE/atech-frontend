@@ -64,11 +64,11 @@ export default function Hero() {
 
             {/* Main Heading */}
             <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight tracking-tight mb-6 opacity-0"
-                style={{ animation: 'slideInLeft 0.8s ease-out 0.2s forwards' }}>
+                style={{ animation: 'slideInLeft 0.8s ease-out 0.2s forwards', willChange: 'transform, opacity' }}>
               <span className="block text-white">Digitaliser.</span>
               <span className="block text-white">Moderniser.</span>
               <span className="block mt-2" style={{
-                background: "linear-gradient(135deg, #E8763A 0%, #F4A472 100%)",
+                background: "linear-gradient(135deg, #1B3D6F 0%, #2A5298 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text"
@@ -79,20 +79,20 @@ export default function Hero() {
 
             {/* Subtitle */}
             <p className="text-lg sm:text-xl lg:text-2xl text-blue-50/95 leading-relaxed mb-10 max-w-xl opacity-0"
-               style={{ animation: 'slideInLeft 0.8s ease-out 0.4s forwards' }}>
+               style={{ animation: 'slideInLeft 0.8s ease-out 0.4s forwards', willChange: 'transform, opacity' }}>
               {t("subtitle")}
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 opacity-0" style={{ animation: 'fadeInUp 0.8s ease-out 0.6s forwards' }}>
+            <div className="flex flex-col sm:flex-row gap-4 opacity-0" style={{ animation: 'fadeInUp 0.8s ease-out 0.6s forwards', willChange: 'transform, opacity' }}>
               <a
                 ref={magneticCTA.ref as React.RefObject<HTMLAnchorElement>}
                 href="#services"
                 onClick={createRipple}
                 onMouseMove={magneticCTA.onMouseMove}
                 onMouseLeave={magneticCTA.onMouseLeave}
-                className="group px-8 py-4 rounded-full font-bold text-lg text-white transition-all duration-300 hover:shadow-2xl flex items-center justify-center gap-2 relative overflow-hidden will-change-transform"
-                style={{ backgroundColor: "#E8763A" }}
+                className="group px-8 py-4 rounded-full font-bold text-lg text-white transition-all duration-300 hover:shadow-2xl flex items-center justify-center gap-2 relative overflow-hidden transform-gpu"
+                style={{ backgroundColor: "#1B3D6F", willChange: 'transform' }}
               >
                 <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
                 <span className="relative">Découvrir nos services</span>
@@ -107,7 +107,8 @@ export default function Hero() {
                 onClick={createRipple}
                 onMouseMove={magneticSecondary.onMouseMove}
                 onMouseLeave={magneticSecondary.onMouseLeave}
-                className="px-8 py-4 rounded-full font-semibold text-lg text-white border-2 border-white/40 transition-all hover:bg-white/10 hover:border-white/60 hover:-translate-y-1 hover:shadow-lg"
+                className="px-8 py-4 rounded-full font-semibold text-lg text-white border-2 border-white/40 transition-all hover:bg-white/10 hover:border-white/60 hover:-translate-y-1 hover:shadow-lg transform-gpu"
+                style={{ willChange: 'transform' }}
               >
                 Prise de rendez-vous
               </a>

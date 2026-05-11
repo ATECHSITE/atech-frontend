@@ -11,8 +11,12 @@
     "badge": "Innovation & Transformation Digitale",
     "title": "Moderniser. Optimiser.",
     "titleHighlight": "Transformer.",
+    "titlePrefix": "Nous vous aidons à",
+    "keywords": ["Digitaliser", "Moderniser", "Transformer", "Optimiser"],
+    "imageLabels": ["Maintenance Industrielle", "Intégration Technologique", "Suivi Electronique", "Développement de solutions"],
     "subtitle": "Nous accompagnons les institutions publiques et les organisations dans leur transformation digitale avec des solutions innovantes adaptées aux enjeux des administrations modernes.",
     "cta": "Découvrir nos solutions",
+    "ctaMain": "Découvrir nos services",
     "ctaSecondary": "Prise de rendez-vous"
   },
   "services": {

@@ -13,11 +13,14 @@ export default function Hero() {
   const magneticCTA = useMagnetic(0.25);
   const magneticSecondary = useMagnetic(0.2);
 
+  const keywords = (t.raw("keywords") as string[]) || ["Digitaliser", "Moderniser", "Transformer", "Optimiser"];
+  const imageLabels = (t.raw("imageLabels") as string[]) || ["Maintenance Industrielle", "Intégration Technologique", "Suivi Electronique", "Développement de solutions"];
+
   const images = [
-    { src: "/images/male-engineer-analyzed-industry-40-system-smart-manufacturing-plant.jpg", label: "Maintenance Industrielle", keyword: "Digitaliser" },
-    { src: "/images/network-switch-with-cables.jpg", label: "Intégration Technologique", keyword: "Moderniser" },
-    { src: "/images/cyberpunk-location-tracking-mobile-device.jpg", label: "Suivi Electronique", keyword: "Transformer" },
-    { src: "/images/programmer-home-office-concentrating-finding-bugs-while-he-codes.jpg", label: "Développement de solutions", keyword: "Digitaliser" },
+    { src: "/images/male-engineer-analyzed-industry-40-system-smart-manufacturing-plant.jpg", label: imageLabels[0], keyword: keywords[0] },
+    { src: "/images/network-switch-with-cables.jpg", label: imageLabels[1], keyword: keywords[1] },
+    { src: "/images/cyberpunk-location-tracking-mobile-device.jpg", label: imageLabels[2], keyword: keywords[2] },
+    { src: "/images/programmer-home-office-concentrating-finding-bugs-while-he-codes.jpg", label: imageLabels[3], keyword: keywords[3] },
   ];
 
   useEffect(() => {
@@ -71,7 +74,7 @@ export default function Hero() {
 
             {/* Main Heading with dynamic keyword */}
             <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight tracking-tight mb-6">
-              <span className="block text-white mb-2">Nous vous aidons à</span>
+              <span className="block text-white mb-2">{t("titlePrefix")}</span>
 
               {/* Dynamic keyword that changes with images - ALL IN BLUE */}
               <div className="relative h-[1.4em] overflow-visible pb-2">
@@ -118,7 +121,7 @@ export default function Hero() {
                 style={{ backgroundColor: "#1B3D6F", willChange: 'transform' }}
               >
                 <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
-                <span className="relative">Découvrir nos services</span>
+                <span className="relative">{t("ctaMain")}</span>
                 <svg className="w-5 h-5 relative group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -133,7 +136,7 @@ export default function Hero() {
                 className="px-8 py-4 rounded-full font-semibold text-lg text-white border-2 border-white/40 transition-all hover:bg-white/10 hover:border-white/60 hover:-translate-y-1 hover:shadow-lg transform-gpu"
                 style={{ willChange: 'transform' }}
               >
-                Prise de rendez-vous
+                {t("ctaSecondary")}
               </a>
             </div>
           </div>

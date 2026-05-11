@@ -11,8 +11,12 @@
     "badge": "Innovation & Digital Transformation",
     "title": "Modernize. Optimize.",
     "titleHighlight": "Transform.",
+    "titlePrefix": "We help you to",
+    "keywords": ["Digitalize", "Modernize", "Transform", "Optimize"],
+    "imageLabels": ["Industrial Maintenance", "Technology Integration", "Electronic Tracking", "Solution Development"],
     "subtitle": "We support public institutions and organizations in their digital transformation with innovative solutions tailored to the challenges of modern administrations.",
     "cta": "Discover Our Solutions",
+    "ctaMain": "Discover Our Services",
     "ctaSecondary": "Schedule a Call"
   },
   "services": {

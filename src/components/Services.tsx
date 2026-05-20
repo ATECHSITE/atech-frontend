@@ -30,73 +30,61 @@ export default function Services() {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       id="services"
-      className={`py-20 lg:py-28 transition-all duration-1000 bg-white transform-gpu ${
+      className={`py-24 lg:py-32 transition-all duration-1000 bg-[#F8F9FC] transform-gpu ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
       style={{ willChange: isVisible ? 'auto' : 'transform, opacity' }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0F2540] mb-6">{t("title")}</h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">{t("subtitle")}</p>
+          <div
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-5 text-[#1B3D6F]"
+            style={{ background: "rgba(27,61,111,0.08)" }}
+          >
+            {t("badge")}
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#0F2540] mb-5">{t("title")}</h2>
+          <p className="text-base text-gray-500 max-w-2xl mx-auto leading-relaxed">{t("subtitle")}</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-10 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
           {items.map((item, i) => (
             <div
               key={i}
-              className="flip-card opacity-0 animate-fade-in-up"
-              style={{
-                animationDelay: `${i * 150}ms`,
-                animationFillMode: 'forwards',
-                height: '400px'
-              }}
+              className="group relative bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:border-gray-200 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden animate-fade-in-up"
+              style={{ animationDelay: `${i * 120}ms`, animationFillMode: 'both' }}
             >
-              <div className="flip-card-inner">
-                {/* Face avant */}
-                <div className="flip-card-front rounded-3xl p-10 bg-white border-2 border-gray-200 hover:border-[#2B7BE5] shadow-lg">
-                  <div className="w-16 h-16 rounded-2xl bg-gray-100 flex items-center justify-center mb-6">
-                    <div className="relative w-12 h-12">
-                      <Image
-                        src={iconMap[item.icon] || "/images/icones/planning.png"}
-                        alt={item.title}
-                        fill
-                        className="object-contain"
-                        sizes="48px"
-                        quality={100}
-                        priority
-                      />
-                    </div>
-                  </div>
+              {/* Accent bar révélé au hover */}
+              <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#1B3D6F] to-[#2A5298] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
 
-                  <h3 className="text-xl font-bold mb-4 text-[#0F2540]">
-                    {item.title}
-                  </h3>
+              {/* Numéro décoratif en arrière-plan */}
+              <div className="absolute top-4 right-5 text-7xl font-black text-gray-50 leading-none select-none pointer-events-none group-hover:text-gray-100 transition-colors duration-300">
+                0{i + 1}
+              </div>
 
-                  <p className="text-base leading-relaxed text-gray-600">
-                    {item.description}
-                  </p>
+              {/* Icône */}
+              <div className="relative w-14 h-14 rounded-xl flex items-center justify-center mb-6 bg-gray-50 group-hover:bg-blue-50 transition-colors duration-300">
+                <div className="relative w-8 h-8">
+                  <Image
+                    src={iconMap[item.icon] || "/images/icones/planning.png"}
+                    alt={item.title}
+                    fill
+                    className="object-contain"
+                    sizes="32px"
+                    quality={100}
+                    priority
+                  />
                 </div>
+              </div>
 
-                {/* Face arrière */}
-                <div className="flip-card-back rounded-3xl p-10 bg-[#2B7BE5] shadow-xl flex flex-col items-center justify-center text-white">
-                  <div className="relative w-16 h-16 mb-6">
-                    <Image
-                      src={iconMap[item.icon] || "/images/icones/planning.png"}
-                      alt={item.title}
-                      fill
-                      className="object-contain brightness-0 invert"
-                      sizes="64px"
-                      quality={100}
-                    />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-4 text-center">
-                    {item.title}
-                  </h3>
-                  <p className="text-base leading-relaxed text-center opacity-90">
-                    {item.description}
-                  </p>
-                </div>
+              <h3 className="text-lg font-bold text-[#0F2540] mb-3 relative">{item.title}</h3>
+              <p className="text-sm text-gray-500 leading-relaxed relative">{item.description}</p>
+
+              {/* Indicateur bas animé */}
+              <div className="flex gap-1.5 mt-6">
+                <div className="h-1 w-6 rounded-full bg-[#1B3D6F] opacity-20 group-hover:opacity-100 group-hover:w-10 transition-all duration-500" />
+                <div className="h-1 w-1.5 rounded-full bg-[#2A5298] opacity-20 group-hover:opacity-60 transition-all duration-500 delay-75" />
+                <div className="h-1 w-1.5 rounded-full bg-[#2A5298] opacity-10 group-hover:opacity-40 transition-all duration-500 delay-150" />
               </div>
             </div>
           ))}

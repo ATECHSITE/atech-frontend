@@ -7,7 +7,7 @@ export default function Stats() {
   const items = [0, 1, 2, 3].map((i) => ({ value: t(`items.${i}.value`), label: t(`items.${i}.label`) }));
 
   return (
-    <section id="stats" className="py-20 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #0F2540 0%, #1B3D6F 100%)" }}>
+    <section id="stats" className="py-24 lg:py-32 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #0F2540 0%, #1B3D6F 100%)" }}>
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-1/4 w-64 h-64 rounded-full opacity-10" style={{ background: "radial-gradient(circle, #E8763A 0%, transparent 70%)" }} />
         <div className="absolute bottom-0 right-1/4 w-48 h-48 rounded-full opacity-10" style={{ background: "radial-gradient(circle, #F4A472 0%, transparent 70%)" }} />

@@ -7,6 +7,7 @@
   --atech-navy: #1B3D6F;
   --atech-navy-dark: #0F2540;
   --atech-navy-light: #2A5298;
+  --atech-accent: #2A5298;
   --atech-white: #FFFFFF;
   --atech-gray-50: #F8F9FC;
   --atech-gray-100: #F1F3F8;
@@ -28,6 +29,7 @@
   --color-atech-navy: var(--atech-navy);
   --color-atech-navy-dark: var(--atech-navy-dark);
   --color-atech-navy-light: var(--atech-navy-light);
+  --color-atech-accent: var(--atech-accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

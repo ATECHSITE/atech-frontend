@@ -32,33 +32,51 @@ export default function Hero() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
+      <style jsx>{`
+        @keyframes zoomIn {
+          0% {
+            transform: scale(1);
+          }
+          100% {
+            transform: scale(1.1);
+          }
+        }
+      `}</style>
       {/* Full-screen background images with SLIDE animation (RIGHT to LEFT) */}
       <div className="absolute inset-0">
         {images.map((img, idx) => (
           <div
             key={idx}
-            className="absolute inset-0 transition-all duration-[1200ms] ease-out"
+            className="absolute inset-0"
             style={{
               transform: idx === currentImage
-                ? 'translateX(0%) scale(1)'
+                ? 'translateX(0%)'
                 : idx < currentImage
-                  ? 'translateX(-100%) scale(1.1)'
-                  : 'translateX(100%) scale(1.1)',
+                  ? 'translateX(-100%) scale(1.05)'
+                  : 'translateX(100%) scale(1.05)',
               opacity: idx === currentImage ? 1 : 0,
+              transition: 'transform 1500ms cubic-bezier(0.4, 0, 0.2, 1), opacity 1500ms cubic-bezier(0.4, 0, 0.2, 1)',
               willChange: 'transform, opacity'
             }}
           >
-            <Image
-              src={img.src}
-              alt={img.label}
-              fill
-              className="object-cover object-center"
-              priority={idx === 0}
-              quality={100}
-              sizes="100vw"
-              unoptimized={false}
-              style={{ imageRendering: 'crisp-edges' }}
-            />
+            <div
+              className="w-full h-full"
+              style={{
+                animation: idx === currentImage ? 'zoomIn 10s ease-out forwards' : 'none'
+              }}
+            >
+              <Image
+                src={img.src}
+                alt={img.label}
+                fill
+                className="object-cover object-center"
+                priority={idx === 0}
+                quality={100}
+                sizes="100vw"
+                unoptimized={false}
+                style={{ imageRendering: 'auto' }}
+              />
+            </div>
             {/* Dark overlay for text readability */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/95 via-[#0F2540]/85 to-[#0F2540]/60" />
           </div>
@@ -69,9 +87,6 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left: Text Content */}
           <div className="text-left">
-            {/* Badge */}
-           
-
             {/* Main Heading with dynamic keyword */}
             <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight tracking-tight mb-6">
               <span className="block text-white mb-2">{t("titlePrefix")}</span>
@@ -141,15 +156,30 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right side - space for image to show through */}
-          <div className="hidden lg:block" />
+          {/* Right side — typographie décorative des mots-clés */}
+          <div className="hidden lg:flex flex-col justify-center items-start gap-1 opacity-0" style={{ animation: 'slideInRight 0.8s ease-out 0.5s forwards' }}>
+            {keywords.map((keyword, idx) => (
+              <span
+                key={idx}
+                className="font-black leading-none transition-all duration-700 select-none"
+                style={{
+                  fontSize: idx === currentImage ? '4rem' : '2.2rem',
+                  color: idx === currentImage ? 'rgba(255,255,255,0.18)' : 'rgba(255,255,255,0.05)',
+                  letterSpacing: '-0.03em',
+                  lineHeight: 1.05,
+                }}
+              >
+                {keyword}.
+              </span>
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Bottom wave */}
       <div className="absolute bottom-0 left-0 right-0">
         <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full">
-          <path d="M0 60V30C240 0 480 60 720 40C960 20 1200 60 1440 30V60H0Z" fill="white" />
+          <path d="M0 60V30C240 0 480 60 720 40C960 20 1200 60 1440 30V60H0Z" fill="#F8F9FC" />
         </svg>
       </div>
     </section>

@@ -6,7 +6,9 @@
       "Bash(python3:*)",
       "WebFetch(domain:www.digitek-consulting.com)",
       "WebSearch",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\autom\\\\Documents\\\\ATECHSOLUTIONS\\\\site\\\\atech-frontend\" -Force)",
+      "Bash(Select-Object Name, FullName)"
     ],
     "deny": [],
     "ask": []

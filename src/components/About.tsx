@@ -14,7 +14,7 @@ export default function About() {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       id="about"
-      className={`py-16 lg:py-20 bg-white overflow-hidden transition-all duration-1000 transform-gpu ${
+      className={`py-24 lg:py-32 bg-white overflow-hidden transition-all duration-1000 transform-gpu ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
       style={{ willChange: isVisible ? 'auto' : 'transform, opacity' }}
@@ -82,7 +82,7 @@ export default function About() {
         {/* Vision & Mission - Below on same line */}
         <div className="mt-16 grid md:grid-cols-2 gap-8">
           {/* Vision */}
-          <div className="border-l-4 border-[#2B7BE5] pl-6">
+          <div className="border-l-4 border-[#2A5298] pl-6">
             <div className="flex items-center gap-3 mb-4">
               <div className="relative w-14 h-14 flex-shrink-0">
                 <Image

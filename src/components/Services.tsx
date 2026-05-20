@@ -51,7 +51,7 @@ export default function Services() {
           {items.map((item, i) => (
             <div
               key={i}
-              className="group relative bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:border-gray-200 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden animate-fade-in-up"
+              className="group relative bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:border-gray-200 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden animate-fade-in-up cursor-pointer"
               style={{ animationDelay: `${i * 120}ms`, animationFillMode: 'both' }}
             >
               {/* Accent bar révélé au hover */}

@@ -77,7 +77,7 @@ export default function Footer() {
                   'grid-cols-2'
                 }`}>
                   {data.clients.map((client, i) => (
-                    <div key={i} className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:bg-white/15 transition-all flex items-center justify-center">
+                    <div key={i} className="bg-white/10 backdrop-blur-sm rounded-sm p-4 border border-white/20 hover:bg-white/15 transition-all flex items-center justify-center">
                       <div className="relative w-full h-12">
                         <Image
                           src={client.logo}
@@ -110,7 +110,7 @@ export default function Footer() {
                   'grid-cols-2'
                 }`}>
                   {data.partners.map((partner, i) => (
-                    <div key={i} className="bg-gray-100 rounded-xl p-4 border border-gray-200 hover:border-[#2A5298] hover:shadow-md transition-all flex items-center justify-center">
+                    <div key={i} className="bg-gray-100 rounded-sm p-4 border border-gray-200 hover:border-[#2A5298] hover:shadow-md transition-all flex items-center justify-center">
                       <div className="relative w-full h-12">
                         <Image
                           src={partner.logo}
@@ -162,7 +162,7 @@ export default function Footer() {
                 <Link
                   key={lang}
                   href={`/${lang}`}
-                  className={`px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
+                  className={`px-4 py-2 rounded-sm text-xs font-semibold transition-all ${
                     locale === lang
                       ? "bg-[#2A5298] text-white"
                       : "text-blue-200/50 hover:text-white border border-white/20"

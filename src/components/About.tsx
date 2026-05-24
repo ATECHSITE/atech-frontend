@@ -24,7 +24,7 @@ export default function About() {
 
           {/* Left: Visual card */}
           <div className="relative order-2 lg:order-1">
-            <div className="relative rounded-3xl overflow-hidden" style={{ background: "linear-gradient(135deg, #0F2540 0%, #1B3D6F 100%)" }}>
+            <div className="relative overflow-hidden" style={{ background: "linear-gradient(135deg, #0F2540 0%, #1B3D6F 100%)" }}>
               <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
               <div className="relative z-10 p-10 h-full flex flex-col justify-between">
                 <div>
@@ -34,7 +34,7 @@ export default function About() {
                   <p className="text-blue-200/70 text-sm font-medium mb-4">Ouaga 2000, Ouagadougou, Burkina Faso</p>
                 </div>
                 <div className="mt-6">
-                  <div className="rounded-xl overflow-hidden border border-white/10 shadow-lg">
+                  <div className="overflow-hidden border border-white/10 shadow-lg">
                     <iframe
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31264.328472890396!2d-1.4936!3d12.3569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xe2ebe7f84eb2ab1%3A0x7a8aa2d8e6c8a8c8!2sOuaga%202000%2C%20Ouagadougou%2C%20Burkina%20Faso!5e0!3m2!1sen!2sus!4v1632847893221!5m2!1sen!2sus"
                       width="100%"
@@ -52,7 +52,7 @@ export default function About() {
 
           {/* Right: Text */}
           <div className="order-1 lg:order-2">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 text-[#1B3D6F] opacity-0" style={{ background: "rgba(27,61,111,0.1)", animation: 'bounce-in 0.6s ease-out 0.1s forwards' }}>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-sm text-xs font-semibold uppercase tracking-wider mb-4 text-[#1B3D6F] opacity-0" style={{ background: "rgba(27,61,111,0.1)", animation: 'bounce-in 0.6s ease-out 0.1s forwards' }}>
               {t("badge")}
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#0F2540] mb-6 leading-tight">{t("title")}</h2>
@@ -71,7 +71,7 @@ export default function About() {
             </div>
 
             <div className="mt-10">
-              <a href="#contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white transition-all hover:opacity-90 hover:shadow-lg hover:-translate-y-0.5 bg-[#1B3D6F] transform-gpu" style={{ willChange: 'transform, opacity, box-shadow' }}>
+              <a href="#contact" className="inline-flex items-center gap-2 px-7 py-3.5 font-semibold text-white transition-all hover:opacity-90 hover:shadow-lg hover:-translate-y-0.5 bg-[#1B3D6F] transform-gpu" style={{ willChange: 'transform, opacity, box-shadow' }}>
                 Collaborer avec nous
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
               </a>

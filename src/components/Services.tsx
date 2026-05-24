@@ -31,39 +31,29 @@ export default function Services() {
       ref={ref as React.RefObject<HTMLElement>}
       id="services"
       className={`py-24 lg:py-32 transition-all duration-1000 bg-[#F8F9FC] transform-gpu ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
-      style={{ willChange: isVisible ? 'auto' : 'transform, opacity' }}
+      style={{ willChange: isVisible ? "auto" : "transform, opacity" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-5 text-[#1B3D6F]"
-            style={{ background: "rgba(27,61,111,0.08)" }}
-          >
-            {t("badge")}
-          </div>
+        <div className="text-left mb-16">
+          
           <h2 className="text-3xl sm:text-4xl font-bold text-[#0F2540] mb-5">{t("title")}</h2>
-          <p className="text-base text-gray-500 max-w-2xl mx-auto leading-relaxed">{t("subtitle")}</p>
+          <p className="text-base text-gray-500 max-w-2xl leading-relaxed">{t("subtitle")}</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
           {items.map((item, i) => (
             <div
               key={i}
-              className="group relative bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:border-gray-200 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden animate-fade-in-up cursor-pointer"
-              style={{ animationDelay: `${i * 120}ms`, animationFillMode: 'both' }}
+              className="group relative bg-white p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:border-gray-200 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden animate-fade-in-up cursor-pointer"
+              style={{ animationDelay: `${i * 120}ms`, animationFillMode: "both" }}
             >
-              {/* Accent bar révélé au hover */}
+              {/* Accent bar au hover */}
               <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#1B3D6F] to-[#2A5298] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
 
-              {/* Numéro décoratif en arrière-plan */}
-              <div className="absolute top-4 right-5 text-7xl font-black text-gray-50 leading-none select-none pointer-events-none group-hover:text-gray-100 transition-colors duration-300">
-                0{i + 1}
-              </div>
-
               {/* Icône */}
-              <div className="relative w-14 h-14 rounded-xl flex items-center justify-center mb-6 bg-gray-50 group-hover:bg-blue-50 transition-colors duration-300">
+              <div className="relative w-14 h-14 rounded-sm flex items-center justify-center mb-6 bg-gray-50 group-hover:bg-blue-50 transition-colors duration-300">
                 <div className="relative w-8 h-8">
                   <Image
                     src={iconMap[item.icon] || "/images/icones/planning.png"}

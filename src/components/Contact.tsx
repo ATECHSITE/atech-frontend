@@ -52,7 +52,7 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
-          <div className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6 text-[#1B3D6F]" style={{ background: "rgba(27,61,111,0.1)" }}>
+          <div className="inline-block px-4 py-1.5 rounded-sm text-xs font-bold uppercase tracking-wider mb-6 text-[#1B3D6F]" style={{ background: "rgba(27,61,111,0.1)" }}>
             {t("badge")}
           </div>
         </div>
@@ -68,7 +68,7 @@ export default function Contact() {
             </div>
 
             {/* Description Box */}
-            <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
+            <div className="bg-white p-8 border border-gray-200 shadow-sm">
               <p className="text-gray-600 text-base leading-relaxed mb-6">
                 {t("subtitle")}
               </p>
@@ -102,7 +102,7 @@ export default function Contact() {
 
           {/* Right Side - Form */}
           <div className="lg:sticky lg:top-8">
-            <div className="bg-white rounded-2xl shadow-2xl p-8 lg:p-10">
+            <div className="bg-white shadow-2xl p-8 lg:p-10">
               {/* Form Header */}
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-[#0F2540] mb-2">
@@ -134,7 +134,7 @@ export default function Contact() {
                         name="firstName"
                         required
                         placeholder={t("form.placeholder.firstName")}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2A5298] focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-sm text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2A5298] focus:border-transparent transition-all"
                       />
                     </div>
                     <div>
@@ -146,7 +146,7 @@ export default function Contact() {
                         name="lastName"
                         required
                         placeholder={t("form.placeholder.lastName")}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2A5298] focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-sm text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2A5298] focus:border-transparent transition-all"
                       />
                     </div>
                   </div>
@@ -161,7 +161,7 @@ export default function Contact() {
                       name="email"
                       required
                       placeholder={t("form.placeholder.email")}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2A5298] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-sm text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2A5298] focus:border-transparent transition-all"
                     />
                   </div>
 
@@ -174,7 +174,7 @@ export default function Contact() {
                       type="tel"
                       name="phone"
                       placeholder={t("form.placeholder.phone")}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2A5298] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-sm text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2A5298] focus:border-transparent transition-all"
                     />
                   </div>
 
@@ -188,13 +188,13 @@ export default function Contact() {
                       required
                       rows={5}
                       placeholder={t("form.placeholder.message")}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2A5298] focus:border-transparent transition-all resize-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-sm text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2A5298] focus:border-transparent transition-all resize-none"
                     />
                   </div>
 
                   {/* Error Message */}
                   {error && (
-                    <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                    <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-sm text-sm">
                       {error}
                     </div>
                   )}
@@ -203,7 +203,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-[#1B3D6F] hover:bg-[#2A5298] text-white font-semibold py-4 rounded-lg transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-md hover:shadow-lg relative overflow-hidden"
+                    className="w-full bg-[#1B3D6F] hover:bg-[#2A5298] text-white font-semibold py-4 transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-md hover:shadow-lg relative overflow-hidden"
                   >
                     {loading && (
                       <span className="absolute inset-0 animate-shimmer" />

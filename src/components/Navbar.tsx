@@ -133,12 +133,12 @@ export default function Navbar() {
 
           {/* Right: lang switcher */}
           <div className="hidden lg:flex items-center">
-            <div className={`flex items-center gap-1 rounded-full p-1 text-xs font-semibold ${scrolled ? "bg-gray-100" : "bg-white/10"}`}>
+            <div className={`flex items-center gap-1 rounded-sm p-1 text-xs font-semibold ${scrolled ? "bg-gray-100" : "bg-white/10"}`}>
               {["en", "fr"].map((lang) => (
                 <button
                   key={lang}
                   onClick={() => switchLocale(lang)}
-                  className={`px-2.5 py-1 rounded-full uppercase transition-all ${
+                  className={`px-2.5 py-1 rounded-sm uppercase transition-all ${
                     locale === lang
                       ? "bg-[#1B3D6F] text-white shadow-sm"
                       : scrolled ? "text-gray-500 hover:text-gray-900" : "text-white/70 hover:text-white"
@@ -152,12 +152,12 @@ export default function Navbar() {
 
           {/* Mobile */}
           <div className="flex lg:hidden items-center gap-3">
-            <div className={`flex items-center gap-1 rounded-full p-1 text-xs font-semibold ${scrolled ? "bg-gray-100" : "bg-white/10"}`}>
+            <div className={`flex items-center gap-1 rounded-sm p-1 text-xs font-semibold ${scrolled ? "bg-gray-100" : "bg-white/10"}`}>
               {["en", "fr"].map((lang) => (
                 <button
                   key={lang}
                   onClick={() => switchLocale(lang)}
-                  className={`px-2 py-0.5 rounded-full uppercase transition-all ${
+                  className={`px-2 py-0.5 rounded-sm uppercase transition-all ${
                     locale === lang ? "bg-[#1B3D6F] text-white" : scrolled ? "text-gray-500" : "text-white/70"
                   }`}
                 >
@@ -167,7 +167,7 @@ export default function Navbar() {
             </div>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className={`p-2 rounded-lg transition-colors ${scrolled ? "text-gray-700 hover:bg-gray-100" : "text-white hover:bg-white/10"}`}
+              className={`p-2 transition-colors ${scrolled ? "text-gray-700 hover:bg-gray-100" : "text-white hover:bg-white/10"}`}
             >
               <div className="w-5 flex flex-col gap-1.5">
                 <span className={`block h-0.5 rounded-full transition-all ${scrolled ? "bg-gray-700" : "bg-white"} ${mobileOpen ? "rotate-45 translate-y-2" : ""}`} />
@@ -180,7 +180,7 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-100 py-4 px-2 rounded-b-2xl shadow-xl">
+          <div className="lg:hidden bg-white border-t border-gray-100 py-4 px-2 shadow-xl">
             {navLinks.map((link, index) => (
               <a
                 key={link.href}
@@ -189,7 +189,7 @@ export default function Navbar() {
                   setActiveLink(index);
                   setMobileOpen(false);
                 }}
-                className={`block px-4 py-3 text-gray-700 hover:text-[#2A5298] hover:bg-blue-50 rounded-xl font-medium transition-colors relative ${
+                className={`block px-4 py-3 text-gray-700 hover:text-[#2A5298] hover:bg-blue-50 font-medium transition-colors relative ${
                   activeLink === index ? "text-[#2A5298] bg-blue-50" : ""
                 }`}
               >

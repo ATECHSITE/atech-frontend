@@ -132,7 +132,7 @@ export default function Hero() {
                 onClick={createRipple}
                 onMouseMove={magneticCTA.onMouseMove}
                 onMouseLeave={magneticCTA.onMouseLeave}
-                className="group px-8 py-4 rounded-full font-bold text-lg text-white transition-all duration-300 hover:shadow-2xl flex items-center justify-center gap-2 relative overflow-hidden transform-gpu"
+                className="group px-8 py-4 font-bold text-lg text-white transition-all duration-300 hover:shadow-2xl flex items-center justify-center gap-2 relative overflow-hidden transform-gpu"
                 style={{ backgroundColor: "#1B3D6F", willChange: 'transform' }}
               >
                 <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
@@ -148,7 +148,7 @@ export default function Hero() {
                 onClick={createRipple}
                 onMouseMove={magneticSecondary.onMouseMove}
                 onMouseLeave={magneticSecondary.onMouseLeave}
-                className="px-8 py-4 rounded-full font-semibold text-lg text-white border-2 border-white/40 transition-all hover:bg-white/10 hover:border-white/60 hover:-translate-y-1 hover:shadow-lg transform-gpu"
+                className="px-8 py-4 font-semibold text-lg text-white border-2 border-white/40 transition-all hover:bg-white/10 hover:border-white/60 hover:-translate-y-1 hover:shadow-lg transform-gpu"
                 style={{ willChange: 'transform' }}
               >
                 {t("ctaSecondary")}

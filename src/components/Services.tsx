@@ -30,15 +30,20 @@ export default function Services() {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       id="services"
-      className={`py-24 lg:py-32 transition-all duration-1000 bg-[#F8F9FC] transform-gpu ${
+      className={`py-24 lg:py-32 transition-all duration-1000 transform-gpu ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
-      style={{ willChange: isVisible ? "auto" : "transform, opacity" }}
+      style={{ willChange: isVisible ? "auto" : "transform, opacity", background: "#F4F6FB" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-left mb-16">
-          
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#0F2540] mb-5">{t("title")}</h2>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-6 h-px" style={{ background: "#E8763A" }} />
+            <span className="text-xs font-bold uppercase tracking-[0.18em]" style={{ color: "#E8763A" }}>
+              {t("badge")}
+            </span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-black text-[#0F2540] mb-5">{t("title")}</h2>
           <p className="text-base text-gray-500 max-w-2xl leading-relaxed">{t("subtitle")}</p>
         </div>
 

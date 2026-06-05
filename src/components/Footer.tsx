@@ -46,86 +46,117 @@ export default function Footer() {
   return (
     <footer>
       {/* Clients & Partners Section */}
-      <div className="relative overflow-hidden">
-        {/* Background White */}
-        <div className="absolute inset-0 bg-white" />
+      <div style={{ background: "#F4F6FB" }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
 
-        {/* Diagonal Blue Section */}
-        <div className="absolute inset-0 hidden md:block">
-          <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <polygon points="0,0 45,0 35,100 0,100" fill="#1B3D6F" />
-          </svg>
-        </div>
-
-        {/* Content */}
-        <div className="relative flex flex-col md:flex-row">
-          {/* Clients - Blue Section (40%) */}
-          <div className="bg-[#1B3D6F] md:bg-transparent px-8 md:px-16 py-16 flex items-center justify-center md:w-[40%]">
-            <div className="max-w-md w-full relative z-10">
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
+          {/* Ils nous font confiance */}
+          <div className="mb-16 pb-16" style={{ borderBottom: "1px solid #E2E6EF" }}>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-6 h-px" style={{ background: "#E8763A" }} />
+              <span
+                className="text-xs font-bold uppercase tracking-[0.18em]"
+                style={{ color: "#E8763A" }}
+              >
                 {t("clients.title")}
-              </h3>
-              <p className="text-blue-100/80 text-base mb-6">
-                {t("clients.subtitle")}
-              </p>
-
-              {/* Client logos */}
-              {data.clients.length > 0 && (
-                <div className={`grid gap-4 ${
-                  data.clients.length === 1 ? 'grid-cols-1' :
-                  data.clients.length === 2 ? 'grid-cols-2' :
-                  'grid-cols-2'
-                }`}>
-                  {data.clients.map((client, i) => (
-                    <div key={i} className="bg-white/10 backdrop-blur-sm rounded-sm p-4 border border-white/20 hover:bg-white/15 transition-all flex items-center justify-center">
-                      <div className="relative w-full h-12">
-                        <Image
-                          src={client.logo}
-                          alt={client.name}
-                          fill
-                          className="object-contain grayscale hover:grayscale-0 transition-all"
-                          sizes="200px"
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
+              </span>
             </div>
+            <p className="text-sm mb-8 max-w-md" style={{ color: "#6B7280" }}>
+              {t("clients.subtitle")}
+            </p>
+
+            {data.clients.length > 0 ? (
+              <div className={`grid gap-3 ${
+                data.clients.length === 1 ? "grid-cols-1 max-w-[200px]" :
+                data.clients.length === 2 ? "grid-cols-2 max-w-sm" :
+                "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"
+              }`}>
+                {data.clients.map((client, i) => (
+                  <div
+                    key={i}
+                    className="group bg-white flex items-center justify-center p-5 transition-all duration-300 hover:shadow-md"
+                    style={{ border: "1px solid #E2E6EF" }}
+                    onMouseEnter={e => (e.currentTarget.style.borderColor = "#2A5298")}
+                    onMouseLeave={e => (e.currentTarget.style.borderColor = "#E2E6EF")}
+                  >
+                    <div className="relative w-full h-10">
+                      <Image
+                        src={client.logo}
+                        alt={client.name}
+                        fill
+                        className="object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                        sizes="180px"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="flex gap-3">
+                {[1, 2, 3, 4].map((i) => (
+                  <div
+                    key={i}
+                    className="h-16 w-32 animate-pulse"
+                    style={{ background: "#E2E6EF" }}
+                  />
+                ))}
+              </div>
+            )}
           </div>
 
-          {/* Partners - White Section (60%) */}
-          <div className="px-8 md:px-16 py-16 flex items-center justify-center md:w-[60%]">
-            <div className="max-w-md w-full">
-              <h3 className="text-3xl md:text-4xl font-bold text-[#0F2540] mb-3">
+          {/* Nos Partenaires */}
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-6 h-px" style={{ background: "#E8763A" }} />
+              <span
+                className="text-xs font-bold uppercase tracking-[0.18em]"
+                style={{ color: "#E8763A" }}
+              >
                 {t("partners.title")}
-              </h3>
-              <p className="text-gray-600 text-base mb-8">
-                {t("partners.subtitle")}
-              </p>
-              {data.partners.length > 0 && (
-                <div className={`grid gap-4 ${
-                  data.partners.length === 1 ? 'grid-cols-1' :
-                  data.partners.length === 2 ? 'grid-cols-2' :
-                  'grid-cols-2'
-                }`}>
-                  {data.partners.map((partner, i) => (
-                    <div key={i} className="bg-gray-100 rounded-sm p-4 border border-gray-200 hover:border-[#2A5298] hover:shadow-md transition-all flex items-center justify-center">
-                      <div className="relative w-full h-12">
-                        <Image
-                          src={partner.logo}
-                          alt={partner.name}
-                          fill
-                          className="object-contain grayscale hover:grayscale-0 transition-all"
-                          sizes="200px"
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
+              </span>
             </div>
+            <p className="text-sm mb-8 max-w-md" style={{ color: "#6B7280" }}>
+              {t("partners.subtitle")}
+            </p>
+
+            {data.partners.length > 0 ? (
+              <div className={`grid gap-3 ${
+                data.partners.length === 1 ? "grid-cols-1 max-w-[200px]" :
+                data.partners.length === 2 ? "grid-cols-2 max-w-sm" :
+                "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"
+              }`}>
+                {data.partners.map((partner, i) => (
+                  <div
+                    key={i}
+                    className="group bg-white flex items-center justify-center p-5 transition-all duration-300 hover:shadow-md"
+                    style={{ border: "1px solid #E2E6EF" }}
+                    onMouseEnter={e => (e.currentTarget.style.borderColor = "#E8763A")}
+                    onMouseLeave={e => (e.currentTarget.style.borderColor = "#E2E6EF")}
+                  >
+                    <div className="relative w-full h-10">
+                      <Image
+                        src={partner.logo}
+                        alt={partner.name}
+                        fill
+                        className="object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                        sizes="180px"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="flex gap-3">
+                {[1, 2, 3, 4].map((i) => (
+                  <div
+                    key={i}
+                    className="h-16 w-32 animate-pulse"
+                    style={{ background: "#E2E6EF" }}
+                  />
+                ))}
+              </div>
+            )}
           </div>
+
         </div>
       </div>
 

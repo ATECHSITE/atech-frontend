@@ -15,6 +15,12 @@
     "keywords": ["Digitaliser", "Moderniser", "Transformer", "Optimiser"],
     "imageLabels": ["Maintenance Industrielle", "Intégration Technologique", "Suivi Electronique", "Développement de solutions"],
     "subtitle": "Nous accompagnons les institutions publiques et les organisations dans leur transformation digitale avec des solutions innovantes adaptées aux enjeux des administrations modernes.",
+    "subtitles": [
+      "Nous numérisons vos processus administratifs et industriels pour gagner en efficacité, réduire les délais et améliorer la qualité de service rendu aux citoyens.",
+      "Nous intégrons les technologies actuelles pour moderniser vos systèmes existants et préparer votre organisation aux exigences de demain.",
+      "Nous transformons vos opérations grâce à des solutions de suivi électronique innovantes, conçues pour répondre aux enjeux des administrations modernes.",
+      "Nous développons des solutions sur mesure pour optimiser vos ressources humaines et financières et maximiser l'impact de votre transformation digitale."
+    ],
     "cta": "Découvrir nos solutions",
     "ctaMain": "Découvrir nos services",
     "ctaSecondary": "Prise de rendez-vous"

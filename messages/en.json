@@ -15,6 +15,12 @@
     "keywords": ["Digitalize", "Modernize", "Transform", "Optimize"],
     "imageLabels": ["Industrial Maintenance", "Technology Integration", "Electronic Tracking", "Solution Development"],
     "subtitle": "We support public institutions and organizations in their digital transformation with innovative solutions tailored to the challenges of modern administrations.",
+    "subtitles": [
+      "We digitize your administrative and industrial processes to improve efficiency, reduce delays and enhance the quality of services delivered to citizens.",
+      "We integrate today's technologies to modernize your existing systems and prepare your organization for tomorrow's demands.",
+      "We transform your operations through innovative electronic tracking solutions designed to meet the challenges of modern public administrations.",
+      "We develop tailored solutions to optimize your human and financial resources and maximize the impact of your digital transformation."
+    ],
     "cta": "Discover Our Solutions",
     "ctaMain": "Discover Our Services",
     "ctaSecondary": "Schedule a Call"

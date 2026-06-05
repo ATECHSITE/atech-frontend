@@ -19,7 +19,7 @@ export default function Stats() {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 text-orange-300 border border-orange-400/30" style={{ background: "rgba(232,118,58,0.1)" }}>
             {t("badge")}
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white">{t("title")}</h2>
+          <h2 className="text-3xl sm:text-4xl font-black text-white">{t("title")}</h2>
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">

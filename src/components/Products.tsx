@@ -95,10 +95,10 @@ export default function Products() {
       <section
         ref={ref as React.RefObject<HTMLElement>}
         id="products"
-        className={`py-20 lg:py-28 bg-white transition-all duration-1000 transform-gpu ${
+        className={`py-20 lg:py-28 transition-all duration-1000 transform-gpu ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
-        style={{ willChange: isVisible ? "auto" : "transform, opacity" }}
+        style={{ willChange: isVisible ? "auto" : "transform, opacity", background: "#FFFFFF" }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}

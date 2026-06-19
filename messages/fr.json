@@ -153,6 +153,12 @@
     "title": "Collaborez avec nous pour accélérer votre transformation digitale",
     "subtitle": "Nous sommes là pour répondre à vos questions et vous aider à trouver les meilleurs services pour répondre à vos besoins.",
     "email": "Envoyez-nous un email : info@atech-bf.com",
+    "responseTime": "Réponse sous 24h",
+    "infoLabels": {
+      "email": "Email",
+      "phone": "Téléphone",
+      "location": "Adresse"
+    },
     "nextSteps": {
       "title": "Et après ?",
       "steps": [
@@ -170,7 +176,11 @@
       "phone": "Téléphone",
       "message": "Message",
       "submit": "Envoyer",
+      "sending": "Envoi en cours...",
+      "sentTitle": "Message envoyé !",
       "success": "Demande reçue ! Notre équipe vous contactera sous 24 heures.",
+      "responseNote": "Notre équipe vous répond sous 24h ouvrées.",
+      "errorFallback": "Une erreur s'est produite. Veuillez réessayer.",
       "placeholder": {
         "firstName": "Prénom",
         "lastName": "Nom",

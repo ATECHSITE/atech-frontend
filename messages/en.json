@@ -154,6 +154,12 @@
     "title": "Partner with us to scale your digital transformation",
     "subtitle": "We're here to answer your questions and help you find the best service(s) to meet your needs.",
     "email": "Send us an email: info@atech-bf.com",
+    "responseTime": "Reply within 24h",
+    "infoLabels": {
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Address"
+    },
     "nextSteps": {
       "title": "What happens next?",
       "steps": [
@@ -171,7 +177,11 @@
       "phone": "Phone",
       "message": "Message",
       "submit": "Submit",
+      "sending": "Sending...",
+      "sentTitle": "Message sent!",
       "success": "Request received! Our team will contact you within 24 hours.",
+      "responseNote": "Our team replies within 24 business hours.",
+      "errorFallback": "Something went wrong. Please try again.",
       "placeholder": {
         "firstName": "First name",
         "lastName": "Last name",

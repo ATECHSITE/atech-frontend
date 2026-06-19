@@ -190,7 +190,7 @@ export default function Products() {
 
                   {/* Bottom bar */}
                   <div className="flex items-center justify-between pt-3 border-t border-gray-200">
-                    <span className="text-sm font-bold text-[#0F2540]">En savoir plus</span>
+                    <span className="text-sm font-bold text-[#0F2540]">{t("learnMore")}</span>
                     <div className="w-9 h-9 border border-[#0F2540]/20 flex items-center justify-center group-hover:bg-[#0F2540] group-hover:border-[#0F2540] transition-all duration-300">
                       <svg
                         className="w-4 h-4 text-[#0F2540] group-hover:text-white transition-colors duration-300"
@@ -230,7 +230,7 @@ export default function Products() {
               href={`/${locale}/products`}
               className="inline-flex items-center gap-2 text-sm font-bold text-[#0F2540] border-b-2 border-[#0F2540] pb-0.5 hover:text-[#2A5298] hover:border-[#2A5298] transition-colors duration-200"
             >
-              Découvrir tous nos produits
+              {t("breadcrumbProducts")}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -296,11 +296,11 @@ export default function Products() {
             {/* Modal content */}
             <div className="px-6 py-6 space-y-6">
               <div>
-                <h4 className="text-lg font-semibold text-[#0F2540] mb-3">Présentation</h4>
+                <h4 className="text-lg font-semibold text-[#0F2540] mb-3">{t("presentation")}</h4>
                 <p className="text-gray-600 leading-relaxed">{allItems[selectedProduct].description}</p>
               </div>
               <div>
-                <h4 className="text-lg font-semibold text-[#0F2540] mb-4">Fonctionnalités Clés</h4>
+                <h4 className="text-lg font-semibold text-[#0F2540] mb-4">{t("keyFeatures")}</h4>
                 <div className="space-y-3">
                   {allItems[selectedProduct].features.map((feature, idx) => (
                     <div key={idx} className="flex items-start gap-3">
@@ -320,7 +320,7 @@ export default function Products() {
                   className="w-full inline-flex items-center justify-center gap-3 px-6 py-3 font-bold text-white bg-[#1B3D6F] hover:bg-[#2A5298] transition-all duration-300 hover:shadow-lg"
                   onClick={() => setSelectedProduct(null)}
                 >
-                  <span>Nous contacter</span>
+                  <span>{t("ContactUs")}</span>
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>

@@ -88,11 +88,11 @@ export default function ProductsPage() {
 
           {/* Breadcrumb */}
           <div className="mt-8 flex items-center justify-center gap-2 text-sm text-blue-200">
-            <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
+            <Link href="/" className="hover:text-white transition-colors">{t("home")}</Link>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
-            <span className="text-white">Nos Produits</span>
+            <span className="text-white">{t("breadcrumbProducts")}</span>
           </div>
         </div>
       </section>
@@ -162,7 +162,7 @@ export default function ProductsPage() {
                       onClick={() => setSelectedProduct(i)}
                       className="group/btn text-sm font-bold text-[#2A5298] flex items-center gap-2 hover:gap-4 transition-all"
                     >
-                      En savoir plus
+                      {t("learnMore")}
                       <svg className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
@@ -252,13 +252,13 @@ export default function ProductsPage() {
             <div className="px-6 py-6 space-y-6">
               {/* Description */}
               <div>
-                <h4 className="text-lg font-semibold text-[#0F2540] mb-3">Présentation</h4>
+                <h4 className="text-lg font-semibold text-[#0F2540] mb-3">{t("presentation")}</h4>
                 <p className="text-gray-600 leading-relaxed">{items[selectedProduct].description}</p>
               </div>
 
               {/* Features */}
               <div>
-                <h4 className="text-lg font-semibold text-[#0F2540] mb-4">Fonctionnalités Clés</h4>
+                <h4 className="text-lg font-semibold text-[#0F2540] mb-4">{t("keyFeatures")}</h4>
                 <div className="space-y-3">
                   {items[selectedProduct].features.map((feature, idx) => (
                     <div key={idx} className="flex items-start gap-3">
@@ -280,7 +280,7 @@ export default function ProductsPage() {
                   className="w-full inline-flex items-center justify-center gap-3 px-6 py-3 rounded-lg font-bold text-white bg-[#1B3D6F] hover:bg-[#2A5298] transition-all duration-300 hover:shadow-lg"
                   onClick={() => setSelectedProduct(null)}
                 >
-                  <span>Nous contacter</span>
+                  <span>{t("contactUs")}</span>
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>

@@ -5,10 +5,10 @@ import { useTranslations } from "@/i18n/context";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const inputBase =
-  "w-full bg-transparent border-0 border-b-2 border-gray-200 focus:border-[#1B3D6F] outline-none py-3 text-sm text-gray-900 placeholder-gray-300 transition-colors duration-200";
+  "w-full bg-white border-b-2 border-[#E2E6EF] focus:border-[#E8763A] outline-none px-4 py-3 text-sm text-gray-900 placeholder-gray-300 transition-colors duration-200";
 
 const labelBase =
-  "block text-[11px] font-bold uppercase tracking-[0.12em] text-gray-400 mb-1.5";
+  "block text-[11px] font-bold uppercase tracking-[0.12em] text-gray-500 mb-2";
 
 export default function Contact() {
   const t = useTranslations("contact");
@@ -39,11 +39,11 @@ export default function Contact() {
         body: JSON.stringify(data),
       });
       const result = await response.json();
-      if (!response.ok) throw new Error(result.error || "Une erreur s'est produite");
+      if (!response.ok) throw new Error(result.error || t("form.errorFallback"));
       setSubmitted(true);
       e.currentTarget.reset();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Une erreur s'est produite");
+      setError(err instanceof Error ? err.message : t("form.errorFallback"));
     } finally {
       setLoading(false);
     }
@@ -51,7 +51,7 @@ export default function Contact() {
 
   const infoItems = [
     {
-      label: "Email",
+      label: t("infoLabels.email"),
       value: t("info.email"),
       href: `mailto:${t("info.email")}`,
       icon: (
@@ -61,7 +61,7 @@ export default function Contact() {
       ),
     },
     {
-      label: "Téléphone",
+      label: t("infoLabels.phone"),
       value: t("info.phone"),
       href: `tel:${t("info.phone")}`,
       icon: (
@@ -71,7 +71,7 @@ export default function Contact() {
       ),
     },
     {
-      label: "Adresse",
+      label: t("infoLabels.location"),
       value: t("info.location"),
       href: null,
       icon: (
@@ -87,20 +87,21 @@ export default function Contact() {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       id="contact"
-      className={`overflow-hidden bg-white transition-all duration-1000 transform-gpu ${isVisible ? vis : hid}`}
+      className={`overflow-hidden bg-white py-20 lg:py-24 transition-all duration-1000 transform-gpu ${isVisible ? vis : hid}`}
       style={{ willChange: isVisible ? "auto" : "transform, opacity" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-[5fr_7fr] lg:gap-16">
+        <div className="overflow-hidden border border-[#D8E0EC] shadow-sm">
+          <div className="grid min-h-[680px] lg:grid-cols-[5fr_7fr]">
 
-          {/* Panneau gauche — clair */}
-          <div className={`py-24 lg:py-32 transition-all duration-700 delay-100 ${isVisible ? vis : hid}`}>
+          {/* Left contact context */}
+          <div className={`flex flex-col justify-center bg-[#073A63] p-8 sm:p-10 lg:p-14 transition-all duration-700 delay-100 ${isVisible ? vis : hid}`}>
 
             {/* Badge */}
             <div className="flex items-center gap-3 mb-6">
               <div className="w-6 h-px" style={{ background: "#E8763A" }} />
               <span
-                className="text-xs font-bold uppercase tracking-[0.18em]"
+                className="text-xl font-bold uppercase tracking-[0.18em]"
                 style={{ color: "#E8763A" }}
               >
                 {t("badge")}
@@ -110,39 +111,38 @@ export default function Contact() {
             {/* Titre */}
             <h2
               className="text-4xl sm:text-5xl font-black leading-[1.05] tracking-tight mb-5"
-              style={{ color: "#0F2540" }}
+              style={{ color: "#FFFFFF" }}
             >
               {t("title")}
             </h2>
 
             {/* Sous-titre */}
             <p
-              className="leading-relaxed mb-14 text-base"
-              style={{ color: "#6B7280" }}
+              className="leading-relaxed mb-10 text-base max-w-xl"
+              style={{ color: "#D8E5F7" }}
             >
               {t("subtitle")}
             </p>
 
             {/* Infos de contact */}
-            <div>
+            <div className="space-y-3 pt-4">
               {infoItems.map((item, i) => (
                 <div
                   key={i}
-                  className="flex items-start gap-4 py-5"
-                  style={{ borderTop: "1px solid #E2E6EF" }}
+                  className="group flex items-start gap-4 border-l-4 border-s-[#E8763A] bg-white/5 px-5 py-4 transition-all duration-300 hover:bg-white/10"
                 >
                   <div
-                    className="w-8 h-8 flex items-center justify-center flex-shrink-0"
+                    className="w-10 h-10 flex items-center justify-center flex-shrink-0 transition-colors duration-300 group-hover:bg-[#1B3D6F]"
                     style={{
-                      background: "rgba(232,118,58,0.1)",
-                      color: "#E8763A",
+                      background: "rgba(255,255,255,0.08)",
+                      color: "#FFFFFF",
                     }}
                   >
                     {item.icon}
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <div
-                      className="text-[10px] font-bold uppercase tracking-[0.15em] mb-1"
+                      className="text-[10px] font-bold uppercase tracking-[0.15em] mb-1.5"
                       style={{ color: "#9CA3AF" }}
                     >
                       {item.label}
@@ -150,55 +150,63 @@ export default function Contact() {
                     {item.href ? (
                       <a
                         href={item.href}
-                        className="text-sm font-medium transition-colors duration-200"
-                        style={{ color: "#0F2540" }}
+                        className="text-sm font-semibold break-words transition-colors duration-200"
+                        style={{ color: "#FFFFFF" }}
                         onMouseEnter={e => (e.currentTarget.style.color = "#E8763A")}
-                        onMouseLeave={e => (e.currentTarget.style.color = "#0F2540")}
+                        onMouseLeave={e => (e.currentTarget.style.color = "#FFFFFF")}
                       >
                         {item.value}
                       </a>
                     ) : (
-                      <span className="text-sm font-medium" style={{ color: "#0F2540" }}>
+                      <span className="text-sm font-semibold break-words" style={{ color: "#FFFFFF" }}>
                         {item.value}
                       </span>
                     )}
                   </div>
                 </div>
               ))}
-              <div style={{ borderTop: "1px solid #E2E6EF" }} />
             </div>
           </div>
 
-          {/* Panneau droit — formulaire */}
-          <div className={`pb-24 lg:py-32 transition-all duration-700 delay-200 ${isVisible ? vis : hid}`}>
+          {/* Right form panel */}
+          <div className={`flex items-center bg-[#DCE8F7] p-6 sm:p-8 lg:p-14 transition-all duration-700 delay-200 ${isVisible ? vis : hid}`}>
             <div
-              className="bg-white h-full"
-              style={{ border: "1px solid #E2E6EF", background: "#F4F6FB" }}
+              className="relative w-full max-w-2xl mx-auto overflow-hidden bg-white shadow-xl"
+              style={{ border: "1px solid #E2E6EF" }}
             >
-              <div className="p-8 lg:p-10">
+              <div className="absolute top-0 left-0 right-0 h-1" style={{ background: "#E8763A" }} />
+              <div className="p-6 sm:p-8 lg:p-10">
 
                 {/* En-tête formulaire */}
-                <div className="mb-8">
-                  <h3 className="text-2xl font-black mb-3" style={{ color: "#0F2540" }}>
-                    {t("form.title")}
-                  </h3>
-                  <div className="w-8 h-[3px]" style={{ background: "#E8763A" }} />
+                <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <h3 className="text-2xl font-black mb-3" style={{ color: "#0F2540" }}>
+                      {t("form.title")}
+                    </h3>
+                    <div className="w-8 h-[3px]" style={{ background: "#E8763A" }} />
+                  </div>
+                  <span
+                    className="inline-flex w-fit items-center border px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.12em]"
+                    style={{ borderColor: "#E2E6EF", color: "#6B7280", background: "#F8F9FC" }}
+                  >
+                    {t("responseTime")}
+                  </span>
                 </div>
 
                 {submitted ? (
-                  <div className="flex flex-col items-start py-10">
+                  <div className="flex min-h-[420px] flex-col items-start justify-center py-10">
                     <div
-                      className="w-12 h-12 flex items-center justify-center mb-5"
-                      style={{ background: "rgba(27,61,111,0.08)" }}
+                      className="w-14 h-14 flex items-center justify-center mb-6"
+                      style={{ background: "rgba(27,61,111,0.08)", color: "#1B3D6F" }}
                     >
-                      <svg className="w-6 h-6" style={{ color: "#1B3D6F" }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <h4 className="text-xl font-black mb-2" style={{ color: "#0F2540" }}>
-                      Message envoyé !
+                    <h4 className="text-2xl font-black mb-3" style={{ color: "#0F2540" }}>
+                      {t("form.sentTitle")}
                     </h4>
-                    <p className="text-sm leading-relaxed" style={{ color: "#9CA3AF" }}>
+                    <p className="text-sm leading-relaxed max-w-md" style={{ color: "#6B7280" }}>
                       {t("form.success")}
                     </p>
                   </div>
@@ -206,7 +214,7 @@ export default function Contact() {
                   <form onSubmit={handleSubmit} className="space-y-6">
 
                     {/* Prénom / Nom */}
-                    <div className="grid grid-cols-2 gap-6">
+                    <div className="grid sm:grid-cols-2 gap-5">
                       <div>
                         <label className={labelBase}>{t("form.firstName")}</label>
                         <input type="text" name="firstName" required placeholder={t("form.placeholder.firstName")} className={inputBase} />
@@ -232,13 +240,13 @@ export default function Contact() {
                     {/* Message */}
                     <div>
                       <label className={labelBase}>{t("form.message")}</label>
-                      <textarea name="message" required rows={5} placeholder={t("form.placeholder.message")} className={`${inputBase} resize-none`} />
+                      <textarea name="message" required rows={5} placeholder={t("form.placeholder.message")} className={`${inputBase} resize-none leading-relaxed`} />
                     </div>
 
                     {/* Erreur */}
                     {error && (
                       <div
-                        className="text-sm px-4 py-3 border-l-4"
+                        className="text-sm px-4 py-3 border-l-4 font-medium"
                         style={{ background: "rgba(239,68,68,0.05)", borderColor: "#EF4444", color: "#DC2626" }}
                       >
                         {error}
@@ -249,8 +257,8 @@ export default function Contact() {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="group w-full flex items-center justify-center gap-3 py-4 font-bold text-white transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
-                      style={{ background: "#1B3D6F" }}
+                      className="group w-full flex items-center justify-center gap-3 py-4 font-bold text-white transition-all duration-300 hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
+                      style={{ background: "#E8763A" }}
                     >
                       {loading ? (
                         <>
@@ -258,7 +266,7 @@ export default function Contact() {
                             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                           </svg>
-                          Envoi en cours…
+                          {t("form.sending")}
                         </>
                       ) : (
                         <>
@@ -270,8 +278,8 @@ export default function Contact() {
                       )}
                     </button>
 
-                    <p className="text-[11px] text-center" style={{ color: "#9CA3AF" }}>
-                      Notre équipe vous répond sous 24h ouvrées.
+                    <p className="text-[11px] text-center leading-relaxed" style={{ color: "#9CA3AF" }}>
+                      {t("form.responseNote")}
                     </p>
                   </form>
                 )}
@@ -279,6 +287,7 @@ export default function Contact() {
             </div>
           </div>
 
+          </div>
         </div>
       </div>
     </section>

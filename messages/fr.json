@@ -60,6 +60,11 @@
     "badge": "Nos produits digitaux",
     "title": "Des solutions prêtes à déployer",
     "subtitle": "Des plateformes digitales innovantes conçues pour répondre aux besoins spécifiques des administrations modernes",
+    "learnMore": "En savoir plus",
+    "contactUs": "Nous contacter",
+    "presentation": "Présentation",
+    "keyFeatures": "Fonctionnalités clés",
+    "breadcrumbProducts": "Découvrir tous nos produits",
     "items": [
       {
         "name": "CONNECT",
@@ -124,6 +129,9 @@
     "title": "Votre partenaire pour la transformation institutionnelle",
     "description1": "Automa Tech  est une entreprise spécialisée dans la transformation digitale des institutions publiques et des administrations. Nous exploitons l'innovation et la transformation digitale comme piliers de notre modèle d'affaires pour moderniser les processus institutionnels.",
     "description2": "Notre approche centrée sur le client garantit que chaque solution est conçue autour de vos besoins spécifiques et de votre chaîne de valeur. Nous nous impliquons dès la conception de vos projets pour assurer leur pertinence et maximiser votre retour sur investissement.",
+    "statsProducts": "Produits",
+    "statsDigital": "Digital",
+    "cta": "Collaborer avec nous",
     "highlights": [
       "Innovation et transformation digitale au cœur de notre expertise",
       "Approche centrée sur le client et engagement précoce dans vos projets",
@@ -145,6 +153,12 @@
     "title": "Collaborez avec nous pour accélérer votre transformation digitale",
     "subtitle": "Nous sommes là pour répondre à vos questions et vous aider à trouver les meilleurs services pour répondre à vos besoins.",
     "email": "Envoyez-nous un email : info@atech-bf.com",
+    "responseTime": "Réponse sous 24h",
+    "infoLabels": {
+      "email": "Email",
+      "phone": "Téléphone",
+      "location": "Adresse"
+    },
     "nextSteps": {
       "title": "Et après ?",
       "steps": [
@@ -162,7 +176,11 @@
       "phone": "Téléphone",
       "message": "Message",
       "submit": "Envoyer",
+      "sending": "Envoi en cours...",
+      "sentTitle": "Message envoyé !",
       "success": "Demande reçue ! Notre équipe vous contactera sous 24 heures.",
+      "responseNote": "Notre équipe vous répond sous 24h ouvrées.",
+      "errorFallback": "Une erreur s'est produite. Veuillez réessayer.",
       "placeholder": {
         "firstName": "Prénom",
         "lastName": "Nom",

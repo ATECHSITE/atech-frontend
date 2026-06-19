@@ -60,6 +60,11 @@
     "badge": "Our Digital Products",
     "title": "Ready-to-Deploy Solutions",
     "subtitle": "Innovative digital platforms designed to meet the specific needs of modern administrations",
+    "learnMore": "Learn more",
+    "contactUs": "Contact us",
+    "presentation": "Presentation",
+    "keyFeatures": "Key Features",
+    "breadcrumbProducts": "Discover our products",
     "items": [
       {
         "name": "CONNECT",
@@ -124,6 +129,10 @@
     "title": "Your Partner for Institutional Transformation",
     "description1": "Automa Tech  is a company specializing in digital transformation of public institutions and administrations. We leverage innovation and digital transformation as pillars of our business model to modernize institutional processes.",
     "description2": "Our client-centric approach ensures that each solution is designed around your specific needs and value chain. We get involved from the inception of your projects to ensure their relevance and maximize your return on investment.",
+    "statsProducts": "Products",
+    "statsDigital": "Digital",
+    "cta": "Work with us",
+    
     "highlights": [
       "Innovation and digital transformation at the core of our expertise",
       "Client-centric approach and early engagement in your projects",
@@ -145,6 +154,12 @@
     "title": "Partner with us to scale your digital transformation",
     "subtitle": "We're here to answer your questions and help you find the best service(s) to meet your needs.",
     "email": "Send us an email: info@atech-bf.com",
+    "responseTime": "Reply within 24h",
+    "infoLabels": {
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Address"
+    },
     "nextSteps": {
       "title": "What happens next?",
       "steps": [
@@ -162,7 +177,11 @@
       "phone": "Phone",
       "message": "Message",
       "submit": "Submit",
+      "sending": "Sending...",
+      "sentTitle": "Message sent!",
       "success": "Request received! Our team will contact you within 24 hours.",
+      "responseNote": "Our team replies within 24 business hours.",
+      "errorFallback": "Something went wrong. Please try again.",
       "placeholder": {
         "firstName": "First name",
         "lastName": "Last name",

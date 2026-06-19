@@ -82,8 +82,8 @@ export default function About() {
                   style={{ borderTop: "1px solid rgba(255,255,255,0.1)", borderBottom: "1px solid rgba(255,255,255,0.1)" }}
                 >
                   {[
-                    { value: "8+", label: "Produits" },
-                    { value: "360°", label: "Digital" },
+                    { value: "8+", label: t("statsProducts") },
+                    { value: "360°", label: t("statsDigital") },
                     { value: "BF", label: "Burkina Faso" },
                   ].map((stat, i) => (
                     <div
@@ -212,7 +212,7 @@ export default function About() {
                 willChange: "transform",
               }}
             >
-              <span>Collaborer avec nous</span>
+              <span>{t("cta")}</span>
               <svg
                 className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"
                 fill="none"

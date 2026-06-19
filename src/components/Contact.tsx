@@ -5,7 +5,7 @@ import { useTranslations } from "@/i18n/context";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const inputBase =
-  "w-full bg-white border border-[#E2E6EF] focus:border-[#1B3D6F] outline-none px-4 py-3 text-sm text-gray-900 placeholder-gray-300 transition-colors duration-200";
+  "w-full bg-white border-b-2 border-[#E2E6EF] focus:border-[#E8763A] outline-none px-4 py-3 text-sm text-gray-900 placeholder-gray-300 transition-colors duration-200";
 
 const labelBase =
   "block text-[11px] font-bold uppercase tracking-[0.12em] text-gray-500 mb-2";
@@ -87,20 +87,21 @@ export default function Contact() {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       id="contact"
-      className={`overflow-hidden bg-white transition-all duration-1000 transform-gpu ${isVisible ? vis : hid}`}
+      className={`overflow-hidden bg-white py-20 lg:py-24 transition-all duration-1000 transform-gpu ${isVisible ? vis : hid}`}
       style={{ willChange: isVisible ? "auto" : "transform, opacity" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-[5fr_7fr] lg:gap-16">
+        <div className="overflow-hidden border border-[#D8E0EC] shadow-sm">
+          <div className="grid min-h-[680px] lg:grid-cols-[5fr_7fr]">
 
           {/* Left contact context */}
-          <div className={`py-24 lg:py-32 transition-all duration-700 delay-100 ${isVisible ? vis : hid}`}>
+          <div className={`flex flex-col justify-center bg-[#073A63] p-8 sm:p-10 lg:p-14 transition-all duration-700 delay-100 ${isVisible ? vis : hid}`}>
 
             {/* Badge */}
             <div className="flex items-center gap-3 mb-6">
               <div className="w-6 h-px" style={{ background: "#E8763A" }} />
               <span
-                className="text-xs font-bold uppercase tracking-[0.18em]"
+                className="text-xl font-bold uppercase tracking-[0.18em]"
                 style={{ color: "#E8763A" }}
               >
                 {t("badge")}
@@ -110,7 +111,7 @@ export default function Contact() {
             {/* Titre */}
             <h2
               className="text-4xl sm:text-5xl font-black leading-[1.05] tracking-tight mb-5"
-              style={{ color: "#0F2540" }}
+              style={{ color: "#FFFFFF" }}
             >
               {t("title")}
             </h2>
@@ -118,24 +119,23 @@ export default function Contact() {
             {/* Sous-titre */}
             <p
               className="leading-relaxed mb-10 text-base max-w-xl"
-              style={{ color: "#6B7280" }}
+              style={{ color: "#D8E5F7" }}
             >
               {t("subtitle")}
             </p>
 
             {/* Infos de contact */}
-            <div className="space-y-3">
+            <div className="space-y-3 pt-4">
               {infoItems.map((item, i) => (
                 <div
                   key={i}
-                  className="group flex items-start gap-4 bg-[#F8F9FC] px-5 py-4 transition-all duration-300 hover:bg-white hover:shadow-sm"
-                  style={{ border: "1px solid #E2E6EF" }}
+                  className="group flex items-start gap-4 border-l-4 border-s-[#E8763A] bg-white/5 px-5 py-4 transition-all duration-300 hover:bg-white/10"
                 >
                   <div
                     className="w-10 h-10 flex items-center justify-center flex-shrink-0 transition-colors duration-300 group-hover:bg-[#1B3D6F]"
                     style={{
-                      background: "rgba(232,118,58,0.1)",
-                      color: "#E8763A",
+                      background: "rgba(255,255,255,0.08)",
+                      color: "#FFFFFF",
                     }}
                   >
                     {item.icon}
@@ -151,14 +151,14 @@ export default function Contact() {
                       <a
                         href={item.href}
                         className="text-sm font-semibold break-words transition-colors duration-200"
-                        style={{ color: "#0F2540" }}
+                        style={{ color: "#FFFFFF" }}
                         onMouseEnter={e => (e.currentTarget.style.color = "#E8763A")}
-                        onMouseLeave={e => (e.currentTarget.style.color = "#0F2540")}
+                        onMouseLeave={e => (e.currentTarget.style.color = "#FFFFFF")}
                       >
                         {item.value}
                       </a>
                     ) : (
-                      <span className="text-sm font-semibold break-words" style={{ color: "#0F2540" }}>
+                      <span className="text-sm font-semibold break-words" style={{ color: "#FFFFFF" }}>
                         {item.value}
                       </span>
                     )}
@@ -169,9 +169,9 @@ export default function Contact() {
           </div>
 
           {/* Right form panel */}
-          <div className={`pb-24 lg:py-32 transition-all duration-700 delay-200 ${isVisible ? vis : hid}`}>
+          <div className={`flex items-center bg-[#DCE8F7] p-6 sm:p-8 lg:p-14 transition-all duration-700 delay-200 ${isVisible ? vis : hid}`}>
             <div
-              className="relative h-full overflow-hidden bg-white shadow-sm"
+              className="relative w-full max-w-2xl mx-auto overflow-hidden bg-white shadow-xl"
               style={{ border: "1px solid #E2E6EF" }}
             >
               <div className="absolute top-0 left-0 right-0 h-1" style={{ background: "#E8763A" }} />
@@ -258,7 +258,7 @@ export default function Contact() {
                       type="submit"
                       disabled={loading}
                       className="group w-full flex items-center justify-center gap-3 py-4 font-bold text-white transition-all duration-300 hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
-                      style={{ background: "#1B3D6F" }}
+                      style={{ background: "#E8763A" }}
                     >
                       {loading ? (
                         <>
@@ -287,6 +287,7 @@ export default function Contact() {
             </div>
           </div>
 
+          </div>
         </div>
       </div>
     </section>

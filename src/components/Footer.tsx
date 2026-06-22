@@ -50,77 +50,72 @@ export default function Footer() {
     <footer>
       {/* Clients & Partners Section */}
       <div style={{ background: "#F4F6FB" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+      
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
 
           {/* Ils nous font confiance */}
-          <div id="clients" className="mb-16 pb-16 scroll-mt-24" style={{ borderBottom: "1px solid #E2E6EF" }}>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-6 h-px" style={{ background: "#E8763A" }} />
-              <span
-                className="text-xs font-bold uppercase tracking-[0.18em]"
-                style={{ color: "#E8763A" }}
-              >
-                {t("clients.title")}
-              </span>
+          <div id="clients" className="grid lg:grid-cols-[4fr_6fr] items-center  mb-16 pb-16 scroll-mt-24" style={{ borderBottom: "1px solid #E2E6EF" }}>
+           
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-6 h-px" style={{ background: "#E8763A" }} />
+                <span
+                  className="text-l font-bold uppercase tracking-[0.18em]"
+                  style={{ color: "#E8763A" }}
+                >
+                  {t("clients.title")}
+                </span>
+              </div>
+              <p className="text-l mb-8 max-w-md" style={{ color: "#6B7280" }}>
+                {t("clients.subtitle")}
+              </p>
             </div>
-            <p className="text-sm mb-8 max-w-md" style={{ color: "#6B7280" }}>
-              {t("clients.subtitle")}
-            </p>
-
+            
+            {/* 
+              genere la seule carte ils nous font confiance
+            */}
             {data.clients.length > 0 ? (
-              <div className={`grid gap-3 ${
-                data.clients.length === 1 ? "grid-cols-1 max-w-[200px]" :
-                data.clients.length === 2 ? "grid-cols-2 max-w-sm" :
-                "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"
-              }`}>
+              <div className="group bg-white min-h-[120px] p-6 mx-8 flex items-center justify-center transition-all duration-500 hover:shadow-md hover:scale-110">
                 {data.clients.map((client, i) => (
                   <div
                     key={i}
-                    className="group bg-white flex items-center justify-center p-5 transition-all duration-300 hover:shadow-md"
-                    style={{ border: "1px solid #E2E6EF" }}
-                    onMouseEnter={e => (e.currentTarget.style.borderColor = "#2A5298")}
-                    onMouseLeave={e => (e.currentTarget.style.borderColor = "#E2E6EF")}
+                    className="relative w-full max-w-[260px] h-28"
                   >
-                    <div className="relative w-full h-10">
-                      <Image
-                        src={client.logo}
-                        alt={client.name}
-                        fill
-                        className="object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
-                        sizes="180px"
-                      />
-                    </div>
+                    <Image
+                      src={client.logo}
+                      alt={client.name}
+                      fill
+                      className="object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                      sizes="260px"
+                    />
                   </div>
                 ))}
               </div>
             ) : (
-              <div className="flex gap-3">
-                {[1, 2, 3, 4].map((i) => (
-                  <div
-                    key={i}
-                    className="h-16 w-32 animate-pulse"
-                    style={{ background: "#E2E6EF" }}
-                  />
-                ))}
+              <div className="bg-white border border-[#E2E6EF] min-h-[160px] p-6 flex items-center justify-center">
+                <div className="h-28 w-full max-w-[260px] animate-pulse" style={{ background: "#E2E6EF" }} />
               </div>
             )}
           </div>
 
+        
           {/* Nos Partenaires */}
           <div id="partners" className="scroll-mt-24">
+          
             <div className="flex items-center gap-3 mb-4">
               <div className="w-6 h-px" style={{ background: "#E8763A" }} />
               <span
-                className="text-xs font-bold uppercase tracking-[0.18em]"
+                className="text-l font-bold uppercase tracking-[0.18em]"
                 style={{ color: "#E8763A" }}
               >
                 {t("partners.title")}
               </span>
             </div>
-            <p className="text-sm mb-8 max-w-md" style={{ color: "#6B7280" }}>
+            <p className="text-l mb-8 max-w-md" style={{ color: "#6B7280" }}>
               {t("partners.subtitle")}
             </p>
 
+           
             {data.partners.length > 0 ? (
               <div className={`grid gap-3 ${
                 data.partners.length === 1 ? "grid-cols-1 max-w-[200px]" :
@@ -130,18 +125,17 @@ export default function Footer() {
                 {data.partners.map((partner, i) => (
                   <div
                     key={i}
-                    className="group bg-white flex items-center justify-center p-5 transition-all duration-300 hover:shadow-md"
+                    className="group bg-white flex items-center justify-center p-5 transition-all duration-300 hover:shadow-md hover:scale-110"
                     style={{ border: "1px solid #E2E6EF" }}
-                    onMouseEnter={e => (e.currentTarget.style.borderColor = "#E8763A")}
-                    onMouseLeave={e => (e.currentTarget.style.borderColor = "#E2E6EF")}
+                    
                   >
-                    <div className="relative w-full h-10">
+                    <div className="relative w-full h-20">
                       <Image
                         src={partner.logo}
                         alt={partner.name}
                         fill
-                        className="object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
-                        sizes="180px"
+                        className="object-contain grayscale group-hover:grayscale-0 transition-all duration-500"
+                        sizes="2600px"
                       />
                     </div>
                   </div>

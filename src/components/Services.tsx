@@ -43,7 +43,9 @@ export default function Services() {
               {t("badge")}
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-[#0F2540] mb-5">{t("title")}</h2>
+          <h2 className="text-3xl sm:text-4xl font-black text-[#0F2540] mb-5 max-w-3xl leading-tight">
+            {t("title")}
+          </h2>
           <p className="text-base text-gray-500 max-w-2xl leading-relaxed">{t("subtitle")}</p>
         </div>
 

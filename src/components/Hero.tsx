@@ -187,7 +187,7 @@ export default function Hero() {
           </div>
 
           {/* Right side — navigation slides avec barres de progression */}
-          <div className="hidden lg:flex flex-col justify-center items-start gap-5 opacity-0" style={{ animation: 'slideInRight 0.8s ease-out 0.5s forwards' }}>
+          <div className="hidden lg:flex flex-col mt-100 ml-80  justify-center items-start gap-5 opacity-0" style={{ animation: 'slideInRight 0.8s ease-out 0.5s forwards' }}>
             {images.map((img, idx) => {
               const isActive = idx === currentImage;
               return (

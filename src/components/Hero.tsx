@@ -26,6 +26,32 @@ export default function Hero() {
     { src: "/images/programmer-home-office-concentrating-finding-bugs-while-he-codes.jpg", label: imageLabels[3], keyword: keywords[3] },
   ];
 
+  // Réseau de nœuds (data flow) — viewBox 600x800, concentré à gauche
+  const nodes = [
+    { x: 90,  y: 180, r: 2.5, hub: false },
+    { x: 220, y: 100, r: 2.5, hub: false },
+    { x: 50,  y: 400, r: 2.5, hub: false },
+    { x: 180, y: 360, r: 4.5, hub: true  }, // HUB central
+    { x: 320, y: 280, r: 3,   hub: false },
+    { x: 110, y: 560, r: 2.5, hub: false },
+    { x: 260, y: 620, r: 2.5, hub: false },
+    { x: 380, y: 480, r: 3,   hub: false },
+    { x: 420, y: 180, r: 2.5, hub: false },
+  ];
+  const connections: Array<[number, number]> = [
+    [0, 3], [1, 3], [2, 3], [4, 3], [5, 3], [6, 3],
+    [0, 1], [1, 4], [4, 8], [5, 6], [6, 7], [4, 7], [4, 8],
+  ];
+  // Paquets de données qui voyagent le long d'arêtes choisies
+  const packets = [
+    { from: 0, to: 3, dur: 2.4, delay: 0   },
+    { from: 3, to: 4, dur: 2.0, delay: 0.6 },
+    { from: 4, to: 7, dur: 1.8, delay: 1.2 },
+    { from: 5, to: 3, dur: 2.6, delay: 0.3 },
+    { from: 3, to: 1, dur: 2.2, delay: 1.5 },
+    { from: 4, to: 8, dur: 2.0, delay: 0.9 },
+  ];
+
   useEffect(() => {
     setProgress(0);
     const DURATION = 10000;
@@ -59,6 +85,25 @@ export default function Hero() {
         @keyframes progressFill {
           from { width: 0%; }
           to { width: 100%; }
+        }
+        @keyframes nodeGlowPulse {
+          0%, 100% { opacity: 0.35; }
+          50% { opacity: 0.95; }
+        }
+        @keyframes nodeCorePulse {
+          0%, 100% { opacity: 0.7; r: var(--node-r); }
+          50% { opacity: 1; }
+        }
+        @keyframes lineShimmer {
+          0%, 100% { opacity: 0.18; }
+          50% { opacity: 0.42; }
+        }
+        @keyframes floatDrift {
+          0%, 100% { transform: translate(0, 0); }
+          50% { transform: translate(6px, -8px); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .data-flow * { animation: none !important; }
         }
       `}</style>
       {/* Full-screen background images with SLIDE animation (RIGHT to LEFT) */}
@@ -96,6 +141,102 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-r from-[#0F2540]/95 via-[#0F2540]/85 to-[#0F2540]/60" />
           </div>
         ))}
+      </div>
+
+      {/* Data flow overlay — réseau de nœuds animés concentré à gauche */}
+      <div
+        className="data-flow pointer-events-none absolute inset-0 z-[5] hidden md:block"
+        aria-hidden="true"
+        style={{ animation: 'floatDrift 14s ease-in-out infinite' }}
+      >
+        <svg
+          className="absolute left-0 top-0 h-full w-full lg:w-[65%]"
+          viewBox="0 0 600 800"
+          preserveAspectRatio="xMidYMid slice"
+          style={{
+            maskImage: 'linear-gradient(to right, black 55%, transparent 95%)',
+            WebkitMaskImage: 'linear-gradient(to right, black 55%, transparent 95%)',
+          }}
+        >
+          <defs>
+            <radialGradient id="atech-node-glow">
+              <stop offset="0%"   stopColor="#9EC9FF" stopOpacity="1" />
+              <stop offset="40%"  stopColor="#4A7BC8" stopOpacity="0.55" />
+              <stop offset="100%" stopColor="#2A5298" stopOpacity="0" />
+            </radialGradient>
+            <linearGradient id="atech-line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%"   stopColor="#4A7BC8" stopOpacity="0.1" />
+              <stop offset="50%"  stopColor="#9EC9FF" stopOpacity="0.55" />
+              <stop offset="100%" stopColor="#4A7BC8" stopOpacity="0.1" />
+            </linearGradient>
+            <filter id="atech-packet-glow" x="-200%" y="-200%" width="500%" height="500%">
+              <feGaussianBlur stdDeviation="2" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+          {/* Connexions (lignes) */}
+          {connections.map(([a, b], i) => (
+            <line
+              key={`l-${i}`}
+              x1={nodes[a].x} y1={nodes[a].y}
+              x2={nodes[b].x} y2={nodes[b].y}
+              stroke="url(#atech-line-grad)"
+              strokeWidth={1}
+              style={{
+                animation: `lineShimmer ${4 + (i % 4)}s ease-in-out infinite`,
+                animationDelay: `${(i * 0.35) % 3}s`,
+              }}
+            />
+          ))}
+
+          {/* Nœuds : halo + cœur */}
+          {nodes.map((n, i) => (
+            <g key={`n-${i}`}>
+              <circle
+                cx={n.x} cy={n.y}
+                r={n.hub ? 28 : 18}
+                fill="url(#atech-node-glow)"
+                style={{
+                  animation: `nodeGlowPulse ${3 + (i % 3)}s ease-in-out infinite`,
+                  animationDelay: `${(i * 0.4) % 2.5}s`,
+                  transformOrigin: `${n.x}px ${n.y}px`,
+                }}
+              />
+              <circle
+                cx={n.x} cy={n.y}
+                r={n.r}
+                fill={n.hub ? "#FFFFFF" : "#BFDBFE"}
+                opacity={0.9}
+              />
+            </g>
+          ))}
+
+          {/* Paquets de données voyageant le long de certaines arêtes */}
+          {packets.map((p, i) => {
+            const from = nodes[p.from];
+            const to = nodes[p.to];
+            return (
+              <circle
+                key={`p-${i}`}
+                r={2}
+                fill="#FFFFFF"
+                opacity={0.95}
+                filter="url(#atech-packet-glow)"
+              >
+                <animateMotion
+                  dur={`${p.dur}s`}
+                  begin={`${p.delay}s`}
+                  repeatCount="indefinite"
+                  path={`M${from.x},${from.y} L${to.x},${to.y}`}
+                />
+              </circle>
+            );
+          })}
+        </svg>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-32 w-full">

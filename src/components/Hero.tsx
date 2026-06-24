@@ -2,15 +2,13 @@
 
 import { useTranslations } from "@/i18n/context";
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useRipple } from "@/hooks/useRipple";
 import { useMagnetic } from "@/hooks/useMagnetic";
 
 export default function Hero() {
   const t = useTranslations("hero");
   const [currentImage, setCurrentImage] = useState(0);
-  const [progress, setProgress] = useState(0);
-  const progressRef = useRef<NodeJS.Timeout | null>(null);
   const { createRipple } = useRipple();
   const magneticCTA = useMagnetic(0.25);
   const magneticSecondary = useMagnetic(0.2);
@@ -26,7 +24,7 @@ export default function Hero() {
     { src: "/images/programmer-home-office-concentrating-finding-bugs-while-he-codes.jpg", label: imageLabels[3], keyword: keywords[3] },
   ];
 
-  // Réseau de nœuds (data flow) — viewBox 600x800, concentré à gauche
+  // Réseau de nœuds (data flow) — viewBox 600x800
   const nodes = [
     { x: 90,  y: 180, r: 2.5, hub: false },
     { x: 220, y: 100, r: 2.5, hub: false },
@@ -42,7 +40,6 @@ export default function Hero() {
     [0, 3], [1, 3], [2, 3], [4, 3], [5, 3], [6, 3],
     [0, 1], [1, 4], [4, 8], [5, 6], [6, 7], [4, 7], [4, 8],
   ];
-  // Paquets de données qui voyagent le long d'arêtes choisies
   const packets = [
     { from: 0, to: 3, dur: 2.4, delay: 0   },
     { from: 3, to: 4, dur: 2.0, delay: 0.6 },
@@ -53,26 +50,10 @@ export default function Hero() {
   ];
 
   useEffect(() => {
-    setProgress(0);
-    const DURATION = 10000;
-    const TICK = 50;
-    let elapsed = 0;
-
-    if (progressRef.current) clearInterval(progressRef.current);
-
-    progressRef.current = setInterval(() => {
-      elapsed += TICK;
-      const pct = Math.min((elapsed / DURATION) * 100, 100);
-      setProgress(pct);
-      if (elapsed >= DURATION) {
-        clearInterval(progressRef.current!);
-        setCurrentImage((prev) => (prev + 1) % images.length);
-      }
-    }, TICK);
-
-    return () => {
-      if (progressRef.current) clearInterval(progressRef.current);
-    };
+    const timer = setTimeout(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 10000);
+    return () => clearTimeout(timer);
   }, [currentImage, images.length]);
 
   return (
@@ -82,17 +63,9 @@ export default function Hero() {
           0% { transform: scale(1); }
           100% { transform: scale(1.1); }
         }
-        @keyframes progressFill {
-          from { width: 0%; }
-          to { width: 100%; }
-        }
         @keyframes nodeGlowPulse {
           0%, 100% { opacity: 0.35; }
           50% { opacity: 0.95; }
-        }
-        @keyframes nodeCorePulse {
-          0%, 100% { opacity: 0.7; r: var(--node-r); }
-          50% { opacity: 1; }
         }
         @keyframes lineShimmer {
           0%, 100% { opacity: 0.18; }
@@ -143,19 +116,19 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Data flow overlay — réseau de nœuds animés concentré à gauche */}
+      {/* Data flow overlay — réseau de nœuds animés côté droit */}
       <div
         className="data-flow pointer-events-none absolute inset-0 z-[5] hidden md:block"
         aria-hidden="true"
         style={{ animation: 'floatDrift 14s ease-in-out infinite' }}
       >
         <svg
-          className="absolute left-0 top-0 h-full w-full lg:w-[65%]"
+          className="absolute left-0 top-0 h-full w-full lg:left-[45%] lg:w-[55%]"
           viewBox="0 0 600 800"
           preserveAspectRatio="xMidYMid slice"
           style={{
-            maskImage: 'linear-gradient(to right, black 55%, transparent 95%)',
-            WebkitMaskImage: 'linear-gradient(to right, black 55%, transparent 95%)',
+            maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
           }}
         >
           <defs>
@@ -242,9 +215,9 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-32 w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left: Text Content */}
-          <div className="text-left">
+          <div className="text-left lg:max-w-md xl:max-w-lg">
             {/* Main Heading with dynamic keyword */}
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight tracking-tight mb-6">
+            <h1 className="text-5xl sm:text-6xl lg:text-6xl xl:text-7xl font-black leading-tight tracking-tight mb-6">
               <span className="block text-white mb-2">{t("titlePrefix")}</span>
 
               {/* Dynamic keyword — fade + glisse verticale */}
@@ -327,41 +300,6 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right side — navigation slides avec barres de progression */}
-          <div className="hidden lg:flex flex-col mt-100 ml-80  justify-center items-start gap-5 opacity-0" style={{ animation: 'slideInRight 0.8s ease-out 0.5s forwards' }}>
-            {images.map((img, idx) => {
-              const isActive = idx === currentImage;
-              return (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentImage(idx)}
-                  className="group flex flex-col gap-2 text-left w-56 cursor-pointer"
-                >
-                  {/* Barre de progression */}
-                  <div className="w-full h-[2px] bg-white/15 rounded-full overflow-hidden">
-                    <div
-                      className="h-full rounded-full transition-none"
-                      style={{
-                        width: isActive ? `${progress}%` : '0%',
-                        backgroundColor: isActive ? '#2A5298' : 'transparent',
-                        transition: isActive ? 'none' : 'width 300ms ease',
-                      }}
-                    />
-                  </div>
-                  {/* Label */}
-                  <span
-                    className="text-sm font-medium tracking-wide transition-all duration-500"
-                    style={{
-                      color: isActive ? 'rgba(255,255,255,0.90)' : 'rgba(255,255,255,0.30)',
-                      letterSpacing: '0.04em',
-                    }}
-                  >
-                    {img.keyword}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
         </div>
       </div>
 

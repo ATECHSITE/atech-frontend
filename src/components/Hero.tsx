@@ -2,15 +2,13 @@
 
 import { useTranslations } from "@/i18n/context";
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useRipple } from "@/hooks/useRipple";
 import { useMagnetic } from "@/hooks/useMagnetic";
 
 export default function Hero() {
   const t = useTranslations("hero");
   const [currentImage, setCurrentImage] = useState(0);
-  const [progress, setProgress] = useState(0);
-  const progressRef = useRef<NodeJS.Timeout | null>(null);
   const { createRipple } = useRipple();
   const magneticCTA = useMagnetic(0.25);
   const magneticSecondary = useMagnetic(0.2);
@@ -26,27 +24,36 @@ export default function Hero() {
     { src: "/images/programmer-home-office-concentrating-finding-bugs-while-he-codes.jpg", label: imageLabels[3], keyword: keywords[3] },
   ];
 
+  // Réseau de nœuds (data flow) — viewBox 600x800
+  const nodes = [
+    { x: 90,  y: 180, r: 2.5, hub: false },
+    { x: 220, y: 100, r: 2.5, hub: false },
+    { x: 50,  y: 400, r: 2.5, hub: false },
+    { x: 180, y: 360, r: 4.5, hub: true  }, // HUB central
+    { x: 320, y: 280, r: 3,   hub: false },
+    { x: 110, y: 560, r: 2.5, hub: false },
+    { x: 260, y: 620, r: 2.5, hub: false },
+    { x: 380, y: 480, r: 3,   hub: false },
+    { x: 420, y: 180, r: 2.5, hub: false },
+  ];
+  const connections: Array<[number, number]> = [
+    [0, 3], [1, 3], [2, 3], [4, 3], [5, 3], [6, 3],
+    [0, 1], [1, 4], [4, 8], [5, 6], [6, 7], [4, 7], [4, 8],
+  ];
+  const packets = [
+    { from: 0, to: 3, dur: 2.4, delay: 0   },
+    { from: 3, to: 4, dur: 2.0, delay: 0.6 },
+    { from: 4, to: 7, dur: 1.8, delay: 1.2 },
+    { from: 5, to: 3, dur: 2.6, delay: 0.3 },
+    { from: 3, to: 1, dur: 2.2, delay: 1.5 },
+    { from: 4, to: 8, dur: 2.0, delay: 0.9 },
+  ];
+
   useEffect(() => {
-    setProgress(0);
-    const DURATION = 10000;
-    const TICK = 50;
-    let elapsed = 0;
-
-    if (progressRef.current) clearInterval(progressRef.current);
-
-    progressRef.current = setInterval(() => {
-      elapsed += TICK;
-      const pct = Math.min((elapsed / DURATION) * 100, 100);
-      setProgress(pct);
-      if (elapsed >= DURATION) {
-        clearInterval(progressRef.current!);
-        setCurrentImage((prev) => (prev + 1) % images.length);
-      }
-    }, TICK);
-
-    return () => {
-      if (progressRef.current) clearInterval(progressRef.current);
-    };
+    const timer = setTimeout(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 10000);
+    return () => clearTimeout(timer);
   }, [currentImage, images.length]);
 
   return (
@@ -56,9 +63,20 @@ export default function Hero() {
           0% { transform: scale(1); }
           100% { transform: scale(1.1); }
         }
-        @keyframes progressFill {
-          from { width: 0%; }
-          to { width: 100%; }
+        @keyframes nodeGlowPulse {
+          0%, 100% { opacity: 0.35; }
+          50% { opacity: 0.95; }
+        }
+        @keyframes lineShimmer {
+          0%, 100% { opacity: 0.18; }
+          50% { opacity: 0.42; }
+        }
+        @keyframes floatDrift {
+          0%, 100% { transform: translate(0, 0); }
+          50% { transform: translate(6px, -8px); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .data-flow * { animation: none !important; }
         }
       `}</style>
       {/* Full-screen background images with SLIDE animation (RIGHT to LEFT) */}
@@ -98,12 +116,108 @@ export default function Hero() {
         ))}
       </div>
 
+      {/* Data flow overlay — réseau de nœuds animés côté droit */}
+      <div
+        className="data-flow pointer-events-none absolute inset-0 z-[5] hidden md:block"
+        aria-hidden="true"
+        style={{ animation: 'floatDrift 14s ease-in-out infinite' }}
+      >
+        <svg
+          className="absolute left-0 top-0 h-full w-full lg:left-[45%] lg:w-[55%]"
+          viewBox="0 0 600 800"
+          preserveAspectRatio="xMidYMid slice"
+          style={{
+            maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+          }}
+        >
+          <defs>
+            <radialGradient id="atech-node-glow">
+              <stop offset="0%"   stopColor="#9EC9FF" stopOpacity="1" />
+              <stop offset="40%"  stopColor="#4A7BC8" stopOpacity="0.55" />
+              <stop offset="100%" stopColor="#2A5298" stopOpacity="0" />
+            </radialGradient>
+            <linearGradient id="atech-line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%"   stopColor="#4A7BC8" stopOpacity="0.1" />
+              <stop offset="50%"  stopColor="#9EC9FF" stopOpacity="0.55" />
+              <stop offset="100%" stopColor="#4A7BC8" stopOpacity="0.1" />
+            </linearGradient>
+            <filter id="atech-packet-glow" x="-200%" y="-200%" width="500%" height="500%">
+              <feGaussianBlur stdDeviation="2" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+          {/* Connexions (lignes) */}
+          {connections.map(([a, b], i) => (
+            <line
+              key={`l-${i}`}
+              x1={nodes[a].x} y1={nodes[a].y}
+              x2={nodes[b].x} y2={nodes[b].y}
+              stroke="url(#atech-line-grad)"
+              strokeWidth={1}
+              style={{
+                animation: `lineShimmer ${4 + (i % 4)}s ease-in-out infinite`,
+                animationDelay: `${(i * 0.35) % 3}s`,
+              }}
+            />
+          ))}
+
+          {/* Nœuds : halo + cœur */}
+          {nodes.map((n, i) => (
+            <g key={`n-${i}`}>
+              <circle
+                cx={n.x} cy={n.y}
+                r={n.hub ? 28 : 18}
+                fill="url(#atech-node-glow)"
+                style={{
+                  animation: `nodeGlowPulse ${3 + (i % 3)}s ease-in-out infinite`,
+                  animationDelay: `${(i * 0.4) % 2.5}s`,
+                  transformOrigin: `${n.x}px ${n.y}px`,
+                }}
+              />
+              <circle
+                cx={n.x} cy={n.y}
+                r={n.r}
+                fill={n.hub ? "#FFFFFF" : "#BFDBFE"}
+                opacity={0.9}
+              />
+            </g>
+          ))}
+
+          {/* Paquets de données voyageant le long de certaines arêtes */}
+          {packets.map((p, i) => {
+            const from = nodes[p.from];
+            const to = nodes[p.to];
+            return (
+              <circle
+                key={`p-${i}`}
+                r={2}
+                fill="#FFFFFF"
+                opacity={0.95}
+                filter="url(#atech-packet-glow)"
+              >
+                <animateMotion
+                  dur={`${p.dur}s`}
+                  begin={`${p.delay}s`}
+                  repeatCount="indefinite"
+                  path={`M${from.x},${from.y} L${to.x},${to.y}`}
+                />
+              </circle>
+            );
+          })}
+        </svg>
+      </div>
+
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-32 w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left: Text Content */}
-          <div className="text-left">
+          <div className="text-left lg:max-w-md xl:max-w-lg">
             {/* Main Heading with dynamic keyword */}
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight tracking-tight mb-6">
+            <h1 className="text-5xl sm:text-6xl lg:text-6xl xl:text-7xl font-black leading-tight tracking-tight mb-6">
               <span className="block text-white mb-2">{t("titlePrefix")}</span>
 
               {/* Dynamic keyword — fade + glisse verticale */}
@@ -186,41 +300,6 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right side — navigation slides avec barres de progression */}
-          <div className="hidden lg:flex flex-col justify-center items-start gap-5 opacity-0" style={{ animation: 'slideInRight 0.8s ease-out 0.5s forwards' }}>
-            {images.map((img, idx) => {
-              const isActive = idx === currentImage;
-              return (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentImage(idx)}
-                  className="group flex flex-col gap-2 text-left w-56 cursor-pointer"
-                >
-                  {/* Barre de progression */}
-                  <div className="w-full h-[2px] bg-white/15 rounded-full overflow-hidden">
-                    <div
-                      className="h-full rounded-full transition-none"
-                      style={{
-                        width: isActive ? `${progress}%` : '0%',
-                        backgroundColor: isActive ? '#2A5298' : 'transparent',
-                        transition: isActive ? 'none' : 'width 300ms ease',
-                      }}
-                    />
-                  </div>
-                  {/* Label */}
-                  <span
-                    className="text-sm font-medium tracking-wide transition-all duration-500"
-                    style={{
-                      color: isActive ? 'rgba(255,255,255,0.90)' : 'rgba(255,255,255,0.30)',
-                      letterSpacing: '0.04em',
-                    }}
-                  >
-                    {img.keyword}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
         </div>
       </div>
 

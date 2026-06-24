@@ -5,6 +5,7 @@ import Link from "next/link";
 import Logo from "./Logo";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 type Client = {
   name: string;
@@ -24,6 +25,7 @@ type ClientsPartnersData = {
 export default function Footer() {
   const t = useTranslations("footer");
   const locale = useLocale();
+  const pathname = usePathname();
   const [data, setData] = useState<ClientsPartnersData>({ clients: [], partners: [] });
 
   useEffect(() => {
@@ -33,15 +35,21 @@ export default function Footer() {
       .catch(err => console.error('Error loading clients/partners:', err));
   }, []);
 
+  const isHome = pathname === `/${locale}`;
+  const sectionHref = (id:string) => {
+    return isHome ? `#${id}` : `/${locale}#${id}`
+  }
+
   const companyLinks = [
-    { label: t("company.0"), href: `/${locale}#about` },
-    { label: t("company.2"), href: `/${locale}#partners` },
-    { label: t("company.3"), href: `/${locale}#contact` },
+    { label: t("company.0"), href: sectionHref("about") },
+    { label: t("company.2"), href: sectionHref("partners") },
+    { label: t("company.3"), href: sectionHref("contact") },
   ];
+
   const serviceLinks = [
-    { label: t("services.0"), href: `/${locale}#services` },
-    { label: t("services.1"), href: `/${locale}#services` },
-    { label: t("services.2"), href: `/${locale}#services` },
+    { label: t("services.0"), href: sectionHref("services") },
+    { label: t("services.1"), href: sectionHref("services") },
+    { label: t("services.2"), href: sectionHref("services") },
     { label: t("services.3"), href: `/${locale}/products` },
   ];
   const legalLinks = [0, 1, 2, 3].map((i) => t(`legal.${i}`));
@@ -182,12 +190,22 @@ export default function Footer() {
                   <ul className="space-y-3">
                     {group.links.map((link, i) => (
                       <li key={i}>
-                        <Link
-                          href={link.href}
-                          className="text-sm text-blue-100/55 transition-colors hover:text-white"
-                        >
-                          {link.label}
-                        </Link>
+                        
+                        {link.href.startsWith("#") ? (
+                          <a
+                            href={link.href}
+                            className="text-sm text-blue-100/55 transition-colors hover:text-white"
+                          >
+                            {link.label}
+                          </a>
+                        ) :
+                          <Link
+                            href = {link.href}
+                            className="text-sm text-blue-100/55 transition-colors hover:text-white"
+                          >
+                            {link.label}
+                          </Link>
+                      }
                       </li>
                     ))}
                   </ul>

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "@/i18n/context";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import Image from "next/image";
@@ -19,12 +20,42 @@ type ServiceItem = {
 export default function Services() {
   const t = useTranslations("services");
   const { ref, isVisible } = useScrollAnimation();
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [visibleCards, setVisibleCards] = useState([false, false, false]);
 
   const items: ServiceItem[] = [0, 1, 2].map((i) => ({
     icon: t(`items.${i}.icon`),
     title: t(`items.${i}.title`),
     description: t(`items.${i}.description`),
   }));
+
+  useEffect(() => {
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (!isMobile || reduceMotion) {
+      setVisibleCards([true, true, true]);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = Number((entry.target as HTMLElement).dataset.index);
+          setVisibleCards((current) =>
+            current.map((visible, i) => (i === index ? entry.isIntersecting : visible))
+          );
+        });
+      },
+      { threshold: 0.25, rootMargin: "0px 0px -10% 0px" }
+    );
+
+    cardRefs.current.forEach((card) => {
+      if (card) observer.observe(card);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section
@@ -53,14 +84,26 @@ export default function Services() {
           {items.map((item, i) => (
             <div
               key={i}
-              className="group relative bg-white p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:border-gray-200 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden animate-fade-in-up cursor-pointer"
+              ref={(node) => {
+                cardRefs.current[i] = node;
+              }}
+              data-index={i}
+              className="group relative bg-white p-8 border border-gray-100 shadow-sm md:hover:shadow-xl md:hover:border-gray-200 md:hover:-translate-y-1.5 transition-all duration-300 overflow-hidden animate-fade-in-up cursor-pointer"
               style={{ animationDelay: `${i * 120}ms`, animationFillMode: "both" }}
             >
               {/* Accent bar au hover */}
-              <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#1B3D6F] to-[#2A5298] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+              <div
+                className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#1B3D6F] to-[#2A5298] transition-transform duration-500 origin-left md:scale-x-0 md:group-hover:scale-x-100 ${
+                  visibleCards[i] ? "scale-x-100" : "scale-x-0"
+                }`}
+              />
 
               {/* Icône */}
-              <div className="relative w-14 h-14 rounded-sm flex items-center justify-center mb-6 bg-gray-50 group-hover:bg-blue-50 transition-colors duration-300">
+              <div
+                className={`relative w-14 h-14 rounded-sm flex items-center justify-center mb-6 transition-colors duration-300 md:bg-gray-50 md:group-hover:bg-blue-50 ${
+                  visibleCards[i] ? "bg-blue-50" : "bg-gray-50"
+                }`}
+              >
                 <div className="relative w-8 h-8">
                   <Image
                     src={iconMap[item.icon] || "/images/icones/planning.png"}
@@ -79,9 +122,21 @@ export default function Services() {
 
               {/* Indicateur bas animé */}
               <div className="flex gap-1.5 mt-6">
-                <div className="h-1 w-6 rounded-full bg-[#1B3D6F] opacity-20 group-hover:opacity-100 group-hover:w-10 transition-all duration-500" />
-                <div className="h-1 w-1.5 rounded-full bg-[#2A5298] opacity-20 group-hover:opacity-60 transition-all duration-500 delay-75" />
-                <div className="h-1 w-1.5 rounded-full bg-[#2A5298] opacity-10 group-hover:opacity-40 transition-all duration-500 delay-150" />
+                <div
+                  className={`h-1 rounded-full bg-[#1B3D6F] transition-all duration-500 md:w-6 md:opacity-20 md:group-hover:w-10 md:group-hover:opacity-100 ${
+                    visibleCards[i] ? "w-10 opacity-100" : "w-6 opacity-20"
+                  }`}
+                />
+                <div
+                  className={`h-1 w-1.5 rounded-full bg-[#2A5298] transition-all duration-500 delay-75 md:opacity-20 md:group-hover:opacity-60 ${
+                    visibleCards[i] ? "opacity-60" : "opacity-20"
+                  }`}
+                />
+                <div
+                  className={`h-1 w-1.5 rounded-full bg-[#2A5298] transition-all duration-500 delay-150 md:opacity-10 md:group-hover:opacity-40 ${
+                    visibleCards[i] ? "opacity-40" : "opacity-10"
+                  }`}
+                />
               </div>
             </div>
           ))}

@@ -7,8 +7,6 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 
-export const dynamic = "force-dynamic";
-
 export default function HomePage() {
   return (
     <main>

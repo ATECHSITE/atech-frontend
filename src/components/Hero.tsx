@@ -58,27 +58,6 @@ export default function Hero() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
-      <style jsx>{`
-        @keyframes zoomIn {
-          0% { transform: scale(1); }
-          100% { transform: scale(1.1); }
-        }
-        @keyframes nodeGlowPulse {
-          0%, 100% { opacity: 0.35; }
-          50% { opacity: 0.95; }
-        }
-        @keyframes lineShimmer {
-          0%, 100% { opacity: 0.18; }
-          50% { opacity: 0.42; }
-        }
-        @keyframes floatDrift {
-          0%, 100% { transform: translate(0, 0); }
-          50% { transform: translate(6px, -8px); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .data-flow * { animation: none !important; }
-        }
-      `}</style>
       {/* Full-screen background images with SLIDE animation (RIGHT to LEFT) */}
       <div className="absolute inset-0">
         {images.map((img, idx) => (
@@ -104,7 +83,7 @@ export default function Hero() {
                 fill
                 className="object-cover object-center"
                 priority={idx === 0}
-                quality={100}
+                quality={85}
                 sizes="100vw"
                 unoptimized={false}
                 style={{ imageRendering: 'auto' }}
@@ -123,7 +102,7 @@ export default function Hero() {
         style={{ animation: 'floatDrift 14s ease-in-out infinite' }}
       >
         <svg
-          className="absolute left-0 top-0 h-full w-full lg:left-[45%] lg:w-[55%]"
+          className="absolute left-0 top-0 h-full w-full lg:left-[60%] lg:w-[40%]"
           viewBox="0 0 600 800"
           preserveAspectRatio="xMidYMid slice"
           style={{
@@ -269,19 +248,18 @@ export default function Hero() {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 opacity-0" style={{ animation: 'fadeInUp 0.8s ease-out 0.6s forwards', willChange: 'transform, opacity' }}>
+            <div className="flex flex-col sm:flex-row gap-3 opacity-0" style={{ animation: 'fadeInUp 0.8s ease-out 0.6s forwards', willChange: 'transform, opacity' }}>
               <a
                 ref={magneticCTA.ref as React.RefObject<HTMLAnchorElement>}
                 href="#services"
                 onClick={createRipple}
                 onMouseMove={magneticCTA.onMouseMove}
                 onMouseLeave={magneticCTA.onMouseLeave}
-                className="group px-8 py-4 font-bold text-lg text-white transition-all duration-300 hover:shadow-2xl flex items-center justify-center gap-2 relative overflow-hidden transform-gpu"
-                style={{ backgroundColor: "#1B3D6F", willChange: 'transform' }}
+                className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 font-semibold text-base text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl transform-gpu"
+                style={{ backgroundColor: "#E8763A", willChange: 'transform' }}
               >
-                <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
-                <span className="relative">{t("ctaMain")}</span>
-                <svg className="w-5 h-5 relative group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span>{t("ctaMain")}</span>
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
@@ -292,7 +270,7 @@ export default function Hero() {
                 onClick={createRipple}
                 onMouseMove={magneticSecondary.onMouseMove}
                 onMouseLeave={magneticSecondary.onMouseLeave}
-                className="px-8 py-4 font-semibold text-lg text-white border-2 border-white/40 transition-all hover:bg-white/10 hover:border-white/60 hover:-translate-y-1 hover:shadow-lg transform-gpu"
+                className="inline-flex items-center justify-center px-7 py-3.5 font-semibold text-base text-white border border-white/40 transition-all duration-300 hover:bg-white/10 hover:border-white/60 hover:-translate-y-0.5 hover:shadow-xl transform-gpu"
                 style={{ willChange: 'transform' }}
               >
                 {t("ctaSecondary")}

@@ -43,6 +43,7 @@ export default function Products() {
   const { ref, isVisible } = useScrollAnimation();
   const [selectedProduct, setSelectedProduct] = useState<number | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [maxIndex, setMaxIndex] = useState(productImages.length - 1);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const allItems: ProductItem[] = [0, 1, 2, 3, 4, 5, 6, 7].map((i) => ({
@@ -63,13 +64,29 @@ export default function Products() {
     return () => { document.body.style.overflow = "unset"; };
   }, [selectedProduct]);
 
+  useEffect(() => {
+    const updateCarouselBounds = () => {
+      const visibleCards = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
+      const nextMaxIndex = Math.max(0, allItems.length - visibleCards);
+
+      setMaxIndex(nextMaxIndex);
+      setActiveIndex((currentIndex) => Math.min(currentIndex, nextMaxIndex));
+    };
+
+    updateCarouselBounds();
+    window.addEventListener("resize", updateCarouselBounds);
+
+    return () => window.removeEventListener("resize", updateCarouselBounds);
+  }, [allItems.length]);
+
   const scrollTo = (index: number) => {
     if (!scrollRef.current) return;
+    const targetIndex = Math.min(Math.max(index, 0), maxIndex);
     const cards = scrollRef.current.querySelectorAll("[data-card]");
-    if (cards[index]) {
-      cards[index].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+    if (cards[targetIndex]) {
+      cards[targetIndex].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
     }
-    setActiveIndex(index);
+    setActiveIndex(targetIndex);
   };
 
   const handlePrev = () => {
@@ -78,7 +95,7 @@ export default function Products() {
   };
 
   const handleNext = () => {
-    const newIndex = Math.min(allItems.length - 1, activeIndex + 1);
+    const newIndex = Math.min(maxIndex, activeIndex + 1);
     scrollTo(newIndex);
   };
 
@@ -87,7 +104,7 @@ export default function Products() {
     const container = scrollRef.current;
     const cardWidth = container.scrollWidth / allItems.length;
     const index = Math.round(container.scrollLeft / cardWidth);
-    setActiveIndex(index);
+    setActiveIndex(Math.min(index, maxIndex));
   };
 
   return (
@@ -100,7 +117,7 @@ export default function Products() {
         }`}
         style={{ willChange: isVisible ? "auto" : "transform, opacity", background: "#FFFFFF" }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12">
             <div>
@@ -112,23 +129,23 @@ export default function Products() {
             </div>
 
             {/* Desktop arrows */}
-            <div className="hidden sm:flex items-center gap-3 flex-shrink-0">
+            <div className="hidden sm:flex absolute left-8 right-8 top-70 justify-between pointer-events-none z-10  flex-shrink-0">
               <button
                 onClick={handlePrev}
                 disabled={activeIndex === 0}
-                className="w-11 h-11 border-2 border-[#0F2540] flex items-center justify-center transition-all hover:bg-[#0F2540] hover:text-white disabled:opacity-30 disabled:cursor-not-allowed text-[#0F2540]"
+                className="pointer-events-auto w-16 h-16 flex items-center justify-center text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.85)] transition-all hover:scale-110 hover:text-[#2A5298] disabled:opacity-30 disabled:cursor-not-allowed"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
               <button
                 onClick={handleNext}
-                disabled={activeIndex >= allItems.length - 1}
-                className="w-11 h-11 border-2 border-[#0F2540] flex items-center justify-center transition-all hover:bg-[#0F2540] hover:text-white disabled:opacity-30 disabled:cursor-not-allowed text-[#0F2540]"
+                disabled={activeIndex >= maxIndex}
+                className="pointer-events-auto w-16 h-16 flex items-center justify-center text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.85)] transition-all hover:scale-110 hover:text-[#2A5298] disabled:opacity-30 disabled:cursor-not-allowed"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
             </div>
@@ -211,7 +228,7 @@ export default function Products() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mt-8">
             {/* Dots */}
             <div className="flex items-center gap-2">
-              {allItems.map((_, i) => (
+              {Array.from({ length: maxIndex + 1 }).map((_, i) => (
                 <button
                   key={i}
                   onClick={() => scrollTo(i)}

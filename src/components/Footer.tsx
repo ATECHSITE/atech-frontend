@@ -93,7 +93,7 @@ export default function Footer() {
                       src={client.logo}
                       alt={client.name}
                       fill
-                      className="object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                      className="object-contain lg:grayscale lg:group-hover:grayscale-0 transition-all duration-300"
                       sizes="260px"
                     />
                   </div>
@@ -142,7 +142,7 @@ export default function Footer() {
                         src={partner.logo}
                         alt={partner.name}
                         fill
-                        className="object-contain grayscale group-hover:grayscale-0 transition-all duration-500"
+                        className="object-contain md:grayscale lg:group-hover:grayscale-0 transition-all duration-500"
                         sizes="2600px"
                       />
                     </div>

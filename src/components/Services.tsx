@@ -111,8 +111,7 @@ export default function Services() {
                     fill
                     className="object-contain"
                     sizes="32px"
-                    quality={100}
-                    priority
+                    quality={85}
                   />
                 </div>
               </div>

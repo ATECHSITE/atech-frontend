@@ -58,27 +58,6 @@ export default function Hero() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
-      <style jsx>{`
-        @keyframes zoomIn {
-          0% { transform: scale(1); }
-          100% { transform: scale(1.1); }
-        }
-        @keyframes nodeGlowPulse {
-          0%, 100% { opacity: 0.35; }
-          50% { opacity: 0.95; }
-        }
-        @keyframes lineShimmer {
-          0%, 100% { opacity: 0.18; }
-          50% { opacity: 0.42; }
-        }
-        @keyframes floatDrift {
-          0%, 100% { transform: translate(0, 0); }
-          50% { transform: translate(6px, -8px); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .data-flow * { animation: none !important; }
-        }
-      `}</style>
       {/* Full-screen background images with SLIDE animation (RIGHT to LEFT) */}
       <div className="absolute inset-0">
         {images.map((img, idx) => (
@@ -104,7 +83,7 @@ export default function Hero() {
                 fill
                 className="object-cover object-center"
                 priority={idx === 0}
-                quality={100}
+                quality={85}
                 sizes="100vw"
                 unoptimized={false}
                 style={{ imageRendering: 'auto' }}
@@ -123,7 +102,7 @@ export default function Hero() {
         style={{ animation: 'floatDrift 14s ease-in-out infinite' }}
       >
         <svg
-          className="absolute left-0 top-0 h-full w-full lg:left-[45%] lg:w-[55%]"
+          className="absolute left-0 top-0 h-full w-full lg:left-[60%] lg:w-[40%]"
           viewBox="0 0 600 800"
           preserveAspectRatio="xMidYMid slice"
           style={{

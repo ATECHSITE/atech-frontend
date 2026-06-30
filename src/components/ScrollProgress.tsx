@@ -1,32 +1,33 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function ScrollProgress() {
-  const [progress, setProgress] = useState(0);
+  const barRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const updateProgress = () => {
-      const scrollTop = window.scrollY;
+    const update = () => {
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = (scrollTop / docHeight) * 100;
-      setProgress(scrollPercent);
+      const pct = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+      if (barRef.current) barRef.current.style.width = `${pct}%`;
     };
 
-    window.addEventListener("scroll", updateProgress);
-    updateProgress();
-
-    return () => window.removeEventListener("scroll", updateProgress);
+    window.addEventListener("scroll", update, { passive: true });
+    update();
+    return () => window.removeEventListener("scroll", update);
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 h-1 bg-gray-200/30 backdrop-blur-sm">
+    <div className="fixed top-0 left-0 right-0 z-50 h-1 bg-gray-200/30">
       <div
-        className="h-full transition-all duration-150 ease-out"
+        ref={barRef}
+        className="h-full"
         style={{
-          width: `${progress}%`,
+          width: "0%",
           background: "linear-gradient(90deg, #E8763A 0%, #F4A472 100%)",
-          boxShadow: "0 0 10px rgba(232, 118, 58, 0.5)"
+          boxShadow: "0 0 8px rgba(232, 118, 58, 0.4)",
+          transition: "width 120ms linear",
+          willChange: "width",
         }}
       />
     </div>

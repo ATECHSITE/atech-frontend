@@ -80,7 +80,7 @@ export default function Services() {
           <p className="text-base text-gray-500 max-w-2xl leading-relaxed">{t("subtitle")}</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
           {items.map((item, i) => (
             <div
               key={i}

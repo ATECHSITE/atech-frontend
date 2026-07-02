@@ -18,10 +18,10 @@ export default function Hero() {
   const subtitles = (t.raw("subtitles") as string[]) || [t("subtitle"), t("subtitle"), t("subtitle"), t("subtitle")];
 
   const images = [
-    { src: "/images/male-engineer-analyzed-industry-40-system-smart-manufacturing-plant.jpg", label: imageLabels[0], keyword: keywords[0] },
-    { src: "/images/network-switch-with-cables.jpg", label: imageLabels[1], keyword: keywords[1] },
-    { src: "/images/cyberpunk-location-tracking-mobile-device.jpg", label: imageLabels[2], keyword: keywords[2] },
-    { src: "/images/programmer-home-office-concentrating-finding-bugs-while-he-codes.jpg", label: imageLabels[3], keyword: keywords[3] },
+    { src: "/images/test/Digitalize-v3.png", label: imageLabels[0], keyword: keywords[0] },
+    { src: "/images/test/Modernize-v2.png", label: imageLabels[1], keyword: keywords[1] },
+    { src: "/images/test/Optimize-v2.png", label: imageLabels[2], keyword: keywords[2] },
+    { src: "/images/test/Transform-v2.png", label: imageLabels[3], keyword: keywords[3] },
   ];
 
   // Réseau de nœuds (data flow) — viewBox 600x800

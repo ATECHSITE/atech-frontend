@@ -16,14 +16,14 @@ type ProductItem = {
 };
 
 const productImages = [
-  "/images/cyberpunk-location-tracking-mobile-device.jpg",
-  "/images/male-engineer-analyzed-industry-40-system-smart-manufacturing-plant.jpg",
-  "/images/tradeval.avif",
-  "/images/programmer-home-office-concentrating-finding-bugs-while-he-codes.jpg",
-  "/images/analyse.jpg",
-  "/images/pesage.png",
-  "/images/Drive.png",
-  "/images/trafik.jpg",
+  "/images/test/Product-CONNECT.png",
+  "/images/test/Produc-Gestion-des-risques.png",
+  "/images/test/Product-TRADEVAL.png",
+  "/images/test/Product-Inspections-REPORTER.png",
+  "/images/test/Product-ANALYTICA.png",
+  "/images/test/Product-Système de pesage.png",
+  "/images/test/Product-Permis de conduire.png",
+  "/images/test/Product-SAFE ROAD.png",
 ];
 
 const productCategories = [

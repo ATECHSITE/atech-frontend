@@ -12,8 +12,18 @@
     "title": "Modernize. Optimize.",
     "titleHighlight": "Transform.",
     "titlePrefix": "We help you to",
-    "keywords": ["Digitalize", "Modernize", "Transform", "Optimize"],
-    "imageLabels": ["Industrial Maintenance", "Technology Integration", "Electronic Tracking", "Solution Development"],
+    "keywords": [
+      "Digitalize",
+      "Modernize",
+      "Transform",
+      "Optimize"
+    ],
+    "imageLabels": [
+      "Industrial Maintenance",
+      "Technology Integration",
+      "Electronic Tracking",
+      "Solution Development"
+    ],
     "subtitle": "We support public institutions and organizations in their digital transformation with innovative solutions tailored to the challenges of modern administrations.",
     "subtitles": [
       "We digitize your administrative and industrial processes to improve efficiency, reduce delays and enhance the quality of services delivered to citizens.",
@@ -35,26 +45,62 @@
         "title": "Strategy & Planning",
         "description": "We strengthen institutions through tailored training and knowledge transfer — building capabilities that sustain change and improve public service delivery",
         "detailedDescription": "We help institutions develop comprehensive digital transformation strategies that align with their mission and objectives. Our approach combines organizational assessment, stakeholder engagement, and roadmap development to ensure successful implementation.",
-        "keyFeatures": ["Strategic roadmap development", "Organizational capacity assessment", "Digital maturity evaluation", "Stakeholder workshops", "Change management planning"],
-        "benefits": ["Clear vision and direction", "Reduced implementation risks", "Enhanced stakeholder buy-in", "Optimized resource allocation"]
+        "keyFeatures": [
+          "Strategic roadmap development",
+          "Organizational capacity assessment",
+          "Digital maturity evaluation",
+          "Stakeholder workshops",
+          "Change management planning"
+        ],
+        "benefits": [
+          "Clear vision and direction",
+          "Reduced implementation risks",
+          "Enhanced stakeholder buy-in",
+          "Optimized resource allocation"
+        ]
       },
       {
         "icon": "integration",
         "title": "Sourcing & Implementation Support",
         "description": "We help you translate your vision into precise sourcing requirements and guide your projects through successful execution, with hands-on support every step of the way.",
         "detailedDescription": "We accompany you in translating your vision into precise sourcing requirements and guide your projects through successful execution, with hands-on support at every stage.",
-        "keyFeatures": ["Requirements definition", "Vendor selection support", "Project management", "Quality assurance", "Implementation guidance", "Risk mitigation"],
-        "benefits": ["Successful project delivery", "Optimal vendor selection", "Reduced implementation time", "Quality outcomes"]
+        "keyFeatures": [
+          "Requirements definition",
+          "Vendor selection support",
+          "Project management",
+          "Quality assurance",
+          "Implementation guidance",
+          "Risk mitigation"
+        ],
+        "benefits": [
+          "Successful project delivery",
+          "Optimal vendor selection",
+          "Reduced implementation time",
+          "Quality outcomes"
+        ]
       },
       {
         "icon": "analytics",
         "title": "Capacity Development",
         "description": "We strengthen institutions through tailored training and knowledge transfer — building capabilities that sustain change and improve public service delivery",
         "detailedDescription": "We build lasting organizational capabilities through comprehensive training programs, knowledge transfer initiatives, and institutional strengthening activities. Our goal is to ensure your team can independently manage and evolve your digital systems.",
-        "keyFeatures": ["Custom training programs", "Hands-on workshops", "Knowledge transfer documentation", "Mentoring and coaching", "Skills assessments", "Continuous learning support"],
-        "benefits": ["Increased team autonomy", "Sustainable digital operations", "Reduced external dependency", "Enhanced innovation capacity"]
+        "keyFeatures": [
+          "Custom training programs",
+          "Hands-on workshops",
+          "Knowledge transfer documentation",
+          "Mentoring and coaching",
+          "Skills assessments",
+          "Continuous learning support"
+        ],
+        "benefits": [
+          "Increased team autonomy",
+          "Sustainable digital operations",
+          "Reduced external dependency",
+          "Enhanced innovation capacity"
+        ]
       }
-    ]
+    ],
+    "cta": "View all services"
   },
   "products": {
     "badge": "Our Digital Products",
@@ -70,49 +116,89 @@
         "name": "CONNECT",
         "tagline": "Digital Communication Portal",
         "description": "Modern e-Portal offering seamless access to regulatory info and connecting traders with Customs.",
-        "features": ["Online regulatory access", "Trader-customs interface", "Document management", "Real-time notifications"]
+        "features": [
+          "Online regulatory access",
+          "Trader-customs interface",
+          "Document management",
+          "Real-time notifications"
+        ]
       },
       {
         "name": "DETECT",
         "tagline": "Dynamic Risk Management System",
         "description": "AI-driven risk management system for targeting high-risk shipments, fraudulent taxpayers, and risky passengers.",
-        "features": ["Predictive risk analysis", "Fraud detection", "Intelligent profiling", "Real-time dashboards"]
+        "features": [
+          "Predictive risk analysis",
+          "Fraud detection",
+          "Intelligent profiling",
+          "Real-time dashboards"
+        ]
       },
       {
         "name": "TRADEVAL",
         "tagline": "Customs Valuation and Classification System",
         "description": "Intuitive system with advanced analytics for accurate shipment classification and valuation. It sets up a National Prices Database.",
-        "features": ["Predictive analytics", "National prices database", "Automatic classification", "Anomaly detection"]
+        "features": [
+          "Predictive analytics",
+          "National prices database",
+          "Automatic classification",
+          "Anomaly detection"
+        ]
       },
       {
         "name": "REPORTER",
         "tagline": "Inspection & Fraud Reporting System",
         "description": "Mobile application for digitizing trade inspections and improving fraud data collection.",
-        "features": ["Mobile inspections", "Geolocated data collection", "Real-time reporting", "Evidence management"]
+        "features": [
+          "Mobile inspections",
+          "Geolocated data collection",
+          "Real-time reporting",
+          "Evidence management"
+        ]
       },
       {
         "name": "ANALYTICA",
         "tagline": "Business Intelligence",
         "description": "Predictive BI platform providing full operational visibility and smart decisions support.",
-        "features": ["Interactive dashboards", "Predictive analytics", "Data visualization", "Automated reports"]
+        "features": [
+          "Interactive dashboards",
+          "Predictive analytics",
+          "Data visualization",
+          "Automated reports"
+        ]
       },
       {
         "name": "Weighing in Motion System",
         "tagline": "Road Weighing System",
         "description": "Modern road safety system for real-time monitoring of truck weights and dimensions.",
-        "features": ["Weighing in motion", "Automatic monitoring", "Overload detection", "Control system integration"]
+        "features": [
+          "Weighing in motion",
+          "Automatic monitoring",
+          "Overload detection",
+          "Control system integration"
+        ]
       },
       {
         "name": "Driver License & Vehicle Registration",
         "tagline": "License & Vehicle Management System",
         "description": "Secure platform for end-to-end management of driver licenses and vehicle registration.",
-        "features": ["Digital license management", "Online registration", "Biometric verification", "Centralized database"]
+        "features": [
+          "Digital license management",
+          "Online registration",
+          "Biometric verification",
+          "Centralized database"
+        ]
       },
       {
         "name": "SAFEROAD",
         "tagline": "Urban Traffic Management and Safety",
         "description": "Integrated platform for road traffic and real-time safety monitoring.",
-        "features": ["Intelligent video surveillance", "Incident management", "Traffic light control", "Real-time traffic analysis"]
+        "features": [
+          "Intelligent video surveillance",
+          "Incident management",
+          "Traffic light control",
+          "Real-time traffic analysis"
+        ]
       }
     ]
   },
@@ -132,7 +218,6 @@
     "statsProducts": "Products",
     "statsDigital": "Digital",
     "cta": "Work with us",
-    
     "highlights": [
       "Innovation and digital transformation at the core of our expertise",
       "Client-centric approach and early engagement in your projects",
@@ -206,10 +291,29 @@
       "subtitle": "We collaborate with world-renowned partners"
     },
     "tagline": "Transforming institutions through innovation and digital transformation.",
-    "links": { "company": "Company", "services": "Solutions", "legal": "Legal" },
-    "company":  ["About Us", "Our Team", "Partners", "News"],
-    "services": ["Strategy & Planning", "Implementation Support", "Capacity Development", "Digital Solutions"],
-    "legal":    ["General Terms", "Terms of Use", "Privacy Policy", "Cookie Policy"],
+    "links": {
+      "company": "Company",
+      "services": "Solutions",
+      "legal": "Legal"
+    },
+    "company": [
+      "About Us",
+      "Our Team",
+      "Partners",
+      "News"
+    ],
+    "services": [
+      "Strategy & Planning",
+      "Implementation Support",
+      "Capacity Development",
+      "Digital Solutions"
+    ],
+    "legal": [
+      "General Terms",
+      "Terms of Use",
+      "Privacy Policy",
+      "Cookie Policy"
+    ],
     "rights": "All rights reserved."
   }
 }

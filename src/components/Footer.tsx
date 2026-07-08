@@ -66,8 +66,7 @@ export default function Footer() {
            
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-6 h-px" style={{ background: "#E8763A" }} />
-                <span
+                  <span
                   className="text-l font-bold uppercase tracking-[0.18em]"
                   style={{ color: "#E8763A" }}
                 >
@@ -83,7 +82,7 @@ export default function Footer() {
               genere la seule carte ils nous font confiance
             */}
             {data.clients.length > 0 ? (
-              <div className="group bg-white min-h-[120px] p-6 mx-8 flex items-center justify-center transition-all duration-500 hover:shadow-md hover:scale-110">
+              <div className="group bg-white min-h-[120px] p-6 mx-8 flex items-center justify-center transition-all duration-500 hover:shadow-md hover:-translate-y-1">
                 {data.clients.map((client, i) => (
                   <div
                     key={i}
@@ -111,7 +110,6 @@ export default function Footer() {
           <div id="partners" className="scroll-mt-24">
           
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-6 h-px" style={{ background: "#E8763A" }} />
               <span
                 className="text-l font-bold uppercase tracking-[0.18em]"
                 style={{ color: "#E8763A" }}
@@ -133,9 +131,7 @@ export default function Footer() {
                 {data.partners.map((partner, i) => (
                   <div
                     key={i}
-                    className="group bg-white flex items-center justify-center p-5 transition-all duration-300 hover:shadow-md hover:scale-110"
-                    style={{ border: "1px solid #E2E6EF" }}
-                    
+                    className="group flex items-center justify-center p-5 transition-all duration-300 hover:-translate-y-1"
                   >
                     <div className="relative w-full h-20">
                       <Image

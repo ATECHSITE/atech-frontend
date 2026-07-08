@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Geist, Nunito } from "next/font/google";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { I18nProvider } from "@/i18n/context";
@@ -8,6 +8,14 @@ import "../globals.css";
 const geist = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
+});
+
+const nunito = Nunito({
+  variable: "--font-nunito",
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "800", "900"],
   display: "swap",
   preload: true,
 });
@@ -43,7 +51,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html lang={locale} className="scroll-smooth">
-      <body className={`${geist.variable} antialiased`}>
+      <body className={`${geist.variable} ${nunito.variable} antialiased`}>
         <I18nProvider locale={locale} messages={messages}>
           {children}
         </I18nProvider>

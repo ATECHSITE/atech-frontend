@@ -26,7 +26,6 @@ export default function About() {
           className={`mb-14 transition-all duration-700 ${isVisible ? visible : hidden}`}
         >
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-6 h-px" style={{ background: "#E8763A" }} />
             <span
               className="text-xs font-bold uppercase tracking-[0.18em]"
               style={{ color: "#E8763A" }}
@@ -55,15 +54,6 @@ export default function About() {
                 background: "linear-gradient(160deg, #0F2540 0%, #1B3D6F 100%)",
               }}
             >
-              {/* Grille texture */}
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)",
-                  backgroundSize: "28px 28px",
-                }}
-              />
               {/* Trait orange top */}
               <div
                 className="absolute top-0 left-0 right-0 h-[3px]"

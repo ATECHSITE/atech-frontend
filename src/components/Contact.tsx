@@ -99,7 +99,6 @@ export default function Contact() {
 
             {/* Badge */}
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-6 h-px" style={{ background: "#E8763A" }} />
               <span
                 className="text-xl font-bold uppercase tracking-[0.18em]"
                 style={{ color: "#E8763A" }}

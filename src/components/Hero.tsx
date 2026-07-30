@@ -20,7 +20,7 @@ export default function Hero() {
   const images = [
     { src: "/images/test/Digitalize-v3.png", label: imageLabels[0], keyword: keywords[0] },
     { src: "/images/test/Modernize-v2.png", label: imageLabels[1], keyword: keywords[1] },
-    { src: "/images/test/Optimize-v2.png", label: imageLabels[2], keyword: keywords[2] },
+    { src: "/images/male-engineer-analyzed-industry-40-system-smart-manufacturing-plant.jpg", label: imageLabels[2], keyword: keywords[2] },
     { src: "/images/test/Transform-v2.png", label: imageLabels[3], keyword: keywords[3] },
   ];
 

@@ -18,14 +18,14 @@ type ProductItem = {
 
 // Images appropriées pour chaque produit
 const productImages = [
-  "/images/cyberpunk-location-tracking-mobile-device.jpg", // CONNECT - Digital Communication
-  "/images/male-engineer-analyzed-industry-40-system-smart-manufacturing-plant.jpg", // DETECT - Risk Management
-  "/images/tradeval.avif", // TRADEVAL
-  "/images/programmer-home-office-concentrating-finding-bugs-while-he-codes.jpg", // REPORTER - Mobile inspection
-  "/images/analyse.jpg", // ANALYTICA - BI
-  "/images/pesage.png", // Weighing in Motion
-  "/images/Drive.png", // Driver License & Vehicle Registration
-  "/images/trafik.jpg", // SAFEROAD - Traffic Management
+  "/images/test/military-personnel-operating-secure-office-environment.jpg", // CONNECT - Digital Communication
+  "/images/test/DETECT.png", // DETECT - Risk Management
+  "/images/test/tradval-v2.jpg", // TRADEVAL
+  "/images/test/REPORTER.png", // REPORTER - Mobile inspection
+  "/images/test/Product-ANALYTICA-V2.png", // ANALYTICA - BI
+  "/images/test/Product-Systeme-de-pesage-v2.png", // Weighing in Motion
+  "/images/test/Product-Permis de conduire.png", // Driver License & Vehicle Registration
+  "/images/test/Product-SAFE-ROAD-v2.png", // SAFEROAD - Traffic Management
 ];
 
 export default function ProductsPage() {

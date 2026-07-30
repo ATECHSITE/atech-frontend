@@ -16,14 +16,14 @@ type ProductItem = {
 };
 
 const productImages = [
-  "/images/test/Product-CONNECT.png",
-  "/images/test/Produc-Gestion-des-risques.png",
-  "/images/test/Product-TRADEVAL.png",
-  "/images/test/Product-Inspections-REPORTER.png",
-  "/images/test/Product-ANALYTICA.png",
-  "/images/test/Product-Système de pesage.png",
+  "/images/test/military-personnel-operating-secure-office-environment.jpg",
+  "/images/test/DETECT.png",
+  "/images/test/tradval-v2.jpg",
+  "/images/test/REPORTER.png",
+  "/images/test/Product-ANALYTICA-V2.png",
+  "/images/test/Product-Systeme-de-pesage-v2.png",
   "/images/test/Product-Permis de conduire.png",
-  "/images/test/Product-SAFE ROAD.png",
+  "/images/test/Product-SAFE-ROAD-v2.png",
 ];
 
 const productCategories = [

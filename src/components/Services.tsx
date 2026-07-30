@@ -69,15 +69,37 @@ export default function Services() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-left mb-16">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-6 h-px" style={{ background: "#E8763A" }} />
-            <span className="text-xs font-bold uppercase tracking-[0.18em]" style={{ color: "#E8763A" }}>
+            <span
+              className="text-xs font-bold uppercase tracking-[0.18em]"
+              style={{ color: "#E8763A", fontFamily: "var(--font-nunito)" }}
+            >
               {t("badge")}
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-[#0F2540] mb-5 max-w-3xl leading-tight">
+          <h2
+            className="text-3xl sm:text-4xl font-black text-[#0F2540] mb-5 max-w-3xl leading-tight"
+            style={{ fontFamily: "var(--font-nunito)" }}
+          >
             {t("title")}
           </h2>
-          <p className="text-base text-gray-500 max-w-2xl leading-relaxed">{t("subtitle")}</p>
+          <p
+            className="text-base text-gray-500 max-w-2xl leading-relaxed"
+            style={{ fontFamily: "var(--font-nunito)", fontWeight: 400 }}
+          >
+            {t("subtitle")}
+          </p>
+        </div>
+
+        <div className="mb-10">
+          <button
+            className="inline-flex items-center gap-2 px-7 py-3 rounded-md text-sm font-bold text-white transition-all duration-200 hover:brightness-110 active:scale-95"
+            style={{
+              background: "#2A5298",
+              fontFamily: "var(--font-nunito)",
+            }}
+          >
+            {t("cta")}
+          </button>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
@@ -116,7 +138,12 @@ export default function Services() {
                 </div>
               </div>
 
-              <h3 className="text-lg font-bold text-[#0F2540] mb-3 relative">{item.title}</h3>
+              <h3
+                className="text-lg font-bold text-[#0F2540] mb-3 relative"
+                style={{ fontFamily: "var(--font-nunito)" }}
+              >
+                {item.title}
+              </h3>
               <p className="text-sm text-gray-500 leading-relaxed relative">{item.description}</p>
 
               {/* Indicateur bas animé */}
